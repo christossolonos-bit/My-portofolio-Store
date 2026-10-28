@@ -4,21 +4,30 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/og.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#070b12" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta
       name="description"
-      content="Solonaras Store — AI companions, voice systems, live & games, and author/web builds by Christos Solonos. Browse clusters, watch tours, hire via form or Discord."
+      content="Solonaras — portfolio of AI companions, voice systems, live & games, and author/web builds by Christos Solonos. For recruiting and collaboration."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Solonaras Store" />
-    <meta property="og:title" content="Solonaras Store" />
+    <meta property="og:site_name" content="Solonaras" />
+    <meta property="og:title" content="Solonaras · Christos Solonos" />
     <meta
       property="og:description"
-      content="Capabilities by cluster — companions, voice & stage, live & games, author & web. Ask the guide or request a build."
+      content="Capabilities by cluster — companions, voice & stage, live & games, author & web. Ask the guide or get in touch."
     />
     <meta property="og:image" content="/og.svg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Solonaras Store" />
+    <meta name="twitter:title" content="Solonaras · Christos Solonos" />
     <meta
       name="twitter:description"
       content="AI builds by Christos Solonos — open a cluster, watch the tour, get in touch."
@@ -30,9 +39,23 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>Solonaras Store</title>
+    <title>Solonaras · Christos Solonos</title>
   </head>
   <body>
+    <script>
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('solonaras-layout')
+          var phone =
+            stored === 'phone' ||
+            (stored !== 'desktop' &&
+              window.matchMedia('(max-width: 720px)').matches)
+          document.documentElement.classList.toggle('is-phone-layout', phone)
+          document.documentElement.classList.toggle('is-desktop-layout', !phone)
+          document.documentElement.dataset.layout = phone ? 'phone' : 'desktop'
+        } catch (e) {}
+      })()
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -6,11 +6,20 @@ import * as THREE from 'three'
 type SceneProps = {
   accent: string
   progress: number
+  /** Compact / lighter scene for phone layout */
+  phone?: boolean
 }
 
-function ParticleField({ accent, progress }: SceneProps) {
+function ParticleField({
+  accent,
+  progress,
+  count,
+}: {
+  accent: string
+  progress: number
+  count: number
+}) {
   const points = useRef<THREE.Points>(null)
-  const count = 900
   const accentColor = useMemo(() => new THREE.Color(accent), [accent])
 
   const { geometry, speeds } = useMemo(() => {
@@ -25,7 +34,7 @@ function ParticleField({ accent, progress }: SceneProps) {
     const geometry = new THREE.BufferGeometry()
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     return { geometry, speeds }
-  }, [])
+  }, [count])
 
   useFrame((state) => {
     if (!points.current) return
@@ -135,23 +144,34 @@ function CameraRig({ progress }: { progress: number }) {
   return null
 }
 
-export function Scene({ accent, progress }: SceneProps) {
+export function Scene({ accent, progress, phone = false }: SceneProps) {
+  const particleCount = phone ? 280 : 900
+  const starCount = phone ? 500 : 1800
+
   return (
     <div className="scene-root" aria-hidden="true">
       <Canvas
-        camera={{ position: [0, 0.2, 6.5], fov: 45 }}
-        dpr={[1, 1.75]}
-        gl={{ antialias: true, alpha: true }}
+        camera={{ position: [0, 0.2, 6.5], fov: phone ? 48 : 45 }}
+        dpr={phone ? [1, 1.25] : [1, 1.75]}
+        gl={{ antialias: !phone, alpha: true, powerPreference: 'high-performance' }}
       >
         <color attach="background" args={['#070b12']} />
         <ambientLight intensity={0.35} />
         <pointLight position={[4, 3, 5]} intensity={1.2} color={accent} />
         <pointLight position={[-4, -2, -3]} intensity={0.5} color="#1a2a3a" />
-        <Stars radius={60} depth={40} count={1800} factor={3} saturation={0} fade speed={0.6} />
+        <Stars
+          radius={60}
+          depth={40}
+          count={starCount}
+          factor={3}
+          saturation={0}
+          fade
+          speed={0.6}
+        />
         <CameraRig progress={progress} />
         <CoreOrb accent={accent} progress={progress} />
         <OrbitRings accent={accent} progress={progress} />
-        <ParticleField accent={accent} progress={progress} />
+        <ParticleField accent={accent} progress={progress} count={particleCount} />
       </Canvas>
       <div className="scene-vignette" />
       <div className="scene-grain" />

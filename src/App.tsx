@@ -4,6 +4,7 @@ import { ClusterBoard } from './components/ClusterBoard'
 import { ClusterNav } from './components/ClusterNav'
 import { ContactForm } from './components/ContactForm'
 import { Hero } from './components/Hero'
+import { LayoutToggle, useLayoutMode } from './components/LayoutToggle'
 import { MUTE_KEY, SolonarasGuide } from './components/SolonarasGuide'
 import { WelcomeTour } from './components/WelcomeTour'
 import {
@@ -41,6 +42,7 @@ function App() {
       return false
     }
   })
+  const [layoutMode, setLayoutMode] = useLayoutMode()
 
   const selectedCluster =
     clusters.find((c) => c.id === selectedClusterId) ?? null
@@ -213,16 +215,26 @@ function App() {
   }
 
   return (
-    <div className="app" style={{ ['--accent' as string]: accent }}>
+    <div
+      className={`app ${layoutMode === 'phone' ? 'app-phone' : 'app-desktop'}`}
+      style={{ ['--accent' as string]: accent }}
+    >
       <Suspense fallback={null}>
-        <Scene accent={accent} progress={scrollProgress} />
+        <Scene
+          accent={accent}
+          progress={scrollProgress}
+          phone={layoutMode === 'phone'}
+        />
       </Suspense>
 
       <header className="topbar">
         <a className="logo" href="#hero">
           SOLONARAS
         </a>
-        <span className="topbar-meta">Portfolio · Clusters</span>
+        <div className="topbar-right">
+          <span className="topbar-meta">Portfolio · Clusters</span>
+          <LayoutToggle mode={layoutMode} onChange={setLayoutMode} />
+        </div>
       </header>
 
       <ClusterNav
