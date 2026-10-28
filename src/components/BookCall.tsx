@@ -1,13 +1,6 @@
 import { DISCORD_INVITE } from '../lib/site-config'
 import { track } from '../lib/analytics'
 import { ideaFromSelection, requestBuild } from '../lib/store-events'
-import {
-  canBuyOnShopify,
-  isShopifyConfigured,
-  SHOPIFY_STORE_URL,
-  shopifyProductsReadyCount,
-} from '../lib/shopify'
-import { ShopifyBuyButton } from './ShopifyBuyButton'
 import { ShopifyProductLink } from './ShopifyProductLink'
 
 type BookCallProps = {
@@ -16,17 +9,12 @@ type BookCallProps = {
 }
 
 export function BookCall({ projectName, projectId }: BookCallProps) {
-  const shopifyReady = isShopifyConfigured()
-  const canBuy = projectId ? canBuyOnShopify(projectId) : false
-  const mapped = shopifyProductsReadyCount()
-
   return (
     <div className="book-call">
-      <h3>Book a live call{shopifyReady ? ' or buy' : ''}</h3>
+      <h3>Talk with Christos</h3>
       <p>
-        Prefer a walkthrough? Jump into Discord. Ready to start? Send the form
-        below, or open the Shopify store for product pages
-        {canBuy ? ' and checkout' : ''}.
+        Recruiting, collaboration, or a walkthrough of these builds — Discord for
+        a live chat, or the form below.
       </p>
       <div className="book-call-actions">
         <a
@@ -36,31 +24,13 @@ export function BookCall({ projectName, projectId }: BookCallProps) {
           rel="noreferrer"
           onClick={() => track('book_discord', { projectName: projectName ?? '' })}
         >
-          Book via Discord
+          Message on Discord
         </a>
         {projectId ? (
           <ShopifyProductLink
             projectId={projectId}
             projectName={projectName ?? undefined}
             variant="cta"
-          />
-        ) : (
-          <a
-            className="cta cta-secondary"
-            href={SHOPIFY_STORE_URL}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => track('shopify_store_open', {})}
-          >
-            Open Shopify
-          </a>
-        )}
-        {canBuy && projectId ? (
-          <ShopifyBuyButton
-            projectId={projectId}
-            projectName={projectName ?? undefined}
-            variant="cta"
-            label={projectName ? `Buy ${projectName}` : 'Buy on Shopify'}
           />
         ) : null}
         <button
@@ -71,23 +41,13 @@ export function BookCall({ projectName, projectId }: BookCallProps) {
             requestBuild({
               idea:
                 ideaFromSelection({ projectName }) ||
-                "I'd like to talk about a build.\n",
+                "I'd like to talk about working together.\n",
             })
           }}
         >
           Use contact form
         </button>
       </div>
-      {shopifyReady && mapped === 0 ? (
-        <p className="book-call-hint">
-          Store:{' '}
-          <a href={SHOPIFY_STORE_URL} target="_blank" rel="noreferrer">
-            {SHOPIFY_STORE_URL}
-          </a>
-          . Add product handles in <code>VITE_SHOPIFY_HANDLES</code> to deep-link
-          each build.
-        </p>
-      ) : null}
     </div>
   )
 }

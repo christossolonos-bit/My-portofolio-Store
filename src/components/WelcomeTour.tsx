@@ -68,7 +68,7 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
     window.dispatchEvent(
       new CustomEvent('solonaras-tour-message', {
         detail: {
-          text: "I'll give you a quick tour of the store — clusters, builds, and how to hire Christos.",
+          text: "I'll give you a quick tour of the portfolio — clusters, builds, and how to reach Christos.",
         },
       }),
     )

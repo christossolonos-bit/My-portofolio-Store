@@ -58,8 +58,8 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
           SOLONARAS
         </h1>
         <p className="hero-line">
-          Capabilities grouped by type — companions, voice & stage, live & games,
-          author & web. Open a cluster, then watch the tour.
+          A portfolio of what I can build — companions, voice & stage, live &
+          games, author & web. Open a cluster, then watch the tour.
         </p>
         <div className="hero-actions">
           <button

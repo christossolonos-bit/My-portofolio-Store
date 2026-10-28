@@ -42,8 +42,8 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
       idea: ideaText,
       interest: ideaPrefill.slice(0, 120),
       _subject: ideaPrefill
-        ? `Solonaras Store — ${ideaPrefill.split('\n')[0]}`
-        : 'Solonaras Store — new project idea',
+        ? `Solonaras portfolio — ${ideaPrefill.split('\n')[0]}`
+        : 'Solonaras portfolio — inquiry',
       _template: 'table',
       _captcha: false,
       _replyto: String(data.get('email') || '').trim(),

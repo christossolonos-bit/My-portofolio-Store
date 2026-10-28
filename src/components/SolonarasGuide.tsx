@@ -37,11 +37,11 @@ function detectLang(text: string): 'el' | 'en' {
 }
 
 const WELCOME =
-  "Hi — I'm the Solonaras guide. What would you like to know? I can help with projects, prices, hiring Christos, or anything else about this store."
+  "Hi — I'm the Solonaras guide. Ask about any build, what’s included, or how to reach Christos for recruiting or collaboration."
 
 const SUGGESTIONS = [
   'What are the clusters?',
-  'How much do projects cost?',
+  'What can Christos build?',
   'Show me Live & Games',
   'How do I contact Christos?',
   'How long does a build take?',
@@ -395,7 +395,7 @@ export function SolonarasGuide({
           <header className="sol-guide-header">
             <div>
               <p className="sol-guide-title">Solonaras Guide</p>
-              <p className="sol-guide-sub">Ask anything · projects · prices · hiring</p>
+              <p className="sol-guide-sub">Ask anything · builds · recruiting · contact</p>
             </div>
             <div className="sol-guide-header-actions">
               <button
@@ -479,7 +479,7 @@ export function SolonarasGuide({
               className="sol-guide-input"
               rows={1}
               value={input}
-              placeholder="Ask about Luna, prices, AuthorHub…"
+              placeholder="Ask about Luna, AuthorHub, recruiting…"
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {

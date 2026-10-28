@@ -7,8 +7,9 @@ export type Project = {
   description: string
   narration: string
   capability: string
-  /** Starting build price in EUR */
+  /** Kept for optional future use — not shown on the portfolio */
   startingPrice: number
+  /** Short scope / stack line under the description */
   priceNote: string
   /** Build readiness shown on the store */
   maturity: Maturity

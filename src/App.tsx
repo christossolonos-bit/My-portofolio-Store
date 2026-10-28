@@ -222,7 +222,7 @@ function App() {
         <a className="logo" href="#hero">
           SOLONARAS
         </a>
-        <span className="topbar-meta">Store · Clusters</span>
+        <span className="topbar-meta">Portfolio · Clusters</span>
       </header>
 
       <ClusterNav
@@ -247,10 +247,11 @@ function App() {
 
         <footer className="outro" id="outro">
           <p className="eyebrow">Contact</p>
-          <h2>Want something like this?</h2>
+          <h2>Interested in working together?</h2>
           <p>
-            Companions, voice systems, vision co-hosts, desktop agents, or custom
-            sites — reach out on any of these and tell me what you want built.
+            This is a portfolio of what I can build — companions, voice systems,
+            vision co-hosts, desktop agents, and custom sites. Reach out if you’re
+            hiring or want to collaborate.
           </p>
 
           <ul className="social-list">

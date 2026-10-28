@@ -1,12 +1,7 @@
-import {
-  formatPrice,
-  maturityLabel,
-  type Project,
-} from '../data/projects'
+import { maturityLabel, type Project } from '../data/projects'
 import { track } from '../lib/analytics'
 import { SITE_URL } from '../lib/site-config'
 import { ideaFromSelection, requestBuild } from '../lib/store-events'
-import { ShopifyBuyButton } from './ShopifyBuyButton'
 import { ShopifyProductLink } from './ShopifyProductLink'
 import { ProjectVideo } from './ProjectVideo'
 
@@ -67,13 +62,7 @@ export function ProjectSection({
         <p className="project-tagline">{project.tagline}</p>
         <p className="project-desc">{project.description}</p>
 
-        <div className="project-price">
-          <div className="project-price-main">
-            <span className="project-price-label">Starting at</span>
-            <strong>{formatPrice(project.startingPrice)}</strong>
-          </div>
-          <span className="project-price-note">{project.priceNote}</span>
-        </div>
+        <p className="project-scope">{project.priceNote}</p>
 
         <ul className="project-includes">
           {project.includes.map((line) => (
@@ -86,17 +75,11 @@ export function ProjectSection({
             <span>{project.capability}</span>
           </div>
           <button type="button" className="project-link" onClick={onRequest}>
-            Request a build
+            Get in touch
           </button>
           <ShopifyProductLink
             projectId={project.id}
             projectName={project.name}
-          />
-          <ShopifyBuyButton
-            projectId={project.id}
-            projectName={project.name}
-            variant="link"
-            label={`Buy · ${formatPrice(project.startingPrice)}`}
           />
           <button type="button" className="project-link" onClick={() => void onShare()}>
             Share link

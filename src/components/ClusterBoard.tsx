@@ -1,10 +1,6 @@
 import { useRef, type TouchEvent } from 'react'
-import {
-  clusterPriceLabel,
-  projectsInCluster,
-  type Cluster,
-} from '../data/clusters'
-import { formatPrice, maturityLabel, type Project } from '../data/projects'
+import { projectsInCluster, type Cluster } from '../data/clusters'
+import { maturityLabel, type Project } from '../data/projects'
 import { track } from '../lib/analytics'
 import { CompareBuilds } from './CompareBuilds'
 import { ProjectSection } from './ProjectSection'
@@ -73,9 +69,9 @@ export function ClusterBoard({
         <p className="eyebrow">Capabilities · by type</p>
         <h2 className="clusters-title">Pick a cluster</h2>
         <p className="clusters-lead">
-          Four shelves instead of one long aisle — open a type, skim what’s
-          inside, then watch the tour. Swipe the shelf on mobile; use arrows
-          when a shelf is open.
+          Four shelves of capabilities — open a type, skim what’s inside, then
+          watch the tour. Swipe the shelf on mobile; use arrows when a shelf is
+          open.
         </p>
       </div>
 
@@ -99,9 +95,6 @@ export function ClusterBoard({
               <div className="cluster-card-top">
                 <span className="cluster-card-count">
                   {items.length} build{items.length === 1 ? '' : 's'}
-                </span>
-                <span className="cluster-card-price">
-                  {clusterPriceLabel(cluster)}
                 </span>
               </div>
               <h3 className="cluster-card-name">{cluster.name}</h3>
@@ -198,9 +191,6 @@ function ProjectTile({
         </span>
         <span className="cluster-tile-name">{project.name}</span>
         <span className="cluster-tile-tag">{project.tagline}</span>
-        <span className="cluster-tile-price">
-          From {formatPrice(project.startingPrice)}
-        </span>
       </button>
       <button
         type="button"

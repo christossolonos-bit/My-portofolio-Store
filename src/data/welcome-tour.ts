@@ -12,7 +12,7 @@ export const WELCOME_TOUR: TourStep[] = [
   {
     id: 'hello',
     scrollTo: 'hero',
-    text: "Welcome to Solonaras Store — Christos Solonos's portfolio of AI companions, voice systems, live builds, and custom work.",
+    text: "Welcome to Solonaras — Christos Solonos's portfolio of AI companions, voice systems, live builds, and custom work.",
   },
   {
     id: 'clusters',
@@ -27,12 +27,12 @@ export const WELCOME_TOUR: TourStep[] = [
   },
   {
     id: 'guide',
-    text: "I'm your Solonaras guide. Ask me about prices, timelines, what's included, or how to contact Christos. You can type or use the mic.",
+    text: "I'm your Solonaras guide. Ask about any build, what's included, timelines, or how to contact Christos for recruiting or collaboration. You can type or use the mic.",
   },
   {
     id: 'contact',
     scrollTo: 'outro',
-    text: 'When you want to hire him, use the contact form here, or Discord for a live call. Linked builds can also be bought on Shopify with card checkout. Enjoy exploring the store.',
+    text: 'If you want to recruit or work with Christos, use the contact form here or Discord for a live chat. Enjoy exploring the portfolio.',
   },
 ]
 

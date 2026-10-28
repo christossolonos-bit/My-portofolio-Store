@@ -10,7 +10,7 @@ import type {
 import { loadStore } from "./store";
 
 const FALLBACK =
-  "I only answer from what’s on this Solonaras portfolio. Ask about a project, a starting price, or how to contact Christos via the form and socials at the end of the aisle.";
+  "I only answer from what’s on this Solonaras portfolio. Ask about a project, what’s included, or how to contact Christos for recruiting or collaboration.";
 
 const CONTACT_SPEAK =
   "Best first step is the contact form at the end of the aisle — it goes to Christos’s email. You can also tap any of the links below, Discord is great for live work together.";
@@ -701,10 +701,11 @@ export async function answerPortfolioQuestion(opts: {
     );
   }
 
-  const system = `You are the Solonaras Store guide on Christos Solonos’s portfolio website.
+  const system = `You are the Solonaras guide on Christos Solonos’s portfolio website.
 Answer ONLY using the FAQs and Portfolio knowledge below. Prefer the closest FAQ answer; paraphrase briefly for speech.
 This is NOT a health shop. Never mention YGIA, herbal products, or phone +357 22 610 418.
-Payment / hire / contact questions are in the FAQs — answer them. Do not refuse portfolio questions that have an FAQ.
+This portfolio does NOT list prices or rates — if asked, say rates are not published and suggest contacting Christos for recruiting or collaboration.
+Contact / recruiting / collaboration questions are in the FAQs — answer them. Do not refuse portfolio questions that have an FAQ.
 For contact / socials / hire questions: give 1–2 short sentences only — do NOT list every social or email as text (the UI shows clickable widgets).
 Keep answers to 2–4 short spoken sentences. No markdown.
 Navigation: only if they ask to go somewhere; use a hash like #luna-agent, #cluster-live-games, or #outro.

@@ -1,4 +1,4 @@
-import { formatPrice, projects, type Project } from './projects'
+import { projects, type Project } from './projects'
 
 export type Cluster = {
   id: string
@@ -63,12 +63,3 @@ export function clusterForProject(projectId: string): Cluster | undefined {
   return clusters.find((c) => c.projectIds.includes(projectId))
 }
 
-export function clusterFromPrice(cluster: Cluster): number {
-  const prices = projectsInCluster(cluster).map((p) => p.startingPrice)
-  return prices.length ? Math.min(...prices) : 0
-}
-
-export function clusterPriceLabel(cluster: Cluster): string {
-  const from = clusterFromPrice(cluster)
-  return from ? `From ${formatPrice(from)}` : ''
-}

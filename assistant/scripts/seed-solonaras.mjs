@@ -22,7 +22,7 @@ const faqs = [
   faq(
     'faq-clusters',
     'How is the store organized / what are the clusters?',
-    'Four clusters: Companions (Luna Agent, multi-persona, character agents, desktop), Voice & Stage (Gaida, singing avatars, DJ), Live & Games (Streamer, Minecraft, Vision), and Author & Web (AuthorHub, custom websites). Each cluster card summarizes what’s inside and from what price.',
+    'Four clusters: Companions (Luna Agent, multi-persona, character agents, desktop), Voice & Stage (Gaida, singing avatars, DJ), Live & Games (Streamer, Minecraft, Vision), and Author & Web (AuthorHub, custom websites). Each cluster card summarizes what’s inside.',
     ['about', 'store', 'clusters'],
   ),
   faq(
@@ -34,7 +34,7 @@ const faqs = [
   faq(
     'faq-guide',
     'What can you help me with?',
-    'Ask about any project, starting prices, what’s included, timelines, customization, demos, or how to hire Christos. Type or use the mic.',
+    'Ask about any project, what’s included, timelines, customization, demos, or how to contact Christos for recruiting or collaboration. Type or use the mic.',
     ['guide'],
   ),
   faq(
@@ -64,20 +64,20 @@ const faqs = [
   faq(
     'faq-contact',
     'How do I contact Christos / get in touch / email / hire / book?',
-    'Best first step for serious buyers: the contact form at the end of the aisle (name, email, phone, idea) — it goes to christossolonos@gmail.com. You can also message on Discord https://discord.gg/reZX2sqQk, YouTube @Solonaras1, Twitch solonaras, Instagram @solonarass, TikTok @christossolonos, Facebook solonaras, X @ChrisSolonos, or LinkedIn Christos Solonos. No public phone number. Discord is especially handy if you want to stream live while working together.',
+    'Best first step for recruiters and collaborators: the contact form at the end of the aisle (name, email, phone, idea) — it goes to christossolonos@gmail.com. You can also message on Discord https://discord.gg/reZX2sqQk, YouTube @Solonaras1, Twitch solonaras, Instagram @solonarass, TikTok @christossolonos, Facebook solonaras, X @ChrisSolonos, or LinkedIn Christos Solonos. No public phone number. Discord is especially handy if you want to stream live while working together.',
     ['contact', 'email', 'hire'],
   ),
   faq(
     'faq-not-ygia',
     'Is this YGIA or a health shop?',
-    'No. This is Solonaras Store — Christos’s AI portfolio. It is not YGIA Natural Health and has no herbalist phone line.',
+    'No. This is Solonaras — Christos’s AI portfolio. It is not YGIA Natural Health and has no herbalist phone line.',
     ['about'],
   ),
   faq(
     'faq-prices',
-    'How much do projects cost / starting prices?',
-    'Starting prices in euros: Custom Websites €900, Character Agents €1,400, Desktop Companion €1,500, Singing Avatar SDK €1,600, Luna Gaida €1,800, DJ Agent €2,000, Luna Minecraft €2,200, AuthorHub €2,400, Luna Streamer €2,800, Luna Vision Co-host €3,200, Multi-persona €3,500, Luna Agent 5.0 €4,500. Final quotes depend on scope. Changes after the bought setup cost extra.',
-    ['pricing'],
+    'How much do projects cost / starting prices / rates?',
+    'This portfolio does not list rates. It is a showcase of Christos’s capabilities for recruiting and collaboration. Reach out via the contact form or Discord to talk about roles, freelance scope, or working together.',
+    ['pricing', 'hire', 'recruit'],
   ),
   faq(
     'faq-timeline',
@@ -105,9 +105,9 @@ const faqs = [
   ),
   faq(
     'faq-pay',
-    'How do I pay / book a project?',
-    'Start with the store contact form or Discord — agree on scope first. When a build is linked in Shopify, you can also buy the starting setup with card checkout there; Christos sets it up after payment. Changes after setup cost extra.',
-    ['hire', 'pricing'],
+    'How do I hire / book / work with Christos?',
+    'Use the contact form at the end of the portfolio or Discord. Say whether you are recruiting, collaborating, or scoping a custom build — he will reply and agree next steps from there. This site is not a self-checkout storefront.',
+    ['hire', 'recruit', 'contact'],
   ),
   faq(
     'faq-demo',
@@ -138,7 +138,7 @@ const faqs = [
   faq(
     'faq-luna-agent-include',
     'What does Luna Agent 5.0 / full companion actually include?',
-    'A full working prototype for your needs — conversational companion stack with profiles, speech, social tools, and avatar presence as scoped. Heavy customization is extra. Starting at €4,500.',
+    'A full working prototype for your needs — conversational companion stack with profiles, speech, social tools, and avatar presence as scoped. Heavy customization is extra.',
     ['luna-agent', 'project'],
   ),
   faq(
@@ -161,8 +161,8 @@ const faqs = [
   ),
   faq(
     'faq-luna-agent-price',
-    'What’s included in the Luna Agent €4,500 starting price?',
-    '€4,500 starts a full working prototype for your needs. Further customization is quoted separately.',
+    'What’s included in the Luna Agent starting scope?',
+    'The base prototype starts as a full working prototype for your needs. Further customization is quoted separately.',
     ['luna-agent', 'pricing'],
   ),
 
@@ -170,7 +170,7 @@ const faqs = [
   faq(
     'faq-gaida-discord',
     'Does Luna Gaida work in Discord only or other apps too?',
-    'Discord, websites, and PC apps — not Discord-only. Starting at €1,800.',
+    'Discord, websites, and PC apps — not Discord-only.',
     ['luna-gaida', 'voice'],
   ),
   faq(
@@ -188,7 +188,7 @@ const faqs = [
   faq(
     'faq-gaida-keys',
     'Do I need my own API keys or hosting for Gaida?',
-    'Yes — you need your own API keys from day one for production stacks that use APIs. Fully local Edge paths avoid some API keys. Starting at €1,800.',
+    'Yes — you need your own API keys from day one for production stacks that use APIs. Fully local Edge paths avoid some API keys.',
     ['luna-gaida', 'process'],
   ),
 
@@ -196,7 +196,7 @@ const faqs = [
   faq(
     'faq-mc-version',
     'Which Minecraft versions or servers does Luna Minecraft support?',
-    'Supported up through Minecraft 1.21.1. Starting at €2,200.',
+    'Supported up through Minecraft 1.21.1.',
     ['luna-minecraft', 'games'],
   ),
   faq(
@@ -214,7 +214,7 @@ const faqs = [
   faq(
     'faq-mc-who',
     'Is Luna Minecraft for content creators or just fun?',
-    'Both — creators and private friends. Starting at €2,200.',
+    'Both — creators and private friends.',
     ['luna-minecraft'],
   ),
 
@@ -222,7 +222,7 @@ const faqs = [
   faq(
     'faq-streamer-alone',
     'Can Luna Streamer run a stream without me at the PC?',
-    'Yes. Limits are latency and the PC shutting down — unless you run it on a server. Starting at €2,800.',
+    'Yes. Limits are latency and the PC shutting down — unless you run it on a server.',
     ['luna-streamer', 'streaming'],
   ),
   faq(
@@ -234,7 +234,7 @@ const faqs = [
   faq(
     'faq-streamer-platforms',
     'What platforms — Twitch, YouTube, TikTok Live?',
-    'Twitch, YouTube, TikTok, and the other major live platforms you ask for. Starting at €2,800.',
+    'Twitch, YouTube, TikTok, and the other major live platforms you ask for.',
     ['luna-streamer'],
   ),
   faq(
@@ -248,7 +248,7 @@ const faqs = [
   faq(
     'faq-vision-see',
     'What can Luna Vision see — game only or any screen?',
-    'Configurable — game HUD, fuller desktop, or whatever you scope. It’s not only for games. Starting at €3,200.',
+    'Configurable — game HUD, fuller desktop, or whatever you scope. It’s not only for games.',
     ['luna-vision', 'vision'],
   ),
   faq(
@@ -260,7 +260,7 @@ const faqs = [
   faq(
     'faq-vision-league',
     'Does Vision work with League of Legends or other games?',
-    'Proven on League of Legends and Minecraft, and usable beyond games for screen-aware co-hosting. Starting at €3,200.',
+    'Proven on League of Legends and Minecraft, and usable beyond games for screen-aware co-hosting.',
     ['luna-vision'],
   ),
   faq(
@@ -274,7 +274,7 @@ const faqs = [
   faq(
     'faq-dj-live',
     'Does DJ Agent mix live or only pick tracks?',
-    'Default ship is track selection and vibe control; live mixing can be built too. Starting at €2,000.',
+    'Default ship is track selection and vibe control; live mixing can be built too.',
     ['dj-agent', 'music'],
   ),
   faq(
@@ -286,7 +286,7 @@ const faqs = [
   faq(
     'faq-dj-where',
     'Is DJ Agent for clubs, streams, or both?',
-    'Both clubs and streams. Starting at €2,000.',
+    'Both clubs and streams.',
     ['dj-agent'],
   ),
   faq(
@@ -300,7 +300,7 @@ const faqs = [
   faq(
     'faq-desktop-os',
     'Is Desktop Companion Windows only or Mac too?',
-    'Windows only for now. Starting at €1,500.',
+    'Windows only for now.',
     ['fluffy', 'desktop'],
   ),
   faq(
@@ -326,7 +326,7 @@ const faqs = [
   faq(
     'faq-sing-vrm',
     'Does the Singing Avatar SDK work with VTube Studio or VRM?',
-    'It works with virtual environments you create — avatar pipelines including common stream avatar setups. Confirm your exact tools in the brief. Starting at €1,600.',
+    'It works with virtual environments you create — avatar pipelines including common stream avatar setups. Confirm your exact tools in the brief.',
     ['singing-sdk', 'sdk'],
   ),
   faq(
@@ -338,7 +338,7 @@ const faqs = [
   faq(
     'faq-sing-mysongs',
     'Can it sing my songs or covers?',
-    'Both work. Using your own songs is easier because you don’t need third-party permission. You still handle music rights. Starting at €1,600.',
+    'Both work. Using your own songs is easier because you don’t need third-party permission. You still handle music rights.',
     ['singing-sdk'],
   ),
   faq(
@@ -352,7 +352,7 @@ const faqs = [
   faq(
     'faq-multi-how-many',
     'How many characters can share one multi-persona system?',
-    'You choose based on how many your PC can handle. Avatars are not included — you provide them. Starting at €3,500.',
+    'You choose based on how many your PC can handle. Avatars are not included — you provide them.',
     ['lunariko', 'multi'],
   ),
   faq(
@@ -364,7 +364,7 @@ const faqs = [
   faq(
     'faq-multi-own',
     'Can I cast my own characters, not Luna and Viktor?',
-    'Yes — it wasn’t made for Luna and Viktor only. Bring your own cast. Starting at €3,500.',
+    'Yes — it wasn’t made for Luna and Viktor only. Bring your own cast.',
     ['lunariko', 'multi'],
   ),
   faq(
@@ -378,7 +378,7 @@ const faqs = [
   faq(
     'faq-choko-brief',
     'Can you build a character agent from my brief or lore?',
-    'Yes — a personalized, fully functional character agent from your brief. Starting at €1,400.',
+    'Yes — a personalized, fully functional character agent from your brief.',
     ['choko', 'character'],
   ),
   faq(
@@ -390,12 +390,12 @@ const faqs = [
   faq(
     'faq-choko-where',
     'Are character agents for Discord, stream, or product UI?',
-    'Discord, stream, web UI, and desktop free movement. Starting at €1,400.',
+    'Discord, stream, web UI, and desktop free movement.',
     ['choko', 'character'],
   ),
   faq(
     'faq-choko-pack',
-    'What’s in the €1,400 character agent pack?',
+    'What’s in the character agent pack?',
     'Your own personalized character agent, fully functional for the agreed surfaces. Ask on the form if you need extras beyond that starter pack.',
     ['choko', 'pricing'],
   ),
@@ -404,7 +404,7 @@ const faqs = [
   faq(
     'faq-authorhub-anybook',
     'Is AuthorHub only for Proving Them Wrong or any book?',
-    'Any book type — not only memoirs like Proving Them Wrong. Starting at €2,400.',
+    'Any book type — not only memoirs like Proving Them Wrong.',
     ['book-editor', 'authorhub'],
   ),
   faq(
@@ -416,7 +416,7 @@ const faqs = [
   faq(
     'faq-authorhub-export',
     'Are Kindle and print export included?',
-    'Yes — Kindle 5×8, hardcopy 6×9, PDF, Word, and other export paths as scoped. Starting at €2,400.',
+    'Yes — Kindle 5×8, hardcopy 6×9, PDF, Word, and other export paths as scoped.',
     ['book-editor', 'authorhub'],
   ),
   faq(
@@ -430,7 +430,7 @@ const faqs = [
   faq(
     'faq-web-scope',
     'Custom websites — landing page only or full site plus assistant?',
-    '€900 includes pages and design. Hosting goes on your paid domain name. Bigger worlds or assistants are quoted separately.',
+    'A starter website includes pages and design. Hosting goes on your paid domain name. Bigger worlds or assistants are quoted separately.',
     ['client-work', 'web', 'pricing'],
   ),
   faq(
@@ -447,30 +447,30 @@ const faqs = [
   ),
   faq(
     'faq-web-extra',
-    'What’s extra beyond the €900 website starting price?',
+    'What’s extra beyond a starter website?',
     'Design changes, maintenance, management of materials, and social media help are common extras.',
     ['client-work', 'web', 'pricing'],
   ),
 
   // —— Short “tell me about X” ——
   ...[
-    ['Luna Agent 5.0', '€4,500', 'full conversational AI companion prototype — mostly local, customization extra', 'luna-agent'],
-    ['Luna Gaida', '€1,800', 'live voice for Discord, websites, and PC apps — Edge local or Fish API', 'luna-gaida'],
-    ['Luna Minecraft', '€2,200', 'game agent through Minecraft 1.21.1 with persistent learning — private servers first', 'luna-minecraft'],
-    ['Luna Streamer', '€2,800', 'broadcast companion with chat replies; can run long sessions including 48-hour tests', 'luna-streamer'],
-    ['Luna Vision Co-host', '€3,200', 'configurable screen-aware co-host — League, Minecraft, and beyond games', 'luna-vision'],
-    ['DJ Agent', '€2,000', 'track selection (live mix optional) from local files or YouTube — clubs and streams', 'dj-agent'],
-    ['Desktop Companion', '€1,500', 'Windows companion with chat, avatar, and task access — private mode available', 'fluffy'],
-    ['Singing Avatar SDK', '€1,600', 'singing avatar toolkit with lip-sync included for virtual environments you create', 'singing-sdk'],
-    ['Multi-persona Companions', '€3,500', 'multiple characters with separate plus shared memory — you provide avatars', 'lunariko'],
-    ['Character Agents', '€1,400', 'personalized character agents for Discord, stream, web, or desktop movement', 'choko'],
-    ['AuthorHub', '€2,400', 'author workspace for any book — editing not rewriting, with Kindle and print exports', 'book-editor'],
-    ['Custom Websites', '€900', 'pages and design on your domain — about three days for starter scope', 'client-work'],
-  ].map(([name, price, desc, tag], i) =>
+    ['Luna Agent 5.0', 'full conversational AI companion prototype — mostly local, customization extra', 'luna-agent'],
+    ['Luna Gaida', 'live voice for Discord, websites, and PC apps — Edge local or Fish API', 'luna-gaida'],
+    ['Luna Minecraft', 'game agent through Minecraft 1.21.1 with persistent learning — private servers first', 'luna-minecraft'],
+    ['Luna Streamer', 'broadcast companion with chat replies; can run long sessions including 48-hour tests', 'luna-streamer'],
+    ['Luna Vision Co-host', 'configurable screen-aware co-host — League, Minecraft, and beyond games', 'luna-vision'],
+    ['DJ Agent', 'track selection (live mix optional) from local files or YouTube — clubs and streams', 'dj-agent'],
+    ['Desktop Companion', 'Windows companion with chat, avatar, and task access — private mode available', 'fluffy'],
+    ['Singing Avatar SDK', 'singing avatar toolkit with lip-sync included for virtual environments you create', 'singing-sdk'],
+    ['Multi-persona Companions', 'multiple characters with separate plus shared memory — you provide avatars', 'lunariko'],
+    ['Character Agents', 'personalized character agents for Discord, stream, web, or desktop movement', 'choko'],
+    ['AuthorHub', 'author workspace for any book — editing not rewriting, with Kindle and print exports', 'book-editor'],
+    ['Custom Websites', 'pages and design on your domain — about three days for starter scope', 'client-work'],
+  ].map(([name, desc, tag], i) =>
     faq(
       `faq-about-${i}`,
       `Tell me about ${name}`,
-      `${name} is ${desc}. Starting price ${price}. Click the aisle video for a tour, or ask a follow-up. Builds are still concept/early — use the form or Discord for a live call.`,
+      `${name} is ${desc}. Click the tour video, or ask a follow-up. Builds are still concept/early — use the form or Discord to talk about recruiting or collaboration.`,
       ['project', tag],
     ),
   ),
@@ -480,9 +480,9 @@ const pages = [
   {
     id: 'page-home',
     url: '/',
-    title: 'Solonaras Store',
-    description: 'Portfolio store of AI companions and custom builds by Christos Solonos (Cyprus, remote).',
-    keywords: ['solonaras', 'portfolio', 'luna', 'ai', 'prices', 'contact'],
+    title: 'Solonaras',
+    description: 'Portfolio of AI companions and custom builds by Christos Solonos (Cyprus, remote) — for recruiting and collaboration.',
+    keywords: ['solonaras', 'portfolio', 'luna', 'ai', 'recruit', 'contact'],
   },
   {
     id: 'page-contact',
@@ -502,7 +502,7 @@ const store = {
   chunks: [],
   settings: {
     welcomeMessage:
-      "Hi — I'm the Solonaras guide. Ask about projects, prices, what’s included, or how to hire Christos.",
+      "Hi — I'm the Solonaras guide. Ask about projects, what’s included, or how to contact Christos for recruiting or collaboration.",
     fishReferenceId: '',
     fishReferenceIdEn: '',
     siteBaseUrl: process.env.SITE_BASE_URL || 'http://localhost:5173',

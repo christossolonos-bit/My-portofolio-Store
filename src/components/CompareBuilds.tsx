@@ -1,4 +1,4 @@
-import { formatPrice, maturityLabel, type Project } from '../data/projects'
+import { maturityLabel, type Project } from '../data/projects'
 import { ideaFromSelection, requestBuild } from '../lib/store-events'
 import { track } from '../lib/analytics'
 
@@ -48,9 +48,6 @@ export function CompareBuilds({
                 </span>
                 <h3>{p.name}</h3>
                 <p>{p.tagline}</p>
-                <strong className="compare-price">
-                  From {formatPrice(p.startingPrice)}
-                </strong>
               </header>
               <ul>
                 {p.includes.map((line) => (
@@ -69,7 +66,7 @@ export function CompareBuilds({
                   })
                 }}
               >
-                Request {p.name}
+                Talk about {p.name}
               </button>
               <button
                 type="button"
