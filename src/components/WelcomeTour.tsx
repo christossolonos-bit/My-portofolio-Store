@@ -4,7 +4,7 @@ import { TOUR_DONE_KEY, WELCOME_TOUR } from '../data/welcome-tour'
 import { MUTE_KEY } from './SolonarasGuide'
 import { track } from '../lib/analytics'
 import { noteMediaGestureFromEvent } from '../lib/media-audio'
-import { playActiveAisleUnmuted } from '../lib/play-aisle-video'
+import { pauseAllAisleVideos } from '../lib/play-aisle-video'
 import { speakText } from '../lib/speak'
 import { openCluster } from '../lib/store-events'
 
@@ -45,6 +45,7 @@ export function WelcomeTour({ muted }: WelcomeTourProps) {
     setStepIndex(-1)
     setVisible(false)
     document.documentElement.classList.remove('is-touring')
+    window.dispatchEvent(new Event('solonaras-tour-ended'))
     if (markDone) {
       try {
         localStorage.setItem(TOUR_DONE_KEY, '1')
@@ -81,8 +82,7 @@ export function WelcomeTour({ muted }: WelcomeTourProps) {
 
       if (step.openCluster) {
         openCluster(step.openCluster)
-        await wait(80, ac.signal)
-        playActiveAisleUnmuted()
+        await wait(120, ac.signal)
       }
       if (step.scrollTo) {
         document
@@ -91,12 +91,16 @@ export function WelcomeTour({ muted }: WelcomeTourProps) {
         await wait(750, ac.signal)
       }
 
+      // Keep aisle videos paused so Fish TTS is the only voice
+      pauseAllAisleVideos()
+
       await speakText(step.text, {
         muted: liveMuted,
         language: 'en',
         audioRef,
         signal: ac.signal,
       })
+      pauseAllAisleVideos()
       await wait(350, ac.signal)
     }
 

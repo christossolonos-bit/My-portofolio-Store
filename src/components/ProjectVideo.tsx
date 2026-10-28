@@ -15,6 +15,10 @@ type ProjectVideoProps = {
   active: boolean
 }
 
+function tourIsRunning() {
+  return document.documentElement.classList.contains('is-touring')
+}
+
 export function ProjectVideo({
   youtubeId,
   videoSrc,
@@ -34,7 +38,7 @@ export function ProjectVideo({
 
   useEffect(() => bindMediaGestureCapture(), [])
 
-  // Start when the aisle is in view; stop when leaving
+  // Start when the aisle is in view; stop when leaving. Stay paused during the voice tour.
   useEffect(() => {
     if (!active) {
       setPlaying(false)
@@ -45,29 +49,58 @@ export function ProjectVideo({
       }
       return
     }
+    if (tourIsRunning()) {
+      setPlaying(true)
+      requestAnimationFrame(() => videoRef.current?.pause())
+      return
+    }
     setPlaying(true)
   }, [active])
 
-  // Prefer unmuted playback as soon as the element is in the DOM
+  useEffect(() => {
+    const onTourPause = () => {
+      videoRef.current?.pause()
+    }
+    const onTourEnded = () => {
+      if (!active || !isLocal) return
+      const video = videoRef.current
+      if (!video) return
+      void playWithSoundFallback(video)
+    }
+    window.addEventListener('solonaras-tour-pause-videos', onTourPause)
+    window.addEventListener('solonaras-tour-ended', onTourEnded)
+    return () => {
+      window.removeEventListener('solonaras-tour-pause-videos', onTourPause)
+      window.removeEventListener('solonaras-tour-ended', onTourEnded)
+    }
+  }, [active, isLocal])
+
+  // Prefer unmuted playback once mounted — skip while the welcome tour is talking
   useLayoutEffect(() => {
     if (!active || !playing || !isLocal) return
     const video = videoRef.current
     if (!video) return
+    if (tourIsRunning()) {
+      video.pause()
+      return
+    }
 
     let cancelled = false
 
     const applyUnmute = () => {
-      if (cancelled) return
+      if (cancelled || tourIsRunning()) return
       video.muted = false
       video.volume = 1
       void video.play().catch(() => undefined)
     }
 
     void playWithSoundFallback(video).then((mode) => {
-      if (cancelled) return
+      if (cancelled || tourIsRunning()) {
+        video.pause()
+        return
+      }
       if (mode === 'unmuted') return
 
-      // Policy blocked sound — keep picture, unmute on the next user gesture
       const unlock = () => {
         noteMediaGesture()
         applyUnmute()
@@ -75,7 +108,6 @@ export function ProjectVideo({
       window.addEventListener('pointerdown', unlock, { capture: true })
       window.addEventListener('keydown', unlock, { capture: true })
       window.addEventListener('solonaras-media-gesture', unlock)
-      // If they already clicked earlier this session, retry immediately
       if (hasMediaGesture()) {
         requestAnimationFrame(applyUnmute)
       }
@@ -99,6 +131,10 @@ export function ProjectVideo({
     requestAnimationFrame(() => {
       const video = videoRef.current
       if (!video) return
+      if (tourIsRunning()) {
+        video.pause()
+        return
+      }
       video.muted = false
       video.volume = 1
       void video.play().catch(() => undefined)
@@ -107,11 +143,12 @@ export function ProjectVideo({
 
   const startYoutube = () => {
     noteMediaGesture()
+    if (tourIsRunning()) return
     setPlaying(true)
   }
 
   const embed =
-    youtubeId && playing
+    youtubeId && playing && !tourIsRunning()
       ? `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1`
       : null
 
@@ -129,7 +166,7 @@ export function ProjectVideo({
             poster={posterSrc}
             controls
             playsInline
-            autoPlay
+            autoPlay={!tourIsRunning()}
             loop
             preload="auto"
             aria-label={title}
