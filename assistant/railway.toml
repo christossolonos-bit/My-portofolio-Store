@@ -4,6 +4,7 @@ builder = "NIXPACKS"
 buildCommand = "npm run build"
 
 [deploy]
-startCommand = "npm run start"
+# Railway injects PORT; next must listen on it (domain may target 8080).
+startCommand = "npx next start --hostname 0.0.0.0 --port $PORT"
 healthcheckPath = "/api/config"
 restartPolicyType = "ON_FAILURE"

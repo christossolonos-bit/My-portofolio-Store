@@ -10,6 +10,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "tours": "node scripts/tours/build-all.mjs",
+    "railway:build": "node scripts/railway-build.mjs",
+    "railway:start": "node scripts/railway-start.mjs",
     "assistant:install": "npm install --prefix assistant",
     "assistant:seed": "node assistant/scripts/seed-solonaras.mjs",
     "assistant:dev": "npm run assistant:seed && npm run dev --prefix assistant"

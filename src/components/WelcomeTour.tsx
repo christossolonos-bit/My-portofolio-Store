@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { TOUR_DONE_KEY, WELCOME_TOUR } from '../data/welcome-tour'
 import { MUTE_KEY } from './SolonarasGuide'
 import { track } from '../lib/analytics'
+import { noteMediaGestureFromEvent } from '../lib/media-audio'
+import { playActiveAisleUnmuted } from '../lib/play-aisle-video'
 import { speakText } from '../lib/speak'
 import { openCluster } from '../lib/store-events'
 
@@ -53,9 +56,12 @@ export function WelcomeTour({ muted }: WelcomeTourProps) {
 
   const start = async () => {
     if (running) return
+    noteMediaGestureFromEvent()
     track('welcome_tour_start')
-    setRunning(true)
-    setVisible(true)
+    flushSync(() => {
+      setRunning(true)
+      setVisible(true)
+    })
     document.documentElement.classList.add('is-touring')
 
     let liveMuted = muted
@@ -73,7 +79,11 @@ export function WelcomeTour({ muted }: WelcomeTourProps) {
       const step = WELCOME_TOUR[i]!
       setStepIndex(i)
 
-      if (step.openCluster) openCluster(step.openCluster)
+      if (step.openCluster) {
+        openCluster(step.openCluster)
+        await wait(80, ac.signal)
+        playActiveAisleUnmuted()
+      }
       if (step.scrollTo) {
         document
           .getElementById(step.scrollTo)

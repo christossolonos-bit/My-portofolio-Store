@@ -1,9 +1,9 @@
 [build]
 builder = "NIXPACKS"
-buildCommand = "npm run build"
+# Monorepo: store vs guide decided by RAILWAY_SERVICE_NAME in the scripts.
+buildCommand = "node scripts/railway-build.mjs"
 
 [deploy]
-# Static Vite store — serve `dist` (VITE_* vars must be set at build time).
-startCommand = "npx serve dist -s -l $PORT"
+startCommand = "node scripts/railway-start.mjs"
 healthcheckPath = "/"
 restartPolicyType = "ON_FAILURE"

@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { BookCall } from './components/BookCall'
 import { ClusterBoard } from './components/ClusterBoard'
 import { ClusterNav } from './components/ClusterNav'
@@ -15,6 +16,8 @@ import {
 import { projects } from './data/projects'
 import { socials } from './data/socials'
 import { track } from './lib/analytics'
+import { noteMediaGestureFromEvent } from './lib/media-audio'
+import { playActiveAisleUnmuted } from './lib/play-aisle-video'
 import {
   ideaFromSelection,
   type RequestBuildDetail,
@@ -76,11 +79,17 @@ function App() {
     const cluster = clusters.find((c) => c.id === id)
     if (!cluster) return
     const first = projectsInCluster(cluster)[0]
-    setSelectedClusterId(id)
-    setSelectedProjectId((prev) =>
-      prev && cluster.projectIds.includes(prev) ? prev : (first?.id ?? null),
-    )
-    setCompareIds((prev) => prev.filter((pid) => cluster.projectIds.includes(pid)))
+    noteMediaGestureFromEvent()
+    flushSync(() => {
+      setSelectedClusterId(id)
+      setSelectedProjectId((prev) =>
+        prev && cluster.projectIds.includes(prev) ? prev : (first?.id ?? null),
+      )
+      setCompareIds((prev) =>
+        prev.filter((pid) => cluster.projectIds.includes(pid)),
+      )
+    })
+    playActiveAisleUnmuted()
     window.history.replaceState(null, '', `#cluster-${id}`)
     if (scroll) {
       window.setTimeout(() => {
@@ -93,8 +102,12 @@ function App() {
 
   const selectProject = (id: string) => {
     const parent = clusterForProject(id)
-    if (parent) setSelectedClusterId(parent.id)
-    setSelectedProjectId(id)
+    noteMediaGestureFromEvent()
+    flushSync(() => {
+      if (parent) setSelectedClusterId(parent.id)
+      setSelectedProjectId(id)
+    })
+    playActiveAisleUnmuted()
     window.history.replaceState(null, '', `#${id}`)
     track('project_select', { projectId: id })
   }

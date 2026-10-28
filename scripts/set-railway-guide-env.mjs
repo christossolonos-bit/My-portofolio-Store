@@ -21,11 +21,13 @@ const vars = {
     local.NVIDIA_BASE_URL || 'https://integrate.api.nvidia.com/v1',
   NVIDIA_MODEL:
     local.NVIDIA_MODEL || 'nvidia/nemotron-3.5-lightning-30b-a3b',
-  TTS_PROVIDER: 'edge',
+  TTS_PROVIDER: 'fish',
   EDGE_VOICE_EL: local.EDGE_VOICE_EL || 'el-GR-AthinaNeural',
   EDGE_VOICE_EN: local.EDGE_VOICE_EN || 'en-US-AvaMultilingualNeural',
   FISH_API_KEY: local.FISH_API_KEY || '',
   FISH_REFERENCE_ID: local.FISH_REFERENCE_ID || '',
+  FISH_REFERENCE_ID_EN:
+    local.FISH_REFERENCE_ID_EN || local.FISH_REFERENCE_ID || '',
   FISH_TTS_MODEL: local.FISH_TTS_MODEL || 's2.1-pro-free',
   ADMIN_SECRET: local.ADMIN_SECRET || 'solonaras-change-me',
   SITE_BASE_URL: 'https://christossolonos.up.railway.app',
