@@ -1,0 +1,5 @@
+file 'D:/My portofolio Store/scripts/tours/work/lunariko/clips/scene-0.mp4'
+file 'D:/My portofolio Store/scripts/tours/work/lunariko/clips/scene-1.mp4'
+file 'D:/My portofolio Store/scripts/tours/work/lunariko/clips/scene-2.mp4'
+file 'D:/My portofolio Store/scripts/tours/work/lunariko/clips/scene-3.mp4'
+file 'D:/My portofolio Store/scripts/tours/work/lunariko/clips/scene-4.mp4'

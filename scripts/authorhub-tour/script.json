@@ -1,0 +1,42 @@
+[
+  {
+    "scene": 0,
+    "duration": 7,
+    "narration": "Welcome to AuthorHub — the book editor workspace from Solonaras. This is not another A.I. writing assistant that sandblasts your sentences into someone else's voice. It is a local manuscript studio built for a real book."
+  },
+  {
+    "scene": 1,
+    "duration": 8,
+    "narration": "AuthorHub was made for Proving Them Wrong — Christos Solonos's memoir about epilepsy, fear, and other people's limits. The goal is simple: see the book as a book. Real pages. Real trim sizes. Your story stays on your machine."
+  },
+  {
+    "scene": 2,
+    "duration": 8,
+    "narration": "Start in the chapter map. Parts and chapters sit in the sidebar with live progress. Pending, in progress, or edited — you always know where the manuscript stands. Click any chapter to open it."
+  },
+  {
+    "scene": 3,
+    "duration": 8,
+    "narration": "Preview print-ready pages. Toggle Kindle five by eight, or hardcopy six by nine. Pagination uses fixed line budgets, so you can feel whether a chapter lands. Chapter art sits at the bottom when there is room."
+  },
+  {
+    "scene": 4,
+    "duration": 8,
+    "narration": "Use Compare to put the original draft beside the edited version. Keep the source of truth on the left, and the reshape on the right. Clarity goes up. The voice stays yours."
+  },
+  {
+    "scene": 5,
+    "duration": 7,
+    "narration": "Open Edit text to reshape a chapter directly. Word count updates as you write. Status flips from pending, to in progress, to edited — so progress is honest, not guessed."
+  },
+  {
+    "scene": 6,
+    "duration": 8,
+    "narration": "When you are ready, open Editor tools. Rebuild the cover, export local P.D.F. and Word files for Amazon, and review everything built into the app. No chat required for those exports when the tools server is running."
+  },
+  {
+    "scene": 7,
+    "duration": 7,
+    "narration": "That is AuthorHub. Install, run, shape the chapters, then ship amazon-ready files from your machine. Prove them wrong — AuthorHub keeps the layout honest while you do."
+  }
+]

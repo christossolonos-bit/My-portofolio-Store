@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070b12"/>
+      <stop offset="0.55" stop-color="#0c1522"/>
+      <stop offset="1" stop-color="#071018"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(280 200) rotate(90) scale(420 520)">
+      <stop stop-color="#2ee6a6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#2ee6a6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="980" cy="320" r="160" stroke="#2ee6a6" stroke-width="3" opacity="0.45"/>
+  <circle cx="980" cy="320" r="70" fill="#2ee6a6" opacity="0.85"/>
+  <text x="88" y="250" fill="#e8eef7" font-family="Syne, Arial Black, sans-serif" font-size="92" font-weight="800" letter-spacing="-2">SOLONARAS</text>
+  <text x="92" y="320" fill="#8b9bb0" font-family="DM Sans, Arial, sans-serif" font-size="34">Store · AI companions, voice, live builds</text>
+  <text x="92" y="390" fill="#2ee6a6" font-family="DM Sans, Arial, sans-serif" font-size="26">Clusters · Tours · Hire Christos</text>
+</svg>

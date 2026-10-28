@@ -1,0 +1,9 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm run build"
+
+[deploy]
+# Static Vite store — serve `dist` (VITE_* vars must be set at build time).
+startCommand = "npx serve dist -s -l $PORT"
+healthcheckPath = "/"
+restartPolicyType = "ON_FAILURE"

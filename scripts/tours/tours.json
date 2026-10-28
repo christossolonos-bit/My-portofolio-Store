@@ -1,0 +1,709 @@
+[
+  {
+    "id": "luna-agent",
+    "name": "Luna Agent 5.0",
+    "accent": "#2ee6a6",
+    "category": "AI Companion",
+    "youtubeIds": ["Z9jdSHglkOc", "yBhL98fGWlE", "aclB_jHfzCE"],
+    "youtubeTitles": [
+      "Why Luna 5.0 Crushes OpenClaw",
+      "Luna presentation: 2026 Features",
+      "Did My AI Just Realize She Exists?"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Luna Agent 5.0",
+        "lead": "A full local AI companion — conversation, profiles, speech, social tools, and a streaming avatar in one stack.",
+        "narration": "This is Luna Agent 5.0 — the flagship companion from Solonaras. A full local A.I. agent built to talk, remember, speak, and show up on stream."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Companion systems, not chat demos",
+        "lead": "Luna 5.0 is built as a living agent stack.",
+        "items": [
+          { "title": "Conversational core", "text": "Long-running chat with personality that stays consistent." },
+          { "title": "Synced profiles", "text": "User context and preferences that travel with the agent." },
+          { "title": "TTS + avatar", "text": "Speech and presence for streams, desktop, and live sessions." }
+        ],
+        "narration": "You get a conversational core, synced profiles, text to speech, social tools, and a streaming avatar. This is companion infrastructure — not a one-off chatbot demo."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "See Luna 5.0 in action",
+        "lead": "Snapshots from Solonaras videos tied to this build.",
+        "narration": "Here are moments from the Solonaras channel — Luna 5.0 compared to other local agents, the 2026 feature presentation, and deeper companion experiments."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Local agent runtime with a clear personality",
+          "Voice output and streaming-ready presence",
+          "Tools for social posting and live interaction",
+          "A stack you can extend into Discord, games, or desktop"
+        ],
+        "narration": "I can build this class of system for you: a local agent runtime, voice output, streaming presence, and hooks into Discord, games, or desktop."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Flagship companion energy",
+        "lead": "Luna Agent 5.0 is the blueprint for serious AI companions — present, capable, and yours to shape.",
+        "narration": "Luna Agent 5.0 is the blueprint. If you want a serious A.I. companion — present, capable, and shaped to you — this is the standard."
+      }
+    ]
+  },
+  {
+    "id": "luna-gaida",
+    "name": "Luna Gaida",
+    "accent": "#5ec8ff",
+    "category": "Voice",
+    "youtubeIds": ["4Qf_GpjUXbE", "mmPaF849zdU", "7TEuKaUSpvM"],
+    "youtubeTitles": [
+      "Luna Voice Integration",
+      "Luna's New Voice",
+      "Chill stream with Luna V6"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Luna Gaida",
+        "lead": "Voice presence for live spaces — Discord calls, UI talk-back, and agents that speak with you in real time.",
+        "narration": "Luna Gaida is about voice presence. Not a bot that only types. An agent that speaks with you in live spaces."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Speech that feels present",
+        "lead": "Built for calls, streams, and interactive UIs.",
+        "items": [
+          { "title": "Live voice", "text": "Talk-back that keeps pace with conversation." },
+          { "title": "Personality in audio", "text": "Tone and character come through the voice layer." },
+          { "title": "UI integration", "text": "Wire speech into companion interfaces and tools." }
+        ],
+        "narration": "You get live talk-back, personality in the audio layer, and speech wired into companion UIs — so the agent feels present, not distant."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Voice moments",
+        "lead": "Related Solonaras clips on voice, personality, and live Luna sessions.",
+        "narration": "These channel snapshots show Luna voice integration, new voice work, and live sessions where speech is part of the experience."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Discord or call-ready voice agents",
+          "Companion UIs with spoken responses",
+          "Streaming-friendly voice pipelines",
+          "Personality tuning for how the agent sounds"
+        ],
+        "narration": "I can build Discord-ready voice agents, spoken companion UIs, streaming voice pipelines, and personality tuning for how the agent sounds."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Presence over chat windows",
+        "lead": "Gaida turns companions into voices you can actually talk with.",
+        "narration": "Gaida turns companions into voices you can actually talk with. Presence over chat windows."
+      }
+    ]
+  },
+  {
+    "id": "luna-minecraft",
+    "name": "Luna Minecraft",
+    "accent": "#7dffb3",
+    "category": "Games",
+    "youtubeIds": ["OlaOdJckon0", "EoDYDNLSgss", "HQnMmhdeNBk"],
+    "youtubeTitles": [
+      "Meet Luna in Minecraft",
+      "Learning Minecraft with Luna",
+      "AI doesn't let me sleep alone"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Luna Minecraft",
+        "lead": "A game agent that lives in the world — chatting, gathering, building, and learning over time.",
+        "narration": "Luna Minecraft puts an A.I. companion inside the block world. She chats, gathers, builds, and learns while you play."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Agents that play with you",
+        "lead": "Not a spectator bot — a learner in the world.",
+        "items": [
+          { "title": "World actions", "text": "Mine, gather, build, and fight as skills grow." },
+          { "title": "In-game chat", "text": "Talk while you explore and survive together." },
+          { "title": "Learning loop", "text": "Improve over sessions instead of repeating one script." }
+        ],
+        "narration": "She takes world actions, chats in game, and improves over sessions — a learning loop, not a single scripted routine."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Minecraft with Luna",
+        "lead": "Real footage of Luna surviving, learning, and refusing to let you sleep alone.",
+        "narration": "These snapshots are from the channel — meeting Luna in Minecraft, learning survival skills, and those chaotic co-op moments."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Game bots with chat + action loops",
+          "Skill progression over play sessions",
+          "Co-op personality inside existing games",
+          "Custom worlds tuned for companion play"
+        ],
+        "narration": "I can build game bots with chat and action loops, skill progression, co-op personality inside existing games, and custom worlds for companion play."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Play together",
+        "lead": "Game agents that feel like teammates — not command menus.",
+        "narration": "Game agents that feel like teammates — not command menus. That is Luna Minecraft."
+      }
+    ]
+  },
+  {
+    "id": "luna-streamer",
+    "name": "Luna Streamer",
+    "accent": "#ff7a59",
+    "category": "Streaming",
+    "youtubeIds": ["mjuZlyDSU7c", "KomDYL8seu4", "WyAjMjI1GpE"],
+    "youtubeTitles": [
+      "AI streamed 10 hours while at work",
+      "Luna uploads her first TikTok",
+      "Luna makes announcements"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Luna Streamer",
+        "lead": "A leaner Luna cut for broadcast — on-camera energy that can run for hours.",
+        "narration": "Luna Streamer is the broadcast cut. Same soul, tuned for live streams that can keep going for hours."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Built for the broadcast",
+        "lead": "Lighter footprint. Persistent presence.",
+        "items": [
+          { "title": "Long sessions", "text": "Designed to stay live without constant babysitting." },
+          { "title": "On-camera energy", "text": "Personality that holds an audience between games." },
+          { "title": "Social hooks", "text": "Announcements and posting flows around going live." }
+        ],
+        "narration": "You get long sessions, on-camera energy, and social hooks around going live — so the companion can carry a broadcast."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Streaming receipts",
+        "lead": "Ten-hour solo streams, TikTok uploads, live announcements.",
+        "narration": "Channel snapshots: an A.I. that streamed for ten hours while I was at work, first TikTok uploads, and live announcements."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Stream-ready companion builds",
+          "Lightweight runtimes for long broadcasts",
+          "Chat engagement and announcement tools",
+          "Cross-post flows when you go live"
+        ],
+        "narration": "I can ship stream-ready companions, lightweight long-broadcast runtimes, chat engagement tools, and cross-post flows when you go live."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Talent that stays live",
+        "lead": "Broadcast AI that shows up and holds the room.",
+        "narration": "Broadcast A.I. that shows up and holds the room. That is Luna Streamer."
+      }
+    ]
+  },
+  {
+    "id": "luna-vision",
+    "name": "Luna Vision Co-host",
+    "accent": "#c4f542",
+    "category": "Vision",
+    "youtubeIds": ["o4nrzx5VOdw", "PuLz2rmvUgw", "PqzhsW__EwE"],
+    "youtubeTitles": [
+      "AI watches my League game",
+      "Gaming co-host strategy",
+      "AI VTuber plays League"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Luna Vision Co-host",
+        "lead": "A lightweight vision agent that sees your screen and joins the session with voice and reactions.",
+        "narration": "Luna Vision Co-host can see your screen. She joins games and activities with live reactions — a real co-host, not a chatbot on the side."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Screen-aware companionship",
+        "lead": "Vision plus voice for shared sessions.",
+        "items": [
+          { "title": "Screen understanding", "text": "Looks at what you are playing or working on." },
+          { "title": "Live reactions", "text": "Comments and banter tied to the moment." },
+          { "title": "Co-host energy", "text": "Built for gaming and activity streams." }
+        ],
+        "narration": "Screen understanding, live reactions, and co-host energy — vision tied to what is actually happening on your display."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "She watched the game",
+        "lead": "League sessions and gaming co-host clips from Solonaras.",
+        "narration": "These snapshots show Luna watching League, gaming co-host strategy, and VTuber play sessions where vision matters."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Screen-aware co-host agents",
+          "Game commentary with voice chat",
+          "Lightweight vision loops for live use",
+          "Reaction styles tuned to your content"
+        ],
+        "narration": "I can build screen-aware co-hosts, game commentary with voice, lightweight vision loops, and reaction styles tuned to your content."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "She can see it too",
+        "lead": "Vision turns companions into partners in the moment.",
+        "narration": "Vision turns companions into partners in the moment. That is Luna Vision Co-host."
+      }
+    ]
+  },
+  {
+    "id": "dj-agent",
+    "name": "DJ Agent",
+    "accent": "#ff5ca8",
+    "category": "Music",
+    "youtubeIds": ["1QvI6zd-r2Q", "t1FEyQmx53w", "S4EIE8sVN5s"],
+    "youtubeTitles": [
+      "Have YOU Ever Seen an Ai Concert?",
+      "Pixel Escape — Luna VRM Cover",
+      "YouTube flagged my own song"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "DJ Agent",
+        "lead": "Music intelligence that reads energy and keeps a set moving — vibe control, not a static playlist.",
+        "narration": "D.J. Agent is music intelligence. An A.I. built to read the room and keep the set alive."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Sets with a pulse",
+        "lead": "Performance systems for music and stage moments.",
+        "items": [
+          { "title": "Energy reading", "text": "Follow the room instead of a fixed queue." },
+          { "title": "Performance hooks", "text": "Connect music systems to avatars and shows." },
+          { "title": "Creator workflow", "text": "From experiment to published music moments." }
+        ],
+        "narration": "Energy reading, performance hooks into avatars and shows, and a creator workflow from experiment to published music moments."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Concert & cover energy",
+        "lead": "A.I. concert clips, VRM covers, and music experiments.",
+        "narration": "Channel snapshots include an A.I. concert moment, Luna VRM covers, and the chaos of shipping original music."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "AI DJ and set-control systems",
+          "Music + avatar performance pipelines",
+          "Interactive concert experiences",
+          "Tools that keep creative control with you"
+        ],
+        "narration": "I can build A.I. D.J. systems, music and avatar pipelines, interactive concert experiences, and tools that keep creative control with you."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Keep the set alive",
+        "lead": "Music agents that feel the room.",
+        "narration": "Music agents that feel the room. That is D.J. Agent."
+      }
+    ]
+  },
+  {
+    "id": "fluffy",
+    "name": "Desktop Companion",
+    "accent": "#ffa94d",
+    "category": "Desktop",
+    "youtubeIds": ["Jn7cWDWZkEM", "0IPw4M68YBo", "P5EAVrpKBco"],
+    "youtubeTitles": [
+      "Create A UI for An AI Companion",
+      "Your own AI agent ready here",
+      "My personal accountant on Luna"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Desktop Companion",
+        "lead": "Soft AI presence on the machine itself — help and personality without another browser tab.",
+        "narration": "Desktop Companion Fluffy lives on the machine. Soft presence, quick help — always within reach."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "UI + presence on desktop",
+        "lead": "Companions need a face and a place to live.",
+        "items": [
+          { "title": "Companion UI", "text": "Interfaces designed for daily presence." },
+          { "title": "Always reachable", "text": "No hunting through browser tabs." },
+          { "title": "Utility agents", "text": "From chat to practical helpers on the desktop." }
+        ],
+        "narration": "You get companion UIs, always-reachable presence, and utility agents — from chat to practical helpers on the desktop."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Building the face",
+        "lead": "UI builds, ready agents, and desktop utility experiments.",
+        "narration": "These snapshots show building a companion UI, ready agents on the desktop, and utility experiments like a personal accountant flow."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Desktop companion shells",
+          "Personality-first interface design",
+          "Local helpers for everyday tasks",
+          "Lightweight apps that stay out of the way"
+        ],
+        "narration": "I can build desktop companion shells, personality-first interfaces, local helpers for everyday tasks, and lightweight apps that stay out of the way."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Always within reach",
+        "lead": "Companions that live where you work.",
+        "narration": "Companions that live where you work. That is the desktop companion lane."
+      }
+    ]
+  },
+  {
+    "id": "singing-sdk",
+    "name": "Singing Avatar SDK",
+    "accent": "#a78bfa",
+    "category": "SDK",
+    "youtubeIds": ["t1FEyQmx53w", "D_UphkCrkZ0", "1QvI6zd-r2Q"],
+    "youtubeTitles": [
+      "Pixel Escape — Luna VRM Cover",
+      "Himari Singing Starlight Dream",
+      "Have YOU Ever Seen an Ai Concert?"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Singing Avatar SDK",
+        "lead": "Give avatars a voice that sings — covers, streams, and stage moments.",
+        "narration": "The Singing Avatar S.D.K. lets your avatar perform. Covers, streams, and expressive stage moments."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Performance tools",
+        "lead": "From speech systems to singing output.",
+        "items": [
+          { "title": "Singing pipeline", "text": "Turn performance audio into avatar-ready output." },
+          { "title": "VRM-friendly", "text": "Works with avatar formats used on stream." },
+          { "title": "Show moments", "text": "Build concerts, covers, and spotlights." }
+        ],
+        "narration": "A singing pipeline, VRM-friendly output, and tools for concerts, covers, and spotlight moments."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Avatars that perform",
+        "lead": "Luna covers, Himari singing, and A.I. concert energy.",
+        "narration": "Channel snapshots: Luna covering Pixel Escape, Himari singing, and A.I. concert experiments."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Avatar singing toolkits",
+          "Cover and performance workflows",
+          "Stream-ready performance scenes",
+          "Reusable SDKs for creative teams"
+        ],
+        "narration": "I can build avatar singing toolkits, cover workflows, stream-ready performance scenes, and reusable S.D.K.s for creative teams."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Give them a stage",
+        "lead": "Avatars that do more than talk.",
+        "narration": "Avatars that do more than talk. That is the Singing Avatar S.D.K."
+      }
+    ]
+  },
+  {
+    "id": "lunariko",
+    "name": "Multi-persona Companions",
+    "accent": "#38bdf8",
+    "category": "AI Companion",
+    "youtubeIds": ["hjSayKcP2Y0", "TYRX8SgvN3g", "i9g4apxkGUQ"],
+    "youtubeTitles": [
+      "Luna & Viktor bickering",
+      "Is Connection Worth Protecting?",
+      "Chaos & Order philosophy"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Multi-persona Companions",
+        "lead": "Several personalities in one system — different moods and skills, shared foundation.",
+        "narration": "Multi-persona companions fuse characters like Luna and Viktor into one stack. Different voices. One system."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Chemistry between agents",
+        "lead": "Personality collision is the feature.",
+        "items": [
+          { "title": "Multiple voices", "text": "Distinct characters that can share a session." },
+          { "title": "Relationship dynamics", "text": "Banter, conflict, and care that feel alive." },
+          { "title": "One foundation", "text": "Shared tools under separate personas." }
+        ],
+        "narration": "Multiple voices, relationship dynamics, and one foundation underneath — so chemistry between agents becomes the product."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Luna & Viktor",
+        "lead": "Bickering, deep talks, chaos and order.",
+        "narration": "These snapshots show Luna and Viktor bickering, talking about connection, and bouncing chaos against order."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Multi-agent personality systems",
+          "Shared memory with distinct voices",
+          "Duo or ensemble companion casts",
+          "Dynamics tuned for stream or product"
+        ],
+        "narration": "I can build multi-agent personality systems, shared memory with distinct voices, duo casts, and dynamics tuned for stream or product."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "More than one soul",
+        "lead": "Companions get interesting when they are not alone.",
+        "narration": "Companions get interesting when they are not alone. That is the multi-persona lane."
+      }
+    ]
+  },
+  {
+    "id": "choko",
+    "name": "Character Agents",
+    "accent": "#fb7185",
+    "category": "AI Companion",
+    "youtubeIds": ["T4VjwxsYlMs", "Yib_6fXjJfE", "K8OJ3Qkp93A"],
+    "youtubeTitles": [
+      "Luna's Savage Roast",
+      "I'm Done With The Fluff",
+      "Luna Calls Out A Viewer"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Character Agents",
+        "lead": "Personality-first AI — rough, funny, tough. Not generic assistants.",
+        "narration": "Character agents come first as personality. Think Choko Frixos energy — rough, funny, tough. Not a generic assistant."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Edge is the product",
+        "lead": "Voice and attitude designed on purpose.",
+        "items": [
+          { "title": "Sharp persona", "text": "A clear character bible, not bland helpfulness." },
+          { "title": "Memorable moments", "text": "Roasts, bold takes, and signature lines." },
+          { "title": "Brand fit", "text": "Agents that match a vibe you can sell." }
+        ],
+        "narration": "Sharp persona, memorable moments, and brand fit — agents with a vibe you can actually ship."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Attitude on camera",
+        "lead": "Savage roasts, bold moments, viewer call-outs.",
+        "narration": "Channel snapshots of attitude on camera — savage roasts, bold moments, and call-outs that stick."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Character bibles and voice guides",
+          "Agents with intentional edge",
+          "Stream-ready personality packs",
+          "Companions that feel cast, not generated"
+        ],
+        "narration": "I can build character bibles, agents with intentional edge, stream-ready personality packs, and companions that feel cast — not generated."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Personality first",
+        "lead": "If it could be anyone, it will be forgotten.",
+        "narration": "If it could be anyone, it will be forgotten. Character agents put personality first."
+      }
+    ]
+  },
+  {
+    "id": "book-editor",
+    "name": "AuthorHub",
+    "accent": "#f97316",
+    "category": "Writing",
+    "youtubeIds": ["g73cmxf2yr8", "4x-5P_iEOPw"],
+    "youtubeTitles": [
+      "Luna talking about writing a book",
+      "E-book Creation Made Easy"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "AuthorHub",
+        "lead": "A local book editor for real manuscripts — chapter maps, compare views, reshape tools, print-ready export.",
+        "narration": "AuthorHub is the book editor. A local workspace for real manuscripts — not an A.I. that rewrites your voice into someone else's."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "See the book as a book",
+        "lead": "Built for Proving Them Wrong and books like it.",
+        "items": [
+          { "title": "Chapter map", "text": "Parts, progress, and status for every chapter." },
+          { "title": "Compare + reshape", "text": "Original beside edited. Voice stays yours." },
+          { "title": "Export local", "text": "PDF and Word for Amazon, kept on your machine." }
+        ],
+        "narration": "Chapter maps, compare and reshape, Kindle and hardcopy previews, and local Amazon exports that stay on your machine."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Writing on Solonaras",
+        "lead": "Book talk and ebook creation moments from the channel.",
+        "narration": "Related channel snapshots — Luna talking about writing a book with a viewer, and earlier ebook creation experiments."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Author workspaces for memoirs and workbooks",
+          "Print-ready page systems",
+          "Compare and edit flows that protect voice",
+          "Local export pipelines for publishing"
+        ],
+        "narration": "I can build author workspaces, print-ready page systems, compare flows that protect voice, and local export pipelines for publishing."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Prove them wrong",
+        "lead": "Clear pages. Your voice. The reader gets the fire.",
+        "narration": "Clear pages. Your voice. The reader gets the fire. That is AuthorHub."
+      }
+    ]
+  },
+  {
+    "id": "client-work",
+    "name": "Custom Websites",
+    "accent": "#94a3b8",
+    "category": "Web",
+    "youtubeIds": ["RH7nYD40AZc", "Jn7cWDWZkEM", "4Qf_GpjUXbE"],
+    "youtubeTitles": [
+      "Luna demo in custom VR world",
+      "Create A UI for An AI Companion",
+      "AI UI personality"
+    ],
+    "scenes": [
+      {
+        "type": "intro",
+        "badge": "Product tour",
+        "title": "Custom Websites",
+        "lead": "Sites, worlds, and embedded assistants shipped for real people — books, nutrition, widgets, and more.",
+        "narration": "Beyond the Lunaverse, I build custom websites, worlds, and embedded assistants for real people and real launches."
+      },
+      {
+        "type": "features",
+        "badge": "What you get",
+        "title": "Client-ready builds",
+        "lead": "Polished experiences with a job to do.",
+        "items": [
+          { "title": "Marketing sites", "text": "Book pages, brand sites, and landing stories." },
+          { "title": "Embedded assistants", "text": "Widgets and helpers that live on the page." },
+          { "title": "Custom worlds", "text": "Interactive spaces for demos and experiences." }
+        ],
+        "narration": "Marketing sites, embedded assistants, and custom worlds — polished experiences with a job to do."
+      },
+      {
+        "type": "youtube",
+        "badge": "From the channel",
+        "title": "Worlds & interfaces",
+        "lead": "VR feature demos and companion UI builds.",
+        "narration": "Channel snapshots of custom worlds and interfaces — Luna demos in V.R., companion UIs, and personality on the page."
+      },
+      {
+        "type": "steps",
+        "badge": "Capability",
+        "title": "What I can build for you",
+        "steps": [
+          "Client websites with clear brand voice",
+          "Assistant widgets for existing sites",
+          "Interactive demo worlds",
+          "Fast launches for family, friends, and clients"
+        ],
+        "narration": "I can build client websites, assistant widgets, interactive demo worlds, and fast launches for family, friends, and clients."
+      },
+      {
+        "type": "outro",
+        "badge": "Solonaras",
+        "title": "Shipped for people",
+        "lead": "If you need a site or an experience, I can make it real.",
+        "narration": "If you need a site or an experience, I can make it real. Custom work, shipped for people."
+      }
+    ]
+  }
+]

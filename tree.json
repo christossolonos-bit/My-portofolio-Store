@@ -1,0 +1,574 @@
+{
+  "sha": "326d5569644653623122942ab541f3b08d14128a",
+  "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/326d5569644653623122942ab541f3b08d14128a",
+  "tree": [
+    {
+      "path": ".cursor",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8873f22c11ead473b315cd63dec6c08a5b78d665",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/8873f22c11ead473b315cd63dec6c08a5b78d665"
+    },
+    {
+      "path": ".cursor/hooks.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "891963f81dfc0d3ea6b3b7a92144531db2dc2a26",
+      "size": 253,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/891963f81dfc0d3ea6b3b7a92144531db2dc2a26"
+    },
+    {
+      "path": ".cursor/hooks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a8d230f9fd0a5a3f7fb603327def02297d309fea",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/a8d230f9fd0a5a3f7fb603327def02297d309fea"
+    },
+    {
+      "path": ".cursor/hooks/editor_server.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f176da6fc158fde96b5ab0fbfd0d646d2da55e0d",
+      "size": 3474,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/f176da6fc158fde96b5ab0fbfd0d646d2da55e0d"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ea57cd30c2dd63e18644ad87dced1e5966f54fb",
+      "size": 485,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/6ea57cd30c2dd63e18644ad87dced1e5966f54fb"
+    },
+    {
+      "path": ".oxlintrc.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1255078235d0ce4e80ac34866d5ce2af89aa6220",
+      "size": 231,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/1255078235d0ce4e80ac34866d5ce2af89aa6220"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "size": 11357,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b44b0c3a3c53d0abfe4c547d4faeae181f965160",
+      "size": 2633,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/b44b0c3a3c53d0abfe4c547d4faeae181f965160"
+    },
+    {
+      "path": "compose_front_cover.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ca5d1924a579c0750124dc617091e8907ffa28f",
+      "size": 3985,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/2ca5d1924a579c0750124dc617091e8907ffa28f"
+    },
+    {
+      "path": "export_google_docs.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e5406c708245def5122b9d2ef93b92dd0a2308a",
+      "size": 9350,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/0e5406c708245def5122b9d2ef93b92dd0a2308a"
+    },
+    {
+      "path": "export_kindle_docx.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44495a96799a033f73e0987748ac7318a425c2bc",
+      "size": 5759,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/44495a96799a033f73e0987748ac7318a425c2bc"
+    },
+    {
+      "path": "export_layout.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "adb68ce6977cdbe8432bb5dddd9a225c25924128",
+      "size": 9748,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/adb68ce6977cdbe8432bb5dddd9a225c25924128"
+    },
+    {
+      "path": "export_pdf.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22fab375025e6732f4bb6defda0ffd3fb9bb0285",
+      "size": 13689,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/22fab375025e6732f4bb6defda0ffd3fb9bb0285"
+    },
+    {
+      "path": "export_print_docx.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83eb3d10cc41d6c9bf8b4ed00a86a39670f83e36",
+      "size": 7820,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/83eb3d10cc41d6c9bf8b4ed00a86a39670f83e36"
+    },
+    {
+      "path": "index.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c37fb5382898b5c141bda44149eac9af5bc42352",
+      "size": 742,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/c37fb5382898b5c141bda44149eac9af5bc42352"
+    },
+    {
+      "path": "manuscript-export.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61c5d07f7fd4b4bca1250280e7e131778071b744",
+      "size": 23300,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/61c5d07f7fd4b4bca1250280e7e131778071b744"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2922cc1ab37a70f3c7be3633144eac150e34b015",
+      "size": 39506,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/2922cc1ab37a70f3c7be3633144eac150e34b015"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bb0622b807930715bef566e8d6c2401aacb3b9d",
+      "size": 547,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/7bb0622b807930715bef566e8d6c2401aacb3b9d"
+    },
+    {
+      "path": "public",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d728364063e22ae5676e83de578ec58c2b282604",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/d728364063e22ae5676e83de578ec58c2b282604"
+    },
+    {
+      "path": "public/art",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e050c60a5dc336589c50c2c5f5cde71388a0b7b6",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/e050c60a5dc336589c50c2c5f5cde71388a0b7b6"
+    },
+    {
+      "path": "public/art/ch01.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10806cea1c7764e65c60e465343fb2a202e39b0d",
+      "size": 2036901,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/10806cea1c7764e65c60e465343fb2a202e39b0d"
+    },
+    {
+      "path": "public/art/ch02.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48d51172cebb595856c78fb5353d2346654d905e",
+      "size": 2374218,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/48d51172cebb595856c78fb5353d2346654d905e"
+    },
+    {
+      "path": "public/art/ch03.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc06ff991e0a92a265b2f7bc26c57eb00f26b1dd",
+      "size": 2045765,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/bc06ff991e0a92a265b2f7bc26c57eb00f26b1dd"
+    },
+    {
+      "path": "public/art/ch04.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "993b6abe6385485c8f815dbb146f87b975b92fd2",
+      "size": 2107164,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/993b6abe6385485c8f815dbb146f87b975b92fd2"
+    },
+    {
+      "path": "public/art/ch05.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c0e0aa915a4a0c23c984429b249698eae0c405a",
+      "size": 1960031,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/7c0e0aa915a4a0c23c984429b249698eae0c405a"
+    },
+    {
+      "path": "public/art/ch06.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66528c6ed8806f40bad1baa7e469048c980ce376",
+      "size": 1882360,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/66528c6ed8806f40bad1baa7e469048c980ce376"
+    },
+    {
+      "path": "public/art/ch07.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64a2cc99958d4530c4a6f3c1899f0172ee8aa47c",
+      "size": 2389221,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/64a2cc99958d4530c4a6f3c1899f0172ee8aa47c"
+    },
+    {
+      "path": "public/art/ch08.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a176fa3e356ecbadf40ff2b8bfc36ea1dad6285",
+      "size": 1778986,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/5a176fa3e356ecbadf40ff2b8bfc36ea1dad6285"
+    },
+    {
+      "path": "public/art/ch09.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13bdf82813f271fcbbe2e4ac35e08225e58e2b31",
+      "size": 2340850,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/13bdf82813f271fcbbe2e4ac35e08225e58e2b31"
+    },
+    {
+      "path": "public/art/ch10.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c5ddd0b03d65864233a7f80a507d226186aa2ae",
+      "size": 1860080,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/6c5ddd0b03d65864233a7f80a507d226186aa2ae"
+    },
+    {
+      "path": "public/art/ch11.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "185cfb835c61e0e9e9122d6e353a4d9c51c28ee9",
+      "size": 2024487,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/185cfb835c61e0e9e9122d6e353a4d9c51c28ee9"
+    },
+    {
+      "path": "public/art/ch12.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1eaa47d07017c5db3a43c7bb1633d22ac6959636",
+      "size": 2043283,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/1eaa47d07017c5db3a43c7bb1633d22ac6959636"
+    },
+    {
+      "path": "public/art/ch13.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0bb06dea14be43a00e9f36311fe28b83b08a3df0",
+      "size": 2765569,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/0bb06dea14be43a00e9f36311fe28b83b08a3df0"
+    },
+    {
+      "path": "public/art/closing.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a61ea3cd85649d59b101ab613d35d9c878d9118",
+      "size": 2355799,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/8a61ea3cd85649d59b101ab613d35d9c878d9118"
+    },
+    {
+      "path": "public/art/extra-01.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f7c5c0ea4ce694159ee805954b30ec2bb2ee7d0",
+      "size": 2395856,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/6f7c5c0ea4ce694159ee805954b30ec2bb2ee7d0"
+    },
+    {
+      "path": "public/art/extra-02.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b8102826f56086d5c4d89f9f9b1aedcbb6e87e2",
+      "size": 2187207,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/8b8102826f56086d5c4d89f9f9b1aedcbb6e87e2"
+    },
+    {
+      "path": "public/art/extra-03.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d110f0eb5fd67a86f930cd91a4fdb806b9bf3b0b",
+      "size": 1785701,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/d110f0eb5fd67a86f930cd91a4fdb806b9bf3b0b"
+    },
+    {
+      "path": "public/art/extra-04.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d2d1418b63a3579b521015b6f54912fb70bf1f5",
+      "size": 1864686,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/7d2d1418b63a3579b521015b6f54912fb70bf1f5"
+    },
+    {
+      "path": "public/art/extra-05.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f037986fec5db418379963c3489087845692896",
+      "size": 2339027,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/6f037986fec5db418379963c3489087845692896"
+    },
+    {
+      "path": "public/art/extra-06.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3d1e1b688c29105a5dae9d5ddc4209e0c7a7bfe",
+      "size": 1897054,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/d3d1e1b688c29105a5dae9d5ddc4209e0c7a7bfe"
+    },
+    {
+      "path": "public/art/extra-07.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed142321b8003eecd23df03b1cf4824104df442e",
+      "size": 2292853,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/ed142321b8003eecd23df03b1cf4824104df442e"
+    },
+    {
+      "path": "public/art/extra-08.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab0fef3d96785ddc58c08e1a385c8e6205943e66",
+      "size": 2291216,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/ab0fef3d96785ddc58c08e1a385c8e6205943e66"
+    },
+    {
+      "path": "public/art/extra-09.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50bd3f66e58b0a995ec88929429f97e5ef576b76",
+      "size": 2049947,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/50bd3f66e58b0a995ec88929429f97e5ef576b76"
+    },
+    {
+      "path": "public/art/extra-10.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c3a5b008ccd1322501b3617e6e8dc48492bd9a2",
+      "size": 2217854,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/9c3a5b008ccd1322501b3617e6e8dc48492bd9a2"
+    },
+    {
+      "path": "public/art/prologue.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1173150602c51ad2402fb12fcbdaa43741fa39a2",
+      "size": 2080008,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/1173150602c51ad2402fb12fcbdaa43741fa39a2"
+    },
+    {
+      "path": "public/back-cover.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17542bf1bf1a2981681daf1e1cbb63caa6949812",
+      "size": 1943938,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/17542bf1bf1a2981681daf1e1cbb63caa6949812"
+    },
+    {
+      "path": "public/cover-art.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bff3de13dbf3cf871755b23e1b6641418118f411",
+      "size": 2690227,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/bff3de13dbf3cf871755b23e1b6641418118f411"
+    },
+    {
+      "path": "public/cover-original-darkborder.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "270e45e94815d6364d535bbd8d4d8f6598d854d5",
+      "size": 2166899,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/270e45e94815d6364d535bbd8d4d8f6598d854d5"
+    },
+    {
+      "path": "public/cover.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0d1bcfb3b61eaad9af9f8fc876f316760460799",
+      "size": 2590362,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/e0d1bcfb3b61eaad9af9f8fc876f316760460799"
+    },
+    {
+      "path": "public/favicon.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6893eb13237060adc0c968a690149a49faa2d7d3",
+      "size": 9522,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/6893eb13237060adc0c968a690149a49faa2d7d3"
+    },
+    {
+      "path": "public/icons.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9522193d9f796a9748e9ad8c952a5df73c87db9",
+      "size": 5031,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/e9522193d9f796a9748e9ad8c952a5df73c87db9"
+    },
+    {
+      "path": "rebuild_nodashes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38d30fc63616533c344860e33e52806de805fa30",
+      "size": 1403,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/38d30fc63616533c344860e33e52806de805fa30"
+    },
+    {
+      "path": "rebuild_print.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd6ee1a709a442247a6be80d273abbb81cfccf62",
+      "size": 848,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/fd6ee1a709a442247a6be80d273abbb81cfccf62"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f25440c85195e5e54800043fffac92a8acd2e5f9",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/f25440c85195e5e54800043fffac92a8acd2e5f9"
+    },
+    {
+      "path": "scripts/dev.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89a8ba958a007f8313044e55b225ebe4725eee6e",
+      "size": 891,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/89a8ba958a007f8313044e55b225ebe4725eee6e"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0aaf8b98c106d9f4901f73d094bd3f22c2010d7a",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/0aaf8b98c106d9f4901f73d094bd3f22c2010d7a"
+    },
+    {
+      "path": "src/App.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d67639d88032ff967fab194b0c984752160b263b",
+      "size": 18031,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/d67639d88032ff967fab194b0c984752160b263b"
+    },
+    {
+      "path": "src/App.jsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a9a2ebbd074c46fe8d7a24897593c88a5ab085b",
+      "size": 20839,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/0a9a2ebbd074c46fe8d7a24897593c88a5ab085b"
+    },
+    {
+      "path": "src/assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cff299901617c708226dccca2b0bf0ab0378c5fa",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/cff299901617c708226dccca2b0bf0ab0378c5fa"
+    },
+    {
+      "path": "src/assets/hero.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02251f4b956c55af2d76fd0788124d7eee2b45eb",
+      "size": 13057,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/02251f4b956c55af2d76fd0788124d7eee2b45eb"
+    },
+    {
+      "path": "src/assets/react.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c87de9bb3358469122cc991d5cf578927246184",
+      "size": 4126,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/6c87de9bb3358469122cc991d5cf578927246184"
+    },
+    {
+      "path": "src/assets/vite.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5101b674df391399da71c767aa5c976426c9dc7a",
+      "size": 8709,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/5101b674df391399da71c767aa5c976426c9dc7a"
+    },
+    {
+      "path": "src/components",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "119bd22bfea2001c31a7b01db6e18d31f64a3f35",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/119bd22bfea2001c31a7b01db6e18d31f64a3f35"
+    },
+    {
+      "path": "src/components/StippleDraft.jsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1299c09eea375bf039af82f8fdc3c64948d56f82",
+      "size": 1600,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/1299c09eea375bf039af82f8fdc3c64948d56f82"
+    },
+    {
+      "path": "src/components/ToolsMenu.jsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6af39479b1a1836237454a048cb9c2bf49fb4ca0",
+      "size": 6398,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/6af39479b1a1836237454a048cb9c2bf49fb4ca0"
+    },
+    {
+      "path": "src/data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "924133dfc858f2bbea60b211263a84ac91c9ebbf",
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/trees/924133dfc858f2bbea60b211263a84ac91c9ebbf"
+    },
+    {
+      "path": "src/data/book.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd2e9cc34d69bb5e3e75d80f7ca371507a01be64",
+      "size": 37871,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/cd2e9cc34d69bb5e3e75d80f7ca371507a01be64"
+    },
+    {
+      "path": "src/formats.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8fe56baec0ba06cea624cd66c8c566c22ca74c1",
+      "size": 751,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/b8fe56baec0ba06cea624cd66c8c566c22ca74c1"
+    },
+    {
+      "path": "src/index.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9971663fab13258335ace58e022309cbb383fc5c",
+      "size": 773,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/9971663fab13258335ace58e022309cbb383fc5c"
+    },
+    {
+      "path": "src/main.jsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9a1a6deac8775b5598874b2bc3c7971d82cf211",
+      "size": 229,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/b9a1a6deac8775b5598874b2bc3c7971d82cf211"
+    },
+    {
+      "path": "tools_server.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cbaf0348b747bc0f13a7d9bcc11207e78ee925a7",
+      "size": 7848,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/cbaf0348b747bc0f13a7d9bcc11207e78ee925a7"
+    },
+    {
+      "path": "vite.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f04bd4d56c62b7d27b877751ecddcafa0a0640b4",
+      "size": 292,
+      "url": "https://api.github.com/repos/christossolonos-bit/the-book-editor/git/blobs/f04bd4d56c62b7d27b877751ecddcafa0a0640b4"
+    }
+  ],
+  "truncated": false
+}

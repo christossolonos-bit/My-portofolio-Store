@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AuthorHub Tour</title>
+  <style>
+    :root {
+      --bg: #12141a;
+      --panel: #1a1d26;
+      --ink: #f4f1ea;
+      --muted: #9aa3b2;
+      --line: #2a3140;
+      --accent: #f97316;
+      --accent-soft: #fdba74;
+      --good: #34d399;
+      --pending: #fb923c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #07080c;
+      color: var(--ink);
+      font-family: var(--sans);
+    }
+    .scene {
+      display: none;
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      padding: 56px 64px;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(249, 115, 22, 0.18), transparent 45%),
+        radial-gradient(ellipse at 80% 90%, rgba(56, 189, 248, 0.08), transparent 40%),
+        linear-gradient(160deg, #0c0e14, #151822 55%, #0b0d12);
+    }
+    .scene.active { display: block; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(249, 115, 22, 0.45);
+      border-radius: 999px;
+      color: var(--accent-soft);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 18px 0 12px;
+      font-size: 84px;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    h2 {
+      margin: 0 0 18px;
+      font-size: 48px;
+      letter-spacing: -0.02em;
+    }
+    .lead {
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 28px;
+      line-height: 1.45;
+    }
+    .callout {
+      margin-top: 36px;
+      padding: 22px 26px;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,255,255,0.03);
+      font-size: 24px;
+      max-width: 980px;
+      color: #e8e4dc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 28px;
+      height: calc(100% - 110px);
+      margin-top: 28px;
+    }
+    .sidebar, .main, .card {
+      background: rgba(20, 24, 34, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .sidebar {
+      padding: 22px;
+    }
+    .progress {
+      height: 8px;
+      border-radius: 999px;
+      background: #2a3140;
+      overflow: hidden;
+      margin: 10px 0 18px;
+    }
+    .progress > span {
+      display: block;
+      height: 100%;
+      width: 18%;
+      background: linear-gradient(90deg, var(--accent), #fb923c);
+    }
+    .part {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 16px 0 8px;
+    }
+    .chapter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+    .chapter.active {
+      background: rgba(249, 115, 22, 0.15);
+      outline: 1px solid rgba(249, 115, 22, 0.35);
+    }
+    .status {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pending);
+      border: 1px solid rgba(251, 146, 60, 0.5);
+      border-radius: 999px;
+      padding: 4px 8px;
+    }
+    .status.edited {
+      color: var(--good);
+      border-color: rgba(52, 211, 153, 0.5);
+    }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+    .tab {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .tab.on {
+      background: var(--accent);
+      color: #1a0f08;
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+    .btn {
+      margin-left: auto;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #1a0f08;
+      font-weight: 700;
+      border: 0;
+      font-size: 16px;
+    }
+    .pages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      padding: 22px;
+      height: calc(100% - 70px);
+    }
+    .page {
+      background: #f7f3ea;
+      color: #1f1a14;
+      border-radius: 8px;
+      padding: 28px 30px;
+      font-family: var(--serif);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      position: relative;
+    }
+    .page h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    .page .meta {
+      color: #8a8072;
+      font-size: 13px;
+      margin-bottom: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .page p {
+      margin: 0 0 14px;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .page .quote {
+      font-style: italic;
+      color: #5b5044;
+    }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 20px;
+      height: calc(100% - 70px);
+    }
+    .pane {
+      background: #10141c;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .pane h4 {
+      margin: 0 0 12px;
+      color: var(--accent-soft);
+      font-size: 18px;
+    }
+    .pane p {
+      margin: 0 0 12px;
+      color: #d7dde8;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .feature {
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      min-height: 180px;
+    }
+    .feature strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: var(--accent-soft);
+    }
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.45;
+    }
+    .footer-note {
+      position: absolute;
+      left: 64px;
+      bottom: 48px;
+      color: var(--muted);
+      font-size: 18px;
+      letter-spacing: 0.04em;
+    }
+    .big-mark {
+      position: absolute;
+      right: 70px;
+      bottom: 60px;
+      font-size: 120px;
+      opacity: 0.08;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+    .highlight {
+      position: absolute;
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.15);
+      pointer-events: none;
+    }
+    .tip {
+      position: absolute;
+      background: var(--accent);
+      color: #1a0f08;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      max-width: 320px;
+    }
+    .tip::after {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: -8px;
+      border: 8px solid transparent;
+      border-bottom-color: var(--accent);
+      border-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- 0 Intro -->
+  <section class="scene" data-scene="0">
+    <div class="badge">Solonaras · Product tour</div>
+    <h1>AuthorHub</h1>
+    <p class="lead">A local book editor built for real manuscripts — not another AI that rewrites your voice into someone else’s.</p>
+    <div class="callout">Built for <strong>Proving Them Wrong</strong>: epilepsy, fear, other people’s limits, and the decision to keep going.</div>
+    <div class="footer-note">Tutorial · 8 steps · from the book-editor workspace</div>
+    <div class="big-mark">AH</div>
+  </section>
+
+  <!-- 1 What it is -->
+  <section class="scene" data-scene="1">
+    <div class="badge">Step 1 · Purpose</div>
+    <h2>See the book as a book</h2>
+    <p class="lead">AuthorHub holds the full manuscript so you can flip real pages, feel chapter flow, and keep the author’s fire — not the fog.</p>
+    <div class="features">
+      <div class="feature"><strong>Hold the manuscript</strong><p>Prologue through closing, reshaped into chapters that breathe.</p></div>
+      <div class="feature"><strong>Print-ready pages</strong><p>Fixed trim sizes. Kindle 5×8 and hardcopy 6×9 — no fake endless scroll.</p></div>
+      <div class="feature"><strong>Stay local</strong><p>Your story stays on your machine until you choose to export.</p></div>
+    </div>
+    <div class="footer-note">Not a blank template. A workspace for one hard story.</div>
+  </section>
+
+  <!-- 2 Sidebar -->
+  <section class="scene" data-scene="2">
+    <div class="badge">Step 2 · Chapter map</div>
+    <h2>Navigate every chapter</h2>
+    <div class="grid">
+      <aside class="sidebar">
+        <div style="font-size:14px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;">Edit progress</div>
+        <div class="progress"><span></span></div>
+        <div style="font-size:16px;color:var(--muted);margin-bottom:8px;">3 / 16 chapters ready</div>
+        <div class="part">Front</div>
+        <div class="chapter active"><span>Prologue</span><span class="status">Pending</span></div>
+        <div class="part">Part I — My Story</div>
+        <div class="chapter"><span>1. The Diagnosis</span><span class="status">Pending</span></div>
+        <div class="chapter"><span>2. The Programming</span><span class="status edited">Edited</span></div>
+        <div class="chapter"><span>3. The Vision Board</span><span class="status">Pending</span></div>
+        <div class="part">Part II — Your Turn</div>
+        <div class="chapter"><span>8. Who Do You Want to Prove Wrong?</span><span class="status">Pending</span></div>
+      </aside>
+      <div class="main" style="padding:40px;">
+        <h3 style="margin:0 0 12px;font-size:36px;">Sidebar = the spine of the book</h3>
+        <p class="lead" style="font-size:24px;">Chapters group by part. Status badges show Pending, In progress, or Edited. Progress updates as chapters get reshaped.</p>
+        <div class="callout">Click a chapter to open it in Book pages, Original, or Compare.</div>
+      </div>
+    </div>
+    <div class="highlight" style="left:64px;top:210px;width:420px;height:720px;"></div>
+    <div class="tip" style="left:520px;top:250px;">Your chapter map</div>
+  </section>
+
+  <!-- 3 Formats -->
+  <section class="scene" data-scene="3">
+    <div class="badge">Step 3 · Formats</div>
+    <h2>Preview real trim sizes</h2>
+    <div class="grid" style="grid-template-columns: 1fr;">
+      <div class="main">
+        <div class="toolbar">
+          <div class="tab on">Hardcopy 6×9</div>
+          <div class="tab">Kindle 5×8</div>
+          <div class="tab">Book pages</div>
+          <div class="tab">Original</div>
+          <div class="tab">Compare</div>
+        </div>
+        <div class="pages">
+          <div class="page">
+            <div class="meta">Front · Prologue</div>
+            <h3>Prologue</h3>
+            <p>I was five years old when the first seizure hit. The room tilted. Voices stretched. Then the world went quiet.</p>
+            <p class="quote">“He’ll never lead a normal life like other children!”</p>
+            <p>That sentence followed me for years. AuthorHub exists so pages like this can be fixed without losing the punch.</p>
+          </div>
+          <div class="page">
+            <div class="meta">Hardcopy 6×9 · page 2</div>
+            <h3>Fixed pages</h3>
+            <p>Toggle Kindle or Hardcopy in the sidebar. Pagination fills real line budgets so you feel whether a chapter lands.</p>
+            <p>Chapter art sits at the bottom when there’s room — not dumped mid-paragraph.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tip" style="left:120px;top:185px;">Switch Kindle ↔ Hardcopy</div>
+  </section>
+
+  <!-- 4 Compare -->
+  <section class="scene" data-scene="4">
+    <div class="badge">Step 4 · Compare</div>
+    <h2>Original vs Edited, side by side</h2>
+    <div class="grid" style="grid-template-columns: 1fr;">
+      <div class="main">
+        <div class="toolbar">
+          <div class="tab">Book pages</div>
+          <div class="tab">Original</div>
+          <div class="tab on">Compare</div>
+          <button class="btn">Edit text</button>
+        </div>
+        <div class="compare">
+          <div class="pane">
+            <h4>Original draft</h4>
+            <p>I was five years old when the first seizure hit. The room tilted. Voices stretched.</p>
+            <p class="quote" style="color:#fdba74;font-style:italic;">“He’ll never lead a normal life like other children!”</p>
+            <p>Raw manuscript text stays intact so you always have the source of truth.</p>
+          </div>
+          <div class="pane">
+            <h4>Edited version</h4>
+            <p>At five, the first seizure hit hard. The room tilted. Voices stretched — then silence.</p>
+            <p>That line about a “normal life” stuck. In the edit, clarity goes up. The voice stays yours.</p>
+            <p style="color:#9aa3b2;">If nothing is edited yet, AuthorHub tells you plainly: reshape the chapter first.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Edit -->
+  <section class="scene" data-scene="5">
+    <div class="badge">Step 5 · Reshape</div>
+    <h2>Edit text without losing control</h2>
+    <div class="grid">
+      <div class="card" style="padding:28px;">
+        <h3 style="margin-top:0;">Edit text panel</h3>
+        <p class="lead" style="font-size:22px;">Open <strong>Edit text</strong> to work the raw chapter. Word count updates live. Status flips from Pending → In progress → Edited.</p>
+        <div class="callout">Optional: ask Cursor to reshape a chapter in your voice — AuthorHub still owns the pages.</div>
+      </div>
+      <div class="main">
+        <div class="toolbar">
+          <div class="tab">Book pages</div>
+          <div class="tab">Original</div>
+          <div class="tab">Compare</div>
+          <button class="btn">Close editor</button>
+        </div>
+        <div style="padding:22px;height:calc(100% - 70px);">
+          <div style="margin-bottom:10px;color:var(--muted);">Raw chapter text · 248 words</div>
+          <div style="height:calc(100% - 40px);border:1px solid var(--line);border-radius:12px;padding:18px;background:#0d1118;font-size:18px;line-height:1.55;color:#e8eef7;">
+            I was five years old when the first seizure hit. The room tilted. Voices stretched. Then the world went quiet...<br/><br/>
+            Edit here. Keep the heat. Drop the fog.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Tools -->
+  <section class="scene" data-scene="6">
+    <div class="badge">Step 6 · Editor tools</div>
+    <h2>Export when you’re ready</h2>
+    <div class="features">
+      <div class="feature"><strong>Cover rebuild</strong><p>Compose the front cover so the title actually shows up.</p></div>
+      <div class="feature"><strong>PDF & Word</strong><p>Local Amazon-ready exports. Big PDFs stay on your machine on purpose.</p></div>
+      <div class="feature"><strong>Built-in map</strong><p>Format toggle, compare views, workbook questions, chapter art — listed in Editor tools.</p></div>
+    </div>
+    <div class="callout" style="margin-top:28px;">Open <strong>Editor tools</strong> in the toolbar. No Cursor chat required for cover rebuild or export actions when the tools server is running.</div>
+    <div class="footer-note">npm run dev starts the preview and the local tools server together.</div>
+  </section>
+
+  <!-- 7 Close -->
+  <section class="scene" data-scene="7">
+    <div class="badge">Step 7 · The point</div>
+    <h1 style="font-size:72px;">Prove them wrong.</h1>
+    <p class="lead">AuthorHub keeps the layout honest while you keep the story. Clear pages. Your voice. The reader gets the fire.</p>
+    <div class="features">
+      <div class="feature"><strong>Start</strong><p>npm install · npm run dev · open localhost</p></div>
+      <div class="feature"><strong>Shape</strong><p>Map chapters · compare · edit · preview trim sizes</p></div>
+      <div class="feature"><strong>Ship</strong><p>Export JSON · PDF · Word into amazon-ready/</p></div>
+    </div>
+    <div class="footer-note">AuthorHub · Solonaras book editor tour</div>
+    <div class="big-mark">PTW</div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(location.search)
+    const index = Number(params.get('scene') || '0')
+    document.querySelectorAll('.scene').forEach((el, i) => {
+      el.classList.toggle('active', i === index)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[build]
+builder = "NIXPACKS"
+# Seeds Solonaras knowledge.json, then builds the Next guide API.
+buildCommand = "npm run build"
+
+[deploy]
+startCommand = "npm run start"
+healthcheckPath = "/api/config"
+restartPolicyType = "ON_FAILURE"
