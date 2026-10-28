@@ -1,9 +1,7 @@
 [build]
-builder = "NIXPACKS"
-# Monorepo: store vs guide decided by RAILWAY_SERVICE_NAME in the scripts.
-buildCommand = "node scripts/railway-build.mjs"
+builder = "RAILPACK"
+# package.json "build" / "start" branch on RAILWAY_SERVICE_NAME (store vs guide).
 
 [deploy]
-startCommand = "node scripts/railway-start.mjs"
 healthcheckPath = "/"
 restartPolicyType = "ON_FAILURE"

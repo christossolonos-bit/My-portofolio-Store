@@ -11,5 +11,5 @@ if (isGuide) {
   execSync('npm run build', { cwd: 'assistant', stdio: 'inherit' })
 } else {
   console.log(`Railway build → store (service=${service || 'store'})`)
-  execSync('npm run build', { stdio: 'inherit' })
+  execSync('npm run build:store', { stdio: 'inherit' })
 }
