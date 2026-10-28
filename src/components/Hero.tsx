@@ -58,8 +58,8 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
           SOLONARAS
         </h1>
         <p className="hero-line">
-          A portfolio of what I can build — companions, voice & stage, live &
-          games, author & web. Open a cluster, then watch the tour.
+          AI companions, voice & stage, live & games, author & web — open a
+          cluster and watch the tour.
         </p>
         <div className="hero-actions">
           <button
