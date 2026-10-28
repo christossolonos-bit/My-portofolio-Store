@@ -1883,22 +1883,53 @@ html.is-phone-layout {
 
 /* On wide screens, phone mode sits in a phone-width column */
 @media (min-width: 721px) {
+  html.is-phone-layout {
+    --phone-frame: 430px;
+  }
+
   html.is-phone-layout body {
     background: #04070c;
   }
 
   html.is-phone-layout .app {
-    max-width: 430px;
+    max-width: var(--phone-frame);
     margin: 0 auto;
     min-height: 100svh;
     box-shadow: 0 0 0 1px rgba(232, 238, 247, 0.08), 0 24px 80px rgba(0, 0, 0, 0.55);
   }
 
-  html.is-phone-layout .scene-root {
-    max-width: 430px;
+  html.is-phone-layout .scene-root,
+  html.is-phone-layout .topbar,
+  html.is-phone-layout .welcome-tour,
+  html.is-phone-layout .sol-guide,
+  html.is-phone-layout .voice-guide {
     left: 50%;
     right: auto;
+    width: var(--phone-frame);
+    max-width: var(--phone-frame);
     transform: translateX(-50%);
+    box-sizing: border-box;
+  }
+
+  html.is-phone-layout .scene-root {
+    max-width: var(--phone-frame);
+  }
+
+  html.is-phone-layout .welcome-tour {
+    width: calc(var(--phone-frame) - 1.5rem);
+    max-width: calc(var(--phone-frame) - 1.5rem);
+  }
+
+  html.is-phone-layout .sol-guide {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  html.is-phone-layout .sol-guide:has(.sol-guide-panel) {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -2202,14 +2233,10 @@ html.is-phone-layout .cluster-nav {
 }
 
 html.is-phone-layout .sol-guide {
-  left: 0.75rem;
-  right: auto;
   bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
 }
 
 html.is-phone-layout .sol-guide:has(.sol-guide-panel) {
-  left: 0;
-  right: 0;
   bottom: 0;
   padding: 0;
 }
@@ -2243,24 +2270,39 @@ html.is-phone-layout .sol-guide-widgets {
 }
 
 html.is-phone-layout .welcome-tour {
-  left: 0.75rem;
-  right: 0.75rem;
-  width: auto;
-  transform: none;
-  bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
-  max-width: none;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: calc(100% - 1.5rem);
+  max-width: 400px;
+  bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  padding: 0.9rem 0.95rem;
+}
+
+html.is-phone-layout .welcome-tour-title {
+  font-size: 1rem;
+}
+
+html.is-phone-layout .welcome-tour-sub {
+  font-size: 0.82rem;
+  line-height: 1.4;
 }
 
 html.is-phone-layout .welcome-tour-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
 }
 
 html.is-phone-layout .welcome-tour-actions .cta,
 html.is-phone-layout .welcome-tour-actions .cta-secondary {
-  width: 100%;
+  width: auto;
+  flex: 1 1 auto;
   min-height: var(--touch);
+  min-width: 0;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.82rem;
 }
 
 html.is-phone-layout .scene-root {
