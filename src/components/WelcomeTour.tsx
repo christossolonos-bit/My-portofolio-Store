@@ -7,10 +7,9 @@ import { openCluster } from '../lib/store-events'
 
 type WelcomeTourProps = {
   muted: boolean
-  onOpenGuide: () => void
 }
 
-export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
+export function WelcomeTour({ muted }: WelcomeTourProps) {
   const [visible, setVisible] = useState(false)
   const [running, setRunning] = useState(false)
   const [stepIndex, setStepIndex] = useState(-1)
@@ -42,6 +41,7 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
     setRunning(false)
     setStepIndex(-1)
     setVisible(false)
+    document.documentElement.classList.remove('is-touring')
     if (markDone) {
       try {
         localStorage.setItem(TOUR_DONE_KEY, '1')
@@ -56,7 +56,7 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
     track('welcome_tour_start')
     setRunning(true)
     setVisible(true)
-    onOpenGuide()
+    document.documentElement.classList.add('is-touring')
 
     let liveMuted = muted
     try {
@@ -64,14 +64,6 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
     } catch {
       /* keep prop */
     }
-
-    window.dispatchEvent(
-      new CustomEvent('solonaras-tour-message', {
-        detail: {
-          text: "I'll give you a quick tour of the portfolio — clusters, builds, and how to reach Christos.",
-        },
-      }),
-    )
 
     const ac = new AbortController()
     abortRef.current = ac
@@ -86,14 +78,8 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
         document
           .getElementById(step.scrollTo)
           ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        await wait(700, ac.signal)
+        await wait(750, ac.signal)
       }
-
-      window.dispatchEvent(
-        new CustomEvent('solonaras-tour-message', {
-          detail: { text: step.text },
-        }),
-      )
 
       await speakText(step.text, {
         muted: liveMuted,
@@ -106,7 +92,6 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
 
     if (!ac.signal.aborted) {
       track('welcome_tour_complete')
-      window.dispatchEvent(new Event('solonaras-tour-ended'))
       stop(true)
       document.getElementById('clusters')?.scrollIntoView({
         behavior: 'smooth',
@@ -115,7 +100,7 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
     }
   }
 
-  // Allow Hero / guide to restart the tour
+  // Allow Hero to restart the tour (chat stays closed)
   useEffect(() => {
     const restart = () => {
       try {
@@ -142,8 +127,8 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
             <p className="welcome-tour-eyebrow">Voice tour</p>
             <p className="welcome-tour-title">New here? I’ll show you around.</p>
             <p className="welcome-tour-sub">
-              A short spoken walkthrough of clusters, the guide, and how to get
-              in touch — about a minute.
+              A short spoken walkthrough — I’ll scroll to each part while the
+              guide stays closed. About a minute.
             </p>
           </div>
           <div className="welcome-tour-actions">
@@ -168,7 +153,7 @@ export function WelcomeTour({ muted, onOpenGuide }: WelcomeTourProps) {
             <p className="welcome-tour-eyebrow">
               Tour · {Math.max(1, stepIndex + 1)} / {WELCOME_TOUR.length}
             </p>
-            <p className="welcome-tour-title">Showing you the store…</p>
+            <p className="welcome-tour-title">Showing the portfolio…</p>
             <p className="welcome-tour-sub">
               {stepIndex >= 0
                 ? WELCOME_TOUR[stepIndex]?.text

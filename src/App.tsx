@@ -210,7 +210,6 @@ function App() {
   }
 
   const startVoiceTour = () => {
-    setGuideOpenSignal((n) => n + 1)
     window.dispatchEvent(new Event('solonaras-start-welcome-tour'))
   }
 
@@ -302,10 +301,7 @@ function App() {
         selectedClusterId={selectedClusterId}
       />
 
-      <WelcomeTour
-        muted={guideMuted}
-        onOpenGuide={() => setGuideOpenSignal((n) => n + 1)}
-      />
+      <WelcomeTour muted={guideMuted} />
     </div>
   )
 }

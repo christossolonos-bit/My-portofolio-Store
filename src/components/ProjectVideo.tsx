@@ -19,7 +19,7 @@ export function ProjectVideo({
 }: ProjectVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
-  const [muted, setMuted] = useState(true)
+  const [muted, setMuted] = useState(false)
   const isLocal = Boolean(videoSrc)
   const thumb = isLocal
     ? (posterSrc ?? undefined)
@@ -31,7 +31,7 @@ export function ProjectVideo({
   useEffect(() => {
     if (!active) {
       setPlaying(false)
-      setMuted(true)
+      setMuted(false)
       const video = videoRef.current
       if (video) {
         video.pause()
@@ -40,16 +40,22 @@ export function ProjectVideo({
       return
     }
     setPlaying(true)
-    setMuted(true)
+    setMuted(false)
   }, [active])
 
-  // Play once the local <video> is mounted for an active aisle
+  // Play unmuted once the local <video> is mounted; fall back to muted if blocked
   useEffect(() => {
     if (!active || !playing || !isLocal) return
     const video = videoRef.current
     if (!video) return
     video.muted = muted
-    void video.play().catch(() => undefined)
+    void video.play().catch(() => {
+      if (!muted) {
+        video.muted = true
+        setMuted(true)
+        void video.play().catch(() => undefined)
+      }
+    })
   }, [active, playing, isLocal, muted])
 
   const startLocal = () => {

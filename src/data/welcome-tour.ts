@@ -26,8 +26,15 @@ export const WELCOME_TOUR: TourStep[] = [
     text: "Here's Companions — full agents, multi-persona casts, character agents, and desktop presence. Tap another cluster anytime from the cards above.",
   },
   {
+    id: 'live-games',
+    openCluster: 'live-games',
+    scrollTo: 'cluster-live-games',
+    text: "Live and Games covers broadcast talent, Minecraft agents, and screen-aware vision co-hosts — open any build to watch its tour video.",
+  },
+  {
     id: 'guide',
-    text: "I'm your Solonaras guide. Ask about any build, what's included, timelines, or how to contact Christos for recruiting or collaboration. You can type or use the mic.",
+    scrollTo: 'clusters',
+    text: "When you have questions later, use Ask guide in the corner — chat stays closed during this tour so you can see the site.",
   },
   {
     id: 'contact',

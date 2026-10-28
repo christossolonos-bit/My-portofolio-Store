@@ -146,37 +146,6 @@ export function SolonarasGuide({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
-  // Voice tour lines appear in the guide transcript
-  useEffect(() => {
-    const onTour = (event: Event) => {
-      const text = (event as CustomEvent<{ text?: string }>).detail?.text
-      if (!text) return
-      setOpen(true)
-      welcomed.current = true
-      setShowSuggestions(false)
-      setMessages((prev) => [...prev, { role: 'assistant', text }])
-      setStatus('Tour…')
-    }
-    const onTourEnd = () => {
-      setStatus('')
-      setShowSuggestions(true)
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          text: 'Tour done — ask me anything, or open a cluster to explore.',
-          prompts: SUGGESTIONS,
-        },
-      ])
-    }
-    window.addEventListener('solonaras-tour-message', onTour)
-    window.addEventListener('solonaras-tour-ended', onTourEnd)
-    return () => {
-      window.removeEventListener('solonaras-tour-message', onTour)
-      window.removeEventListener('solonaras-tour-ended', onTourEnd)
-    }
-  }, [])
-
   const ask = async (question: string) => {
     const q = question.trim()
     if (!q || busy) return
