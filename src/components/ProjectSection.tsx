@@ -1,5 +1,11 @@
+import { useRef } from 'react'
 import { maturityLabel, type Project } from '../data/projects'
 import { track } from '../lib/analytics'
+import {
+  prefersHover,
+  speakProjectNarration,
+  stopProjectNarration,
+} from '../lib/project-narration'
 import { SITE_URL } from '../lib/site-config'
 import { ideaFromSelection, requestBuild } from '../lib/store-events'
 import { ShopifyProductLink } from './ShopifyProductLink'
@@ -17,6 +23,7 @@ export function ProjectSection({
   active,
 }: ProjectSectionProps) {
   const number = String(index + 1).padStart(2, '0')
+  const narrating = useRef(false)
 
   const onRequest = () => {
     track('request_build', { projectId: project.id })
@@ -44,11 +51,36 @@ export function ProjectSection({
     }
   }
 
+  const startNarration = () => {
+    if (!active) return
+    narrating.current = true
+    track('project_narration', { projectId: project.id })
+    void speakProjectNarration(project)
+  }
+
+  const stopNarration = () => {
+    if (!narrating.current) return
+    narrating.current = false
+    stopProjectNarration()
+  }
+
   return (
     <section
       className={`project ${active ? 'is-active' : ''}`}
       id={project.id}
       style={{ ['--accent' as string]: project.accent }}
+      onMouseEnter={() => {
+        if (active && prefersHover()) startNarration()
+      }}
+      onMouseLeave={() => {
+        if (prefersHover()) stopNarration()
+      }}
+      onClick={(e) => {
+        if (!active || prefersHover()) return
+        const t = e.target as HTMLElement
+        if (t.closest('a, button, video, iframe')) return
+        startNarration()
+      }}
     >
       <div className="project-inner">
         <div className="project-meta">

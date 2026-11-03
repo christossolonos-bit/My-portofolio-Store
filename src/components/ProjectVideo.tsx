@@ -1,7 +1,6 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   bindMediaGestureCapture,
-  hasMediaGesture,
   noteMediaGesture,
   playWithSoundFallback,
 } from '../lib/media-audio'
@@ -27,8 +26,10 @@ export function ProjectVideo({
   accent,
   active,
 }: ProjectVideoProps) {
+  const rootRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(false)
+  const [inView, setInView] = useState(false)
+  const [touring, setTouring] = useState(() => tourIsRunning())
   const isLocal = Boolean(videoSrc)
   const thumb = isLocal
     ? (posterSrc ?? undefined)
@@ -36,152 +37,135 @@ export function ProjectVideo({
       ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
       : undefined
 
+  const shouldPlay = active && inView && !touring
+
   useEffect(() => bindMediaGestureCapture(), [])
 
-  // Start when the aisle is in view; stop when leaving. Stay paused during the voice tour.
   useEffect(() => {
-    if (!active) {
-      setPlaying(false)
-      const video = videoRef.current
-      if (video) {
-        video.pause()
-        video.currentTime = 0
-      }
+    const el = rootRef.current
+    if (!el || !active) {
+      setInView(false)
       return
     }
-    if (tourIsRunning()) {
-      setPlaying(true)
-      requestAnimationFrame(() => videoRef.current?.pause())
-      return
-    }
-    setPlaying(true)
-  }, [active])
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        setInView(
+          Boolean(entry?.isIntersecting && (entry.intersectionRatio ?? 0) >= 0.45),
+        )
+      },
+      { threshold: [0, 0.45, 0.7, 1] },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [active, videoSrc, youtubeId])
 
   useEffect(() => {
-    const onTourPause = () => {
+    const pause = () => {
+      setTouring(true)
       videoRef.current?.pause()
     }
-    const onTourEnded = () => {
-      if (!active || !isLocal) return
-      const video = videoRef.current
-      if (!video) return
-      void playWithSoundFallback(video)
-    }
-    window.addEventListener('solonaras-tour-pause-videos', onTourPause)
-    window.addEventListener('solonaras-tour-ended', onTourEnded)
+    const ended = () => setTouring(tourIsRunning())
+    window.addEventListener('solonaras-tour-pause-videos', pause)
+    window.addEventListener('solonaras-tour-ended', ended)
     return () => {
-      window.removeEventListener('solonaras-tour-pause-videos', onTourPause)
-      window.removeEventListener('solonaras-tour-ended', onTourEnded)
+      window.removeEventListener('solonaras-tour-pause-videos', pause)
+      window.removeEventListener('solonaras-tour-ended', ended)
     }
-  }, [active, isLocal])
+  }, [])
 
-  // Prefer unmuted playback once mounted — skip while the welcome tour is talking
-  useLayoutEffect(() => {
-    if (!active || !playing || !isLocal) return
+  // Play only while the player is actually on screen
+  useEffect(() => {
+    if (!isLocal) return
     const video = videoRef.current
     if (!video) return
-    if (tourIsRunning()) {
+
+    if (!shouldPlay) {
       video.pause()
+      if (!active) video.currentTime = 0
       return
     }
 
     let cancelled = false
-
-    const applyUnmute = () => {
-      if (cancelled || tourIsRunning()) return
-      video.muted = false
-      video.volume = 1
-      void video.play().catch(() => undefined)
-    }
-
     void playWithSoundFallback(video).then((mode) => {
-      if (cancelled || tourIsRunning()) {
+      if (cancelled || !shouldPlay) {
         video.pause()
         return
       }
-      if (mode === 'unmuted') return
-
-      const unlock = () => {
-        noteMediaGesture()
-        applyUnmute()
-      }
-      window.addEventListener('pointerdown', unlock, { capture: true })
-      window.addEventListener('keydown', unlock, { capture: true })
-      window.addEventListener('solonaras-media-gesture', unlock)
-      if (hasMediaGesture()) {
-        requestAnimationFrame(applyUnmute)
-      }
-      ;(video as HTMLVideoElement & { __unlock?: () => void }).__unlock = () => {
-        window.removeEventListener('pointerdown', unlock, { capture: true })
-        window.removeEventListener('keydown', unlock, { capture: true })
-        window.removeEventListener('solonaras-media-gesture', unlock)
+      if (mode === 'muted') {
+        const unlock = () => {
+          noteMediaGesture()
+          video.muted = false
+          void video.play().catch(() => undefined)
+        }
+        window.addEventListener('pointerdown', unlock, {
+          once: true,
+          capture: true,
+        })
       }
     })
 
     return () => {
       cancelled = true
-      const unlock = (video as HTMLVideoElement & { __unlock?: () => void }).__unlock
-      unlock?.()
+      video.pause()
     }
-  }, [active, playing, isLocal, videoSrc])
+  }, [shouldPlay, active, isLocal, videoSrc])
 
   const startLocal = () => {
     noteMediaGesture()
-    setPlaying(true)
-    requestAnimationFrame(() => {
-      const video = videoRef.current
-      if (!video) return
-      if (tourIsRunning()) {
-        video.pause()
-        return
-      }
-      video.muted = false
-      video.volume = 1
-      void video.play().catch(() => undefined)
-    })
+    if (tourIsRunning()) return
+    const video = videoRef.current
+    if (!video) return
+    video.muted = false
+    void video.play().catch(() => undefined)
   }
 
   const startYoutube = () => {
     noteMediaGesture()
-    if (tourIsRunning()) return
-    setPlaying(true)
   }
 
   const embed =
-    youtubeId && playing && !tourIsRunning()
+    youtubeId && shouldPlay
       ? `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1`
       : null
 
   return (
     <div
-      className={`project-video ${active ? 'is-active' : ''} ${playing ? 'is-playing' : ''}`}
+      ref={rootRef}
+      className={`project-video ${active ? 'is-active' : ''} ${shouldPlay ? 'is-playing' : ''}`}
       style={{ ['--accent' as string]: accent }}
     >
       {isLocal ? (
-        playing ? (
-          <video
-            ref={videoRef}
-            className="project-video-el"
-            src={videoSrc}
-            poster={posterSrc}
-            controls
-            playsInline
-            autoPlay={!tourIsRunning()}
-            loop
-            preload="auto"
-            aria-label={title}
-          />
+        active ? (
+          <>
+            <video
+              ref={videoRef}
+              className="project-video-el"
+              src={videoSrc}
+              poster={posterSrc}
+              controls
+              playsInline
+              loop
+              preload="metadata"
+              aria-label={title}
+            />
+            {!shouldPlay && (
+              <button
+                type="button"
+                className="project-video-start"
+                onClick={startLocal}
+              >
+                Play tour
+              </button>
+            )}
+          </>
         ) : (
           <>
             {thumb && (
               <img className="project-video-el" src={thumb} alt="" loading="lazy" />
             )}
-            <button type="button" className="project-video-start" onClick={startLocal}>
-              Play tour
-            </button>
           </>
         )
-      ) : playing && embed ? (
+      ) : embed ? (
         <iframe
           className="project-video-el"
           src={embed}
@@ -195,13 +179,15 @@ export function ProjectVideo({
           {thumb && (
             <img className="project-video-el" src={thumb} alt="" loading="lazy" />
           )}
-          <button type="button" className="project-video-start" onClick={startYoutube}>
-            Play video
-          </button>
+          {active && (
+            <button type="button" className="project-video-start" onClick={startYoutube}>
+              Play video
+            </button>
+          )}
         </>
       )}
       <div className="project-video-fade" />
-      {!playing && (
+      {!shouldPlay && (
         <div className="project-video-play" aria-hidden="true">
           <span />
         </div>

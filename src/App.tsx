@@ -17,7 +17,7 @@ import { projects } from './data/projects'
 import { socials } from './data/socials'
 import { track } from './lib/analytics'
 import { noteMediaGestureFromEvent } from './lib/media-audio'
-import { playActiveAisleUnmuted } from './lib/play-aisle-video'
+import { stopProjectNarration } from './lib/project-narration'
 import {
   ideaFromSelection,
   type RequestBuildDetail,
@@ -80,6 +80,7 @@ function App() {
     if (!cluster) return
     const first = projectsInCluster(cluster)[0]
     noteMediaGestureFromEvent()
+    stopProjectNarration()
     flushSync(() => {
       setSelectedClusterId(id)
       setSelectedProjectId((prev) =>
@@ -89,7 +90,6 @@ function App() {
         prev.filter((pid) => cluster.projectIds.includes(pid)),
       )
     })
-    playActiveAisleUnmuted()
     window.history.replaceState(null, '', `#cluster-${id}`)
     if (scroll) {
       window.setTimeout(() => {
@@ -103,11 +103,11 @@ function App() {
   const selectProject = (id: string) => {
     const parent = clusterForProject(id)
     noteMediaGestureFromEvent()
+    stopProjectNarration()
     flushSync(() => {
       if (parent) setSelectedClusterId(parent.id)
       setSelectedProjectId(id)
     })
-    playActiveAisleUnmuted()
     window.history.replaceState(null, '', `#${id}`)
     track('project_select', { projectId: id })
   }
