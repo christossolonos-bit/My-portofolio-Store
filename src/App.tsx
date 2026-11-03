@@ -52,8 +52,7 @@ function App() {
     () => projects.find((p) => p.id === selectedProjectId) ?? null,
     [selectedProjectId],
   )
-  const accent =
-    selectedProject?.accent || selectedCluster?.accent || '#2ee6a6'
+  const accent = '#1a6b5c'
   const shelfProjects = selectedCluster
     ? projectsInCluster(selectedCluster)
     : []
@@ -241,7 +240,7 @@ function App() {
           SOLONARAS
         </a>
         <div className="topbar-right">
-          <span className="topbar-meta">Portfolio · Clusters</span>
+          <span className="topbar-meta">Portfolio</span>
           <LayoutToggle mode={layoutMode} onChange={setLayoutMode} />
         </div>
       </header>
@@ -268,11 +267,10 @@ function App() {
 
         <footer className="outro" id="outro">
           <p className="eyebrow">Contact</p>
-          <h2>Interested in working together?</h2>
+          <h2>Hire or collaborate</h2>
           <p>
-            This is a portfolio of what I can build — companions, voice systems,
-            vision co-hosts, desktop agents, and custom sites. Reach out if you’re
-            hiring or want to collaborate.
+            Christos Solonos — Cyprus. Companions, voice systems, live agents,
+            and custom sites. Write with a short brief.
           </p>
 
           <ul className="social-list">

@@ -37,14 +37,14 @@ function detectLang(text: string): 'el' | 'en' {
 }
 
 const WELCOME =
-  "Hi — I'm the Solonaras guide. Ask about any build, what’s included, or how to reach Christos for recruiting or collaboration."
+  'Ask about a build, what’s included, timelines, or how to reach Christos.'
 
 const SUGGESTIONS = [
   'What are the clusters?',
-  'What can Christos build?',
-  'Show me Live & Games',
+  'Open Companions',
+  'Open Live & Games',
   'How do I contact Christos?',
-  'How long does a build take?',
+  'Typical build timeline?',
 ]
 
 function applyNavigation(url: string) {
@@ -363,8 +363,8 @@ export function SolonarasGuide({
         <section className="sol-guide-panel" aria-label="Solonaras guide">
           <header className="sol-guide-header">
             <div>
-              <p className="sol-guide-title">Solonaras Guide</p>
-              <p className="sol-guide-sub">Ask anything · builds · recruiting · contact</p>
+              <p className="sol-guide-title">Guide</p>
+              <p className="sol-guide-sub">Builds, recruiting, contact</p>
             </div>
             <div className="sol-guide-header-actions">
               <button
@@ -378,7 +378,7 @@ export function SolonarasGuide({
                   if (next) stopAudio()
                 }}
               >
-                {muted ? '🔇' : '🔊'}
+                {muted ? 'Unmute' : 'Mute'}
               </button>
               <button
                 type="button"

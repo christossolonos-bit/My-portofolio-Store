@@ -106,10 +106,10 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
   return (
     <form className="contact-form" onSubmit={onSubmit} noValidate={false}>
       <div className="contact-form-head">
-        <h3>Send me your idea</h3>
-        <p>Name, email, phone, and what you want built — lands in my inbox.</p>
+        <h3>Message</h3>
+        <p>Name, email, phone, and a short brief.</p>
         {ideaPrefill ? (
-          <p className="contact-prefill-note">Idea field prefilled from your current selection.</p>
+          <p className="contact-prefill-note">Brief started from your current selection.</p>
         ) : null}
       </div>
 
@@ -146,7 +146,7 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
             rows={5}
             value={idea}
             onChange={(e) => setIdea(e.target.value)}
-            placeholder="What do you want built? Companion, site, voice system, something new…"
+            placeholder="What should we build, and for whom?"
           />
         </label>
       </div>
@@ -163,7 +163,7 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
 
       <div className="contact-actions">
         <button className="cta" type="submit" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending…' : 'Send idea'}
+          {status === 'sending' ? 'Sending…' : 'Send'}
         </button>
         {status === 'error' && <p className="contact-error">{error}</p>}
       </div>

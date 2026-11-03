@@ -66,12 +66,10 @@ export function ClusterBoard({
   return (
     <section className="clusters" id="clusters">
       <div className="clusters-intro">
-        <p className="eyebrow">Capabilities · by type</p>
-        <h2 className="clusters-title">Pick a cluster</h2>
+        <p className="eyebrow">Work by type</p>
+        <h2 className="clusters-title">Clusters</h2>
         <p className="clusters-lead">
-          Four shelves of capabilities — open a type, skim what’s inside, then
-          watch the tour. Swipe the shelf on mobile; use arrows when a shelf is
-          open.
+          Four groups. Open one, pick a project, watch its video.
         </p>
       </div>
 
@@ -124,7 +122,7 @@ export function ClusterBoard({
           <div className="cluster-shelf-head">
             <div>
               <p className="eyebrow">{selectedCluster.name}</p>
-              <h3 className="cluster-shelf-title">What’s in this cluster</h3>
+              <h3 className="cluster-shelf-title">Projects</h3>
               <p className="cluster-shelf-summary">{selectedCluster.summary}</p>
               <p className="cluster-shelf-case">{selectedCluster.caseLine}</p>
             </div>

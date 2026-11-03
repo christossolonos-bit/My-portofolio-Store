@@ -118,11 +118,11 @@ export function WelcomeTour({ muted: _muted }: WelcomeTourProps) {
       {!running ? (
         <>
           <div className="welcome-tour-copy">
-            <p className="welcome-tour-eyebrow">Quick tour</p>
-            <p className="welcome-tour-title">New here? I’ll show you around.</p>
+            <p className="welcome-tour-eyebrow">Tour</p>
+            <p className="welcome-tour-title">Walk the clusters</p>
             <p className="welcome-tour-sub">
-              A short silent walkthrough of the clusters — pick a project
-              afterward to play its video.
+              A short silent pass across the site. Afterward, pick a project to
+              play its video.
             </p>
           </div>
           <div className="welcome-tour-actions">

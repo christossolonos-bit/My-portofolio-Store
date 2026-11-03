@@ -11,10 +11,9 @@ type BookCallProps = {
 export function BookCall({ projectName, projectId }: BookCallProps) {
   return (
     <div className="book-call">
-      <h3>Talk with Christos</h3>
+      <h3>Reach Christos</h3>
       <p>
-        Recruiting, collaboration, or a walkthrough of these builds — Discord for
-        a live chat, or the form below.
+        Discord for a live chat, or the form below for hiring and collaboration.
       </p>
       <div className="book-call-actions">
         <a
