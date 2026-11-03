@@ -6,8 +6,10 @@ import { ClusterNav } from './components/ClusterNav'
 import { ContactForm } from './components/ContactForm'
 import { Hero } from './components/Hero'
 import { LayoutToggle, useLayoutMode } from './components/LayoutToggle'
+import { PersonaStrip } from './components/PersonaStrip'
 import { MUTE_KEY, SolonarasGuide } from './components/SolonarasGuide'
 import { WelcomeTour } from './components/WelcomeTour'
+import type { Persona } from './data/personas'
 import {
   clusterForProject,
   clusters,
@@ -255,6 +257,13 @@ function App() {
 
       <main>
         <Hero onStart={startTour} onVoiceTour={startVoiceTour} />
+
+        <PersonaStrip
+          onMeet={(persona: Persona) => {
+            selectCluster(persona.groupId, true)
+            selectProject(persona.projectId)
+          }}
+        />
 
         <ClusterBoard
           clusters={clusters}

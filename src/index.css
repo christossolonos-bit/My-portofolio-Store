@@ -242,11 +242,45 @@ main {
 }
 
 .hero-line {
-  margin: 1.4rem 0 2rem;
+  margin: 1.4rem 0 1.1rem;
   max-width: 34rem;
   color: var(--muted);
   font-size: clamp(1.05rem, 2.2vw, 1.25rem);
   line-height: 1.55;
+}
+
+.hero-proof {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  max-width: 40rem;
+}
+
+.hero-proof li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: rgba(7, 11, 18, 0.45);
+}
+
+.hero-proof-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.hero-proof-detail {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
 }
 
 .hero-actions {
@@ -340,6 +374,104 @@ main {
 .ghost-link:hover {
   color: var(--ink);
   border-color: var(--line);
+}
+
+/* —— Persona strip (skim demo) —— */
+.persona-strip {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem clamp(1.25rem, 4vw, 3.5rem) 2.5rem;
+  scroll-margin-top: 4.5rem;
+}
+
+.persona-strip-head {
+  max-width: 28rem;
+  margin-bottom: 1rem;
+}
+
+.persona-strip-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  letter-spacing: -0.03em;
+}
+
+.persona-strip-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.persona-strip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.persona-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  min-width: 7.5rem;
+  padding: 0.85rem 1.05rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(232, 238, 247, 0.14);
+  background: rgba(10, 16, 26, 0.55);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.persona-chip:hover {
+  border-color: color-mix(in srgb, var(--persona-accent, var(--accent)) 50%, transparent);
+  transform: translateY(-1px);
+}
+
+.persona-chip.is-active {
+  border-color: color-mix(in srgb, var(--persona-accent, var(--accent)) 75%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--persona-accent, var(--accent)) 14%,
+    rgba(10, 16, 26, 0.7)
+  );
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--persona-accent, var(--accent)) 30%, transparent);
+}
+
+.persona-chip-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.persona-chip-role {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.persona-chip.is-active .persona-chip-role {
+  color: color-mix(in srgb, var(--persona-accent, var(--accent)) 80%, #c5d0de);
+}
+
+.persona-strip-line {
+  margin: 0;
+  max-width: 36rem;
+  min-height: 2.6em;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.persona-chip.is-active ~ .persona-strip-line,
+.persona-strip:has(.persona-chip.is-active) .persona-strip-line {
+  color: var(--ink);
 }
 
 .scroll-hint {
@@ -2028,6 +2160,10 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .hero-proof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .outro {
     margin-left: 0;
   }
@@ -2126,6 +2262,30 @@ html.is-phone-layout .brand {
   font-size: clamp(1.85rem, 9.5vw, 2.35rem) !important;
   letter-spacing: -0.035em;
   line-height: 0.95;
+}
+
+html.is-phone-layout .hero-proof {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-bottom: 1.1rem;
+}
+
+html.is-phone-layout .hero-proof li {
+  padding: 0.55rem 0.6rem;
+}
+
+html.is-phone-layout .persona-strip {
+  padding: 0.25rem 1rem 1.75rem;
+}
+
+html.is-phone-layout .persona-strip-title {
+  font-size: 1.25rem;
+}
+
+html.is-phone-layout .persona-chip {
+  flex: 1 1 calc(33% - 0.5rem);
+  min-width: 5.5rem;
+  padding: 0.7rem 0.75rem;
 }
 
 html.is-phone-layout .hero-line {

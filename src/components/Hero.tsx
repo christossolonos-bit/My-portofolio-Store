@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { HERO_PROOF } from '../data/personas'
 
 type HeroProps = {
   onStart: () => void
@@ -59,6 +60,14 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
           <span className="brand-sub">PORTFOLIO</span>
         </h1>
         <p className="hero-line">AI builds you can watch.</p>
+        <ul className="hero-proof" aria-label="Highlights">
+          {HERO_PROOF.map((item) => (
+            <li key={item.label}>
+              <span className="hero-proof-label">{item.label}</span>
+              <span className="hero-proof-detail">{item.detail}</span>
+            </li>
+          ))}
+        </ul>
         <div className="hero-actions">
           <button
             type="button"
@@ -70,7 +79,10 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
           >
             Watch tour
           </button>
-          <a className="cta cta-secondary" href="#clusters">
+          <a className="cta cta-secondary" href="#personas">
+            Meet the cast
+          </a>
+          <a className="cta cta-ghost" href="#clusters">
             See work
           </a>
         </div>
