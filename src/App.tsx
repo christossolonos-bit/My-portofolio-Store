@@ -52,7 +52,7 @@ function App() {
     () => projects.find((p) => p.id === selectedProjectId) ?? null,
     [selectedProjectId],
   )
-  const accent = '#1a6b5c'
+  const accent = '#2a9b84'
   const shelfProjects = selectedCluster
     ? projectsInCluster(selectedCluster)
     : []

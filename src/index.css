@@ -1,20 +1,22 @@
 :root {
-  /* Studio ledger — one surface, one accent, sharp edges */
-  --bg: #e9ebef;
-  --bg-deep: #dde1e6;
-  --ink: #12141a;
-  --muted: #5a616c;
-  --line: rgba(18, 20, 26, 0.14);
-  --accent: #1a6b5c;
-  --accent-ink: #f4f7f6;
-  --panel: #f7f8fa;
-  --panel-strong: #ffffff;
-  --danger: #9f2d3a;
+  /* Dark studio + sun glare */
+  --bg: #0b0d10;
+  --bg-deep: #14181e;
+  --ink: #eceef2;
+  --muted: #8b929c;
+  --line: rgba(236, 238, 242, 0.12);
+  --accent: #2a9b84;
+  --accent-ink: #06120f;
+  --sun: #ffd27a;
+  --sun-hot: #fff1c8;
+  --panel: rgba(16, 19, 24, 0.88);
+  --panel-strong: #161a20;
+  --danger: #e35d6a;
   --radius: 6px;
   --radius-lg: 10px;
   --font-display: 'Bricolage Grotesque', sans-serif;
   --font-body: 'Source Serif 4', serif;
-  --shadow: 0 1px 0 rgba(18, 20, 26, 0.06);
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
   color: var(--ink);
   background: var(--bg);
   font-family: var(--font-body);
@@ -87,17 +89,98 @@ a.cta {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(233, 235, 239, 0.55) 0%, transparent 28%, transparent 62%, rgba(233, 235, 239, 0.92) 100%),
-    linear-gradient(90deg, rgba(233, 235, 239, 0.75), transparent 18%, transparent 82%, rgba(233, 235, 239, 0.75));
+    radial-gradient(
+      ellipse 55% 45% at 78% 18%,
+      rgba(255, 210, 122, 0.28) 0%,
+      rgba(255, 180, 70, 0.1) 28%,
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 30% 22% at 78% 16%,
+      rgba(255, 245, 210, 0.55) 0%,
+      rgba(255, 210, 122, 0.18) 35%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, rgba(11, 13, 16, 0.15) 0%, transparent 30%, transparent 55%, rgba(11, 13, 16, 0.88) 100%),
+    linear-gradient(90deg, rgba(11, 13, 16, 0.55), transparent 22%, transparent 78%, rgba(11, 13, 16, 0.4));
+  pointer-events: none;
+}
+
+.scene-sun-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scene-sun-glare::before {
+  content: '';
+  position: absolute;
+  top: 4%;
+  right: 8%;
+  width: min(42vw, 28rem);
+  height: min(42vw, 28rem);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      var(--sun-hot) 0%,
+      var(--sun) 12%,
+      rgba(255, 180, 70, 0.35) 28%,
+      transparent 62%
+    );
+  filter: blur(2px);
+  opacity: 0.9;
+  animation: sunPulse 7s ease-in-out infinite;
+}
+
+.scene-sun-glare::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 120%;
+  height: 70%;
+  background:
+    linear-gradient(
+      118deg,
+      transparent 42%,
+      rgba(255, 230, 170, 0.07) 48%,
+      rgba(255, 245, 210, 0.22) 50%,
+      rgba(255, 230, 170, 0.07) 52%,
+      transparent 58%
+    ),
+    linear-gradient(
+      55deg,
+      transparent 46%,
+      rgba(255, 210, 122, 0.08) 49.5%,
+      rgba(255, 245, 210, 0.16) 50%,
+      rgba(255, 210, 122, 0.08) 50.5%,
+      transparent 54%
+    );
+  mix-blend-mode: screen;
+  opacity: 0.85;
 }
 
 .scene-grain {
   position: absolute;
   inset: 0;
-  opacity: 0.045;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
+  mix-blend-mode: soft-light;
   pointer-events: none;
+}
+
+@keyframes sunPulse {
+  0%,
+  100% {
+    opacity: 0.82;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
 }
 
 .topbar {

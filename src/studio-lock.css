@@ -4,7 +4,7 @@
  */
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body {
@@ -84,7 +84,7 @@ body {
 }
 
 .project-video-fade {
-  background: linear-gradient(180deg, transparent 70%, rgba(233, 235, 239, 0.55)) !important;
+  background: linear-gradient(180deg, transparent 70%, rgba(11, 13, 16, 0.55)) !important;
 }
 
 .placeholder-orb {
@@ -215,5 +215,5 @@ html.is-phone-layout .app {
 }
 
 html.is-phone-layout {
-  background: #0e1014;
+  background: #07080a;
 }

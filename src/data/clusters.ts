@@ -18,7 +18,7 @@ export const clusters: Cluster[] = [
       'Full AI companions, multi-persona casts, character agents, and always-on desktop presence.',
     caseLine:
       'Solonaras channel · Luna companion stacks with profiles, TTS, and streaming avatars.',
-    accent: '#1a6b5c',
+    accent: '#2a9b84',
     projectIds: ['luna-agent', 'lunariko', 'choko', 'fluffy'],
   },
   {
@@ -28,7 +28,7 @@ export const clusters: Cluster[] = [
       'Live voice presence, singing avatars, and music agents that keep a set moving.',
     caseLine:
       'Live Discord / call demos · Gaida talk-back and singing avatar performance clips.',
-    accent: '#1a6b5c',
+    accent: '#2a9b84',
     projectIds: ['luna-gaida', 'singing-sdk', 'dj-agent'],
   },
   {
@@ -38,7 +38,7 @@ export const clusters: Cluster[] = [
       'Broadcast talent, Minecraft agents that learn, and screen-aware vision co-hosts.',
     caseLine:
       '48-hour stream tests · Minecraft co-op agents and League vision co-host sessions.',
-    accent: '#1a6b5c',
+    accent: '#2a9b84',
     projectIds: ['luna-streamer', 'luna-minecraft', 'luna-vision'],
   },
   {
@@ -48,7 +48,7 @@ export const clusters: Cluster[] = [
       'Manuscript workspaces that keep your voice, plus custom sites and client worlds.',
     caseLine:
       'AuthorHub for real manuscripts · client brand sites with pages, design, and domain setup.',
-    accent: '#1a6b5c',
+    accent: '#2a9b84',
     projectIds: ['book-editor', 'client-work'],
   },
 ]
