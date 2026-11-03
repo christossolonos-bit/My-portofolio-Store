@@ -242,45 +242,11 @@ main {
 }
 
 .hero-line {
-  margin: 1.4rem 0 1.1rem;
+  margin: 1.4rem 0 2rem;
   max-width: 34rem;
   color: var(--muted);
   font-size: clamp(1.05rem, 2.2vw, 1.25rem);
   line-height: 1.55;
-}
-
-.hero-proof {
-  list-style: none;
-  margin: 0 0 1.75rem;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.65rem;
-  max-width: 40rem;
-}
-
-.hero-proof li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 0.7rem 0.75rem;
-  border: 1px solid var(--line);
-  border-radius: 0.75rem;
-  background: rgba(7, 11, 18, 0.45);
-}
-
-.hero-proof-label {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-
-.hero-proof-detail {
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.02em;
 }
 
 .hero-actions {
@@ -376,7 +342,151 @@ main {
   border-color: var(--line);
 }
 
-/* —— Persona strip (skim demo) —— */
+/* —— Flat project catalog + product page —— */
+.work {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem clamp(1.25rem, 4vw, 3.5rem) 4rem;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 1rem;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(10, 16, 26, 0.55);
+  color: inherit;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  font: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.work-card:hover {
+  border-color: color-mix(in srgb, var(--accent, #2ee6a6) 55%, transparent);
+  transform: translateY(-2px);
+}
+
+.work-card-media {
+  aspect-ratio: 16 / 10;
+  background: #070b12;
+  overflow: hidden;
+}
+
+.work-card-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.work-card-poster-empty {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--accent, #2ee6a6) 28%, #0d1522),
+    #070b12
+  );
+}
+
+.work-card-body {
+  padding: 0.85rem 1rem 1rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.work-card-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.work-card-tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.product-page {
+  position: relative;
+  z-index: 1;
+  padding: 5.5rem clamp(1.25rem, 4vw, 3.5rem) 3rem;
+  scroll-margin-top: 1rem;
+  min-height: 100vh;
+}
+
+.product-page-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-page-crumb {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.product-page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.product-page-title {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.product-page-actions {
+  margin-top: 1.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.product-page-media .project-video {
+  opacity: 1;
+  transform: none;
+}
+
+.project-narration {
+  margin: 1rem 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+@media (max-width: 900px) {
+  .product-page-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— Persona strip (unused; kept styles harmless) —— */
 .persona-strip {
   position: relative;
   z-index: 1;
@@ -2160,7 +2270,7 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .hero-proof {
+  .work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2264,28 +2374,17 @@ html.is-phone-layout .brand {
   line-height: 0.95;
 }
 
-html.is-phone-layout .hero-proof {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.45rem;
-  margin-bottom: 1.1rem;
+html.is-phone-layout .work {
+  padding: 0.25rem 1rem 2.5rem;
 }
 
-html.is-phone-layout .hero-proof li {
-  padding: 0.55rem 0.6rem;
+html.is-phone-layout .work-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
 }
 
-html.is-phone-layout .persona-strip {
-  padding: 0.25rem 1rem 1.75rem;
-}
-
-html.is-phone-layout .persona-strip-title {
-  font-size: 1.25rem;
-}
-
-html.is-phone-layout .persona-chip {
-  flex: 1 1 calc(33% - 0.5rem);
-  min-width: 5.5rem;
-  padding: 0.7rem 0.75rem;
+html.is-phone-layout .product-page {
+  padding: 4.5rem 1rem 2rem;
 }
 
 html.is-phone-layout .hero-line {
