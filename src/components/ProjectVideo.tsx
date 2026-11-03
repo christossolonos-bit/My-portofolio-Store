@@ -175,7 +175,6 @@ export function ProjectVideo({
               poster={posterSrc}
               controls
               playsInline
-              loop
               preload="metadata"
               aria-label={title}
             />
