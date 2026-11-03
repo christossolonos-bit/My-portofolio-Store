@@ -26,9 +26,11 @@ export function ProjectVideo({
   accent,
   active,
 }: ProjectVideoProps) {
+  const rootRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [touring, setTouring] = useState(() => tourIsRunning())
   const [userStarted, setUserStarted] = useState(false)
+  const [inView, setInView] = useState(false)
   const isLocal = Boolean(videoSrc)
   const thumb = isLocal
     ? (posterSrc ?? undefined)
@@ -36,10 +38,30 @@ export function ProjectVideo({
       ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
       : undefined
 
-  // Play only after the visitor chooses this project — never during the welcome tour
-  const shouldPlay = active && !touring && userStarted
+  // Chosen project + on screen + not mid welcome tour
+  const shouldPlay = active && userStarted && inView && !touring
 
   useEffect(() => bindMediaGestureCapture(), [])
+
+  useEffect(() => {
+    const el = rootRef.current
+    if (!el) {
+      setInView(false)
+      return
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        setInView(
+          Boolean(
+            entry?.isIntersecting && (entry.intersectionRatio ?? 0) >= 0.4,
+          ),
+        )
+      },
+      { threshold: [0, 0.25, 0.4, 0.6, 1], root: null, rootMargin: '0px' },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [active, videoSrc, youtubeId])
 
   useEffect(() => {
     const pause = () => {
@@ -56,7 +78,7 @@ export function ProjectVideo({
     }
   }, [])
 
-  // Choosing a project (tile / shelf) starts the video; leaving resets
+  // Choosing a project arms playback; leaving clears it
   useEffect(() => {
     if (!active) {
       setUserStarted(false)
@@ -139,6 +161,7 @@ export function ProjectVideo({
 
   return (
     <div
+      ref={rootRef}
       className={`project-video ${active ? 'is-active' : ''} ${shouldPlay ? 'is-playing' : ''}`}
       style={{ ['--accent' as string]: accent }}
     >
