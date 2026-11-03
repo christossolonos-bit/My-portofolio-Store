@@ -91,13 +91,13 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
   if (status === 'sent') {
     return (
       <div className="contact-success" role="status">
-        <p className="contact-success-title">Message received</p>
+        <p className="contact-success-title">Idea received</p>
         <p>
-          Thanks — I’ll reply within one business day. Prefer Discord? Use the
-          link above.
+          Thanks — I’ll reply to the email you left. Prefer a faster ping? Use the
+          socials above.
         </p>
         <button type="button" className="ghost-link" onClick={() => setStatus('idle')}>
-          Send another message
+          Send another idea
         </button>
       </div>
     )
@@ -106,10 +106,10 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
   return (
     <form className="contact-form" onSubmit={onSubmit} noValidate={false}>
       <div className="contact-form-head">
-        <h3>Discuss your project</h3>
-        <p>Name, email, phone, and a short brief. Reply within one business day.</p>
+        <h3>Send me your idea</h3>
+        <p>Name, email, phone, and what you want built — lands in my inbox.</p>
         {ideaPrefill ? (
-          <p className="contact-prefill-note">Brief started from your current selection.</p>
+          <p className="contact-prefill-note">Idea field prefilled from your current selection.</p>
         ) : null}
       </div>
 
@@ -146,7 +146,7 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
             rows={5}
             value={idea}
             onChange={(e) => setIdea(e.target.value)}
-            placeholder="What should we build, and for whom?"
+            placeholder="What do you want built? Companion, site, voice system, something new…"
           />
         </label>
       </div>
@@ -163,7 +163,7 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
 
       <div className="contact-actions">
         <button className="cta" type="submit" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending…' : 'Send brief'}
+          {status === 'sending' ? 'Sending…' : 'Send idea'}
         </button>
         {status === 'error' && <p className="contact-error">{error}</p>}
       </div>

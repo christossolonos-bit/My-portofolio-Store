@@ -61,9 +61,6 @@ export function ProjectSection({
         <h2 className="project-name">{project.name}</h2>
         <p className="project-tagline">{project.tagline}</p>
         <p className="project-desc">{project.description}</p>
-        {project.narration ? (
-          <p className="project-narration">{project.narration}</p>
-        ) : null}
 
         <p className="project-scope">{project.priceNote}</p>
 

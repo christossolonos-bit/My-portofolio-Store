@@ -1,6 +1,11 @@
 import { useEffect, useRef } from 'react'
 
-export function Hero() {
+type HeroProps = {
+  onStart: () => void
+  onVoiceTour?: () => void
+}
+
+export function Hero({ onStart, onVoiceTour }: HeroProps) {
   const brandRef = useRef<HTMLHeadingElement>(null)
   const wrapRef = useRef<HTMLDivElement>(null)
 
@@ -13,6 +18,7 @@ export function Hero() {
       const maxWidth = wrap.clientWidth
       if (maxWidth <= 0) return
 
+      // Binary search a font size that fits “SOLONARAS” in the hero column
       let lo = 28
       let hi = Math.min(120, Math.floor(maxWidth * 0.22))
       let best = lo
@@ -35,6 +41,7 @@ export function Hero() {
     const ro = new ResizeObserver(fit)
     ro.observe(wrap)
     window.addEventListener('resize', fit)
+    // Fonts may load after first paint
     document.fonts?.ready.then(fit).catch(() => undefined)
 
     return () => {
@@ -46,26 +53,35 @@ export function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="hero-inner" ref={wrapRef}>
-        <p className="eyebrow">Available for hire · Cyprus</p>
+        <p className="eyebrow">Cyprus · What I can create</p>
         <h1 className="brand" ref={brandRef}>
           SOLONARAS
         </h1>
         <p className="hero-line">
-          Christos Solonos builds AI companions, voice systems, and live agents
-          for teams that need them shipped — with demos you can watch on each
-          project page.
+          AI companions, voice & stage, live & games, author & web — open a
+          cluster and watch the tour.
         </p>
         <div className="hero-actions">
-          <a className="cta" href="#outro">
-            Discuss a project
-          </a>
-          <a className="cta cta-secondary" href="#work">
-            See projects
+          <button
+            type="button"
+            className="cta"
+            onClick={() => {
+              if (onVoiceTour) onVoiceTour()
+              else onStart()
+            }}
+          >
+            Start tour
+          </button>
+          <button type="button" className="cta cta-secondary" onClick={onStart}>
+            Ask the guide
+          </button>
+          <a className="cta cta-ghost" href="#clusters">
+            Browse clusters
           </a>
         </div>
       </div>
       <div className="scroll-hint" aria-hidden="true">
-        <span>Projects</span>
+        <span>Clusters</span>
         <div className="scroll-line" />
       </div>
     </section>
