@@ -26,10 +26,9 @@ export function ProjectVideo({
   accent,
   active,
 }: ProjectVideoProps) {
-  const rootRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [inView, setInView] = useState(false)
   const [touring, setTouring] = useState(() => tourIsRunning())
+  const [userStarted, setUserStarted] = useState(false)
   const isLocal = Boolean(videoSrc)
   const thumb = isLocal
     ? (posterSrc ?? undefined)
@@ -37,31 +36,15 @@ export function ProjectVideo({
       ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
       : undefined
 
-  const shouldPlay = active && inView && !touring
+  // Play only after the visitor chooses this project — never during the welcome tour
+  const shouldPlay = active && !touring && userStarted
 
   useEffect(() => bindMediaGestureCapture(), [])
 
   useEffect(() => {
-    const el = rootRef.current
-    if (!el || !active) {
-      setInView(false)
-      return
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        setInView(
-          Boolean(entry?.isIntersecting && (entry.intersectionRatio ?? 0) >= 0.45),
-        )
-      },
-      { threshold: [0, 0.45, 0.7, 1] },
-    )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [active, videoSrc, youtubeId])
-
-  useEffect(() => {
     const pause = () => {
       setTouring(true)
+      setUserStarted(false)
       videoRef.current?.pause()
     }
     const ended = () => setTouring(tourIsRunning())
@@ -73,7 +56,26 @@ export function ProjectVideo({
     }
   }, [])
 
-  // Play only while the player is actually on screen
+  // Choosing a project (tile / shelf) starts the video; leaving resets
+  useEffect(() => {
+    if (!active) {
+      setUserStarted(false)
+      const video = videoRef.current
+      if (video) {
+        video.pause()
+        video.currentTime = 0
+      }
+      return
+    }
+    if (tourIsRunning()) {
+      setTouring(true)
+      setUserStarted(false)
+      return
+    }
+    setTouring(false)
+    setUserStarted(true)
+  }, [active])
+
   useEffect(() => {
     if (!isLocal) return
     const video = videoRef.current
@@ -113,14 +115,21 @@ export function ProjectVideo({
   const startLocal = () => {
     noteMediaGesture()
     if (tourIsRunning()) return
-    const video = videoRef.current
-    if (!video) return
-    video.muted = false
-    void video.play().catch(() => undefined)
+    setTouring(false)
+    setUserStarted(true)
+    requestAnimationFrame(() => {
+      const video = videoRef.current
+      if (!video) return
+      video.muted = false
+      void video.play().catch(() => undefined)
+    })
   }
 
   const startYoutube = () => {
     noteMediaGesture()
+    if (tourIsRunning()) return
+    setTouring(false)
+    setUserStarted(true)
   }
 
   const embed =
@@ -130,7 +139,6 @@ export function ProjectVideo({
 
   return (
     <div
-      ref={rootRef}
       className={`project-video ${active ? 'is-active' : ''} ${shouldPlay ? 'is-playing' : ''}`}
       style={{ ['--accent' as string]: accent }}
     >
@@ -179,7 +187,7 @@ export function ProjectVideo({
           {thumb && (
             <img className="project-video-el" src={thumb} alt="" loading="lazy" />
           )}
-          {active && (
+          {active && !shouldPlay && (
             <button type="button" className="project-video-start" onClick={startYoutube}>
               Play video
             </button>

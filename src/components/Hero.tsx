@@ -70,7 +70,7 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
               else onStart()
             }}
           >
-            Start voice tour
+            Start tour
           </button>
           <button type="button" className="cta cta-secondary" onClick={onStart}>
             Ask the guide
