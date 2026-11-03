@@ -66,10 +66,10 @@ export function ClusterBoard({
   return (
     <section className="clusters" id="clusters">
       <div className="clusters-intro">
-        <p className="eyebrow">Work by type</p>
-        <h2 className="clusters-title">Clusters</h2>
+        <p className="eyebrow">Selected work</p>
+        <h2 className="clusters-title">What I build</h2>
         <p className="clusters-lead">
-          Four groups. Open one, pick a project, watch its video.
+          Open a group, pick a project, read the description, watch the video.
         </p>
       </div>
 

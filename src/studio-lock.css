@@ -16,9 +16,9 @@ body {
 .logo,
 .topbar-meta,
 .layout-toggle-label,
-.clusters-title,
-.cluster-shelf-title,
-.cluster-card-name,
+.work-title,
+.work-card-name,
+.product-page-title,
 .project-name,
 .outro h2,
 .welcome-tour-title,
@@ -136,8 +136,7 @@ body {
 .contact-success,
 .book-call,
 .compare-panel,
-.cluster-card,
-.cluster-shelf,
+.work-card,
 .sol-guide-panel,
 .welcome-tour {
   background: var(--panel-strong) !important;
@@ -149,8 +148,7 @@ body {
 }
 
 .social-link:hover,
-.cluster-card:hover,
-.cluster-card.is-selected {
+.work-card:hover {
   transform: none !important;
   border-color: var(--accent) !important;
   background: var(--panel-strong) !important;

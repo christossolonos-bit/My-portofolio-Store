@@ -1,11 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-type HeroProps = {
-  onStart: () => void
-  onVoiceTour?: () => void
-}
-
-export function Hero({ onStart, onVoiceTour }: HeroProps) {
+export function Hero() {
   const brandRef = useRef<HTMLHeadingElement>(null)
   const wrapRef = useRef<HTMLDivElement>(null)
 
@@ -51,34 +46,26 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
   return (
     <section className="hero" id="hero">
       <div className="hero-inner" ref={wrapRef}>
+        <p className="eyebrow">Available for hire · Cyprus</p>
         <h1 className="brand" ref={brandRef}>
           SOLONARAS
         </h1>
         <p className="hero-line">
-          Builds by Christos Solonos — companions, voice, live systems, and
-          custom web. Open a cluster and play a project video.
+          Christos Solonos builds AI companions, voice systems, and live agents
+          for teams that need them shipped — with demos you can watch on each
+          project page.
         </p>
         <div className="hero-actions">
-          <button
-            type="button"
-            className="cta"
-            onClick={() => {
-              if (onVoiceTour) onVoiceTour()
-              else onStart()
-            }}
-          >
-            Start tour
-          </button>
-          <a className="cta cta-secondary" href="#clusters">
-            Browse clusters
+          <a className="cta" href="#outro">
+            Discuss a project
           </a>
-          <button type="button" className="cta cta-ghost" onClick={onStart}>
-            Ask guide
-          </button>
+          <a className="cta cta-secondary" href="#work">
+            See projects
+          </a>
         </div>
       </div>
       <div className="scroll-hint" aria-hidden="true">
-        <span>Clusters</span>
+        <span>Projects</span>
         <div className="scroll-line" />
       </div>
     </section>
