@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { BookCall } from './components/BookCall'
 import { ClusterBoard } from './components/ClusterBoard'
-import { ClusterNav } from './components/ClusterNav'
 import { ContactForm } from './components/ContactForm'
 import { Hero } from './components/Hero'
 import { LayoutToggle, useLayoutMode } from './components/LayoutToggle'
@@ -52,7 +51,7 @@ function App() {
     () => projects.find((p) => p.id === selectedProjectId) ?? null,
     [selectedProjectId],
   )
-  const accent = '#2a9b84'
+  const accent = '#3db89a'
   const shelfProjects = selectedCluster
     ? projectsInCluster(selectedCluster)
     : []
@@ -244,12 +243,6 @@ function App() {
           <LayoutToggle mode={layoutMode} onChange={setLayoutMode} />
         </div>
       </header>
-
-      <ClusterNav
-        clusters={clusters}
-        activeId={selectedClusterId}
-        onSelect={(id) => selectCluster(id)}
-      />
 
       <main>
         <Hero onStart={startTour} onVoiceTour={startVoiceTour} />

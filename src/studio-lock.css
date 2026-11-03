@@ -31,6 +31,22 @@ body {
   font-family: var(--font-display);
 }
 
+.brand {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+}
+
+.hero-line {
+  color: #c2c8d2 !important;
+}
+
+.logo {
+  color: #ffffff !important;
+}
+
 .topbar-meta {
   text-transform: none;
   letter-spacing: 0.02em;
