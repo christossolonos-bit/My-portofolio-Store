@@ -2,10 +2,6 @@ import { useRef, type TouchEvent } from 'react'
 import { projectsInCluster, type Cluster } from '../data/clusters'
 import { maturityLabel, type Project } from '../data/projects'
 import { track } from '../lib/analytics'
-import {
-  prefersHover,
-  speakProjectNarration,
-} from '../lib/project-narration'
 import { CompareBuilds } from './CompareBuilds'
 import { ProjectSection } from './ProjectSection'
 
@@ -141,17 +137,7 @@ export function ClusterBoard({
                 project={project}
                 selected={project.id === activeProject.id}
                 comparing={compareIds.includes(project.id)}
-                onSelect={() => {
-                  if (
-                    project.id === activeProject.id &&
-                    !prefersHover()
-                  ) {
-                    track('project_narration', { projectId: project.id })
-                    void speakProjectNarration(project)
-                    return
-                  }
-                  onSelectProject(project.id)
-                }}
+                onSelect={() => onSelectProject(project.id)}
                 onCompare={() => onToggleCompare(project.id)}
               />
             ))}

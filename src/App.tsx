@@ -17,7 +17,6 @@ import { projects } from './data/projects'
 import { socials } from './data/socials'
 import { track } from './lib/analytics'
 import { noteMediaGestureFromEvent } from './lib/media-audio'
-import { stopProjectNarration } from './lib/project-narration'
 import {
   ideaFromSelection,
   type RequestBuildDetail,
@@ -80,7 +79,6 @@ function App() {
     if (!cluster) return
     const first = projectsInCluster(cluster)[0]
     noteMediaGestureFromEvent()
-    stopProjectNarration()
     flushSync(() => {
       setSelectedClusterId(id)
       setSelectedProjectId((prev) =>
@@ -103,7 +101,6 @@ function App() {
   const selectProject = (id: string) => {
     const parent = clusterForProject(id)
     noteMediaGestureFromEvent()
-    stopProjectNarration()
     flushSync(() => {
       if (parent) setSelectedClusterId(parent.id)
       setSelectedProjectId(id)
