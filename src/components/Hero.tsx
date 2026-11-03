@@ -53,19 +53,7 @@ export function Hero() {
           <span className="brand-main">SOLONARAS</span>
           <span className="brand-sub">PORTFOLIO</span>
         </h1>
-        <p className="hero-line">AI builds you can watch.</p>
-        <div className="hero-actions">
-          <a className="cta" href="#work">
-            See projects
-          </a>
-          <a className="cta cta-secondary" href="#outro">
-            Discuss a project
-          </a>
-        </div>
-      </div>
-      <div className="scroll-hint" aria-hidden="true">
-        <span>Projects</span>
-        <div className="scroll-line" />
+        <p className="hero-line">AI builds you can watch. Tap a project.</p>
       </div>
     </section>
   )

@@ -177,10 +177,10 @@ main {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: grid;
-  place-items: center;
-  padding: 6rem 1.5rem 4rem;
+  place-items: start stretch;
+  padding: 5.5rem 1.5rem 1.25rem;
   position: relative;
   overflow-x: clip;
   width: 100%;
@@ -242,7 +242,7 @@ main {
 }
 
 .hero-line {
-  margin: 1.4rem 0 2rem;
+  margin: 0.85rem 0 1.25rem;
   max-width: 34rem;
   color: var(--muted);
   font-size: clamp(1.05rem, 2.2vw, 1.25rem);
