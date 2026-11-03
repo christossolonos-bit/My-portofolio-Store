@@ -36,7 +36,7 @@ export function ideaFromSelection(opts: {
     return `I'm interested in ${opts.projectName}. Here's what I need:\n`
   }
   if (opts.clusterName) {
-    return `I'm interested in the ${opts.clusterName} cluster. Here's what I need:\n`
+    return `I'm interested in the ${opts.clusterName} group. Here's what I need:\n`
   }
   return ''
 }

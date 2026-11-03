@@ -4,17 +4,20 @@ import { TOUR_DONE_KEY, WELCOME_TOUR } from '../data/welcome-tour'
 import { track } from '../lib/analytics'
 import { noteMediaGestureFromEvent } from '../lib/media-audio'
 import { pauseAllAisleVideos } from '../lib/play-aisle-video'
+import { speakText } from '../lib/speak'
 import { openCluster } from '../lib/store-events'
+import { MUTE_KEY } from './SolonarasGuide'
 
 type WelcomeTourProps = {
   muted: boolean
 }
 
-export function WelcomeTour({ muted: _muted }: WelcomeTourProps) {
+export function WelcomeTour({ muted }: WelcomeTourProps) {
   const [visible, setVisible] = useState(false)
   const [running, setRunning] = useState(false)
   const [stepIndex, setStepIndex] = useState(-1)
   const abortRef = useRef<AbortController | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
     try {
@@ -29,12 +32,15 @@ export function WelcomeTour({ muted: _muted }: WelcomeTourProps) {
   useEffect(() => {
     return () => {
       abortRef.current?.abort()
+      audioRef.current?.pause()
     }
   }, [])
 
   const stop = (markDone: boolean) => {
     abortRef.current?.abort()
     abortRef.current = null
+    audioRef.current?.pause()
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel()
     setRunning(false)
     setStepIndex(-1)
     setVisible(false)
@@ -58,7 +64,13 @@ export function WelcomeTour({ muted: _muted }: WelcomeTourProps) {
       setVisible(true)
     })
     document.documentElement.classList.add('is-touring')
-    pauseAllAisleVideos()
+
+    let liveMuted = muted
+    try {
+      liveMuted = localStorage.getItem(MUTE_KEY) === '1'
+    } catch {
+      /* keep prop */
+    }
 
     const ac = new AbortController()
     abortRef.current = ac
@@ -79,10 +91,17 @@ export function WelcomeTour({ muted: _muted }: WelcomeTourProps) {
         await wait(750, ac.signal)
       }
 
-      // Silent tour — no TTS. Videos stay paused until the visitor picks a project.
+      // Keep aisle videos paused so Fish TTS is the only voice
       pauseAllAisleVideos()
-      await wait(2200, ac.signal)
+
+      await speakText(step.text, {
+        muted: liveMuted,
+        language: 'en',
+        audioRef,
+        signal: ac.signal,
+      })
       pauseAllAisleVideos()
+      await wait(350, ac.signal)
     }
 
     if (!ac.signal.aborted) {
@@ -109,7 +128,7 @@ export function WelcomeTour({ muted: _muted }: WelcomeTourProps) {
     return () =>
       window.removeEventListener('solonaras-start-welcome-tour', restart)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [running])
+  }, [muted, running])
 
   if (!visible && !running) return null
 
@@ -118,11 +137,11 @@ export function WelcomeTour({ muted: _muted }: WelcomeTourProps) {
       {!running ? (
         <>
           <div className="welcome-tour-copy">
-            <p className="welcome-tour-eyebrow">Quick tour</p>
+            <p className="welcome-tour-eyebrow">Voice tour</p>
             <p className="welcome-tour-title">New here? I’ll show you around.</p>
             <p className="welcome-tour-sub">
-              A short silent walkthrough of the clusters — pick a project
-              afterward to play its video.
+              A short spoken walkthrough. I’ll scroll to each part while the
+              guide stays closed. About a minute.
             </p>
           </div>
           <div className="welcome-tour-actions">

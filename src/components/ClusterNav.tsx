@@ -8,7 +8,7 @@ type ClusterNavProps = {
 
 export function ClusterNav({ clusters, activeId, onSelect }: ClusterNavProps) {
   return (
-    <nav className="cluster-nav" aria-label="Capability clusters">
+    <nav className="cluster-nav" aria-label="Capability groups">
       <ul>
         {clusters.map((c) => (
           <li key={c.id}>

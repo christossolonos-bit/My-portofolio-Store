@@ -13,7 +13,7 @@ export function BookCall({ projectName, projectId }: BookCallProps) {
     <div className="book-call">
       <h3>Talk with Christos</h3>
       <p>
-        Recruiting, collaboration, or a walkthrough of these builds — Discord for
+        Recruiting, collaboration, or a walkthrough of these builds. Discord for
         a live chat, or the form below.
       </p>
       <div className="book-call-actions">

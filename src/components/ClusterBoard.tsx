@@ -67,7 +67,7 @@ export function ClusterBoard({
     <section className="clusters" id="clusters">
       <div className="clusters-intro">
         <p className="eyebrow">Work</p>
-        <h2 className="clusters-title">Pick a cluster</h2>
+        <h2 className="clusters-title">Pick a group</h2>
         <p className="clusters-lead">Tap one. Watch the video.</p>
       </div>
 

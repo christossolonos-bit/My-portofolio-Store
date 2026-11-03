@@ -239,10 +239,10 @@ function App() {
 
       <header className="topbar">
         <a className="logo" href="#hero">
-          SOLONARAS
+          SOLONARAS PORTFOLIO
         </a>
         <div className="topbar-right">
-          <span className="topbar-meta">Portfolio · Clusters</span>
+          <span className="topbar-meta">Available for hire · Groups</span>
           <LayoutToggle mode={layoutMode} onChange={setLayoutMode} />
         </div>
       </header>
@@ -307,7 +307,7 @@ function App() {
           <ContactForm ideaPrefill={ideaPrefill} />
 
           <a className="ghost-link outro-top" href="#clusters">
-            Back to clusters
+            Back to groups
           </a>
         </footer>
       </main>

@@ -28,7 +28,7 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
     const form = event.currentTarget
     const data = new FormData(form)
 
-    // Honeypot — bots fill this; humans never see it.
+    // Honeypot: bots fill this; humans never see it.
     if (String(data.get('_gotcha') || '').trim()) return
 
     setStatus('sending')
@@ -42,8 +42,8 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
       idea: ideaText,
       interest: ideaPrefill.slice(0, 120),
       _subject: ideaPrefill
-        ? `Solonaras portfolio — ${ideaPrefill.split('\n')[0]}`
-        : 'Solonaras portfolio — inquiry',
+        ? `Solonaras Portfolio: ${ideaPrefill.split('\n')[0]}`
+        : 'Solonaras Portfolio inquiry',
       _template: 'table',
       _captcha: false,
       _replyto: String(data.get('email') || '').trim(),

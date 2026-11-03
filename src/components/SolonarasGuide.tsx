@@ -37,10 +37,10 @@ function detectLang(text: string): 'el' | 'en' {
 }
 
 const WELCOME =
-  "Hi — I'm the Solonaras guide. Ask about any build, what’s included, or how to reach Christos for recruiting or collaboration."
+  "Hi, I'm the Solonaras Portfolio guide. Ask about any build, what's included, or how to reach Christos for recruiting or collaboration."
 
 const SUGGESTIONS = [
-  'What are the clusters?',
+  'What are the groups?',
   'What can Christos build?',
   'Show me Live & Games',
   'How do I contact Christos?',
@@ -126,7 +126,7 @@ export function SolonarasGuide({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
-  // Welcome once when opened — ask what they need (skip if voice tour is driving)
+  // Welcome once when opened: ask what they need (skip if voice tour is driving)
   useEffect(() => {
     if (!open || welcomed.current) return
     welcomed.current = true
@@ -184,7 +184,7 @@ export function SolonarasGuide({
 
       const answer =
         data.answer ||
-        'I do not have that yet — try the contact form at the end of the aisle.'
+        'I do not have that yet. Try the contact form at the end of the page.'
       const widgets = Array.isArray(data.widgets) ? data.widgets : undefined
       const prompts = Array.isArray(data.suggestedPrompts)
         ? data.suggestedPrompts
@@ -285,7 +285,7 @@ export function SolonarasGuide({
       recognition.onerror = () => {
         recognitionRef.current = null
         setListening(false)
-        setStatus('Did not catch that — try again')
+        setStatus('Did not catch that. Try again')
       }
       recognition.onend = () => {
         recognitionRef.current = null
@@ -327,7 +327,7 @@ export function SolonarasGuide({
             if (!res.ok) throw new Error(data.error || 'STT failed')
             const text = (data.text || '').trim()
             if (text) await ask(text)
-            else setStatus('Did not catch that — try again')
+            else setStatus('Did not catch that. Try again')
           } catch (err) {
             setStatus(err instanceof Error ? err.message : 'STT failed')
           }
@@ -352,7 +352,7 @@ export function SolonarasGuide({
           type="button"
           className="sol-guide-fab"
           onClick={() => setOpen(true)}
-          aria-label="Open Solonaras guide"
+          aria-label="Open portfolio guide"
         >
           <span className="sol-guide-fab-core" />
           <span className="sol-guide-fab-label">Ask guide</span>
@@ -363,7 +363,7 @@ export function SolonarasGuide({
         <section className="sol-guide-panel" aria-label="Solonaras guide">
           <header className="sol-guide-header">
             <div>
-              <p className="sol-guide-title">Solonaras Guide</p>
+              <p className="sol-guide-title">Portfolio Guide</p>
               <p className="sol-guide-sub">Ask anything · builds · recruiting · contact</p>
             </div>
             <div className="sol-guide-header-actions">
@@ -386,7 +386,7 @@ export function SolonarasGuide({
                 title="Minimize"
                 onClick={() => setOpen(false)}
               >
-                –
+                −
               </button>
             </div>
           </header>

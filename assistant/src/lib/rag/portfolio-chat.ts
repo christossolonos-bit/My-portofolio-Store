@@ -13,10 +13,10 @@ const FALLBACK =
   "I only answer from what’s on this Solonaras portfolio. Ask about a project, what’s included, or how to contact Christos for recruiting or collaboration.";
 
 const CONTACT_SPEAK =
-  "Best first step is the contact form at the end of the aisle — it goes to Christos’s email. You can also tap any of the links below, Discord is great for live work together.";
+  "Best first step is the contact form at the end of the page. It goes to Christos’s email. You can also tap any of the links below, Discord is great for live work together.";
 
 const CONTACT_SPEAK_EL =
-  "Το καλύτερο πρώτο βήμα είναι η φόρμα επικοινωνίας στο τέλος της σελίδας — πάει στο email του Χριστού. Μπορείς επίσης να πατήσεις τα links από κάτω· το Discord είναι ιδανικό για live δουλειά μαζί.";
+  "Το καλύτερο πρώτο βήμα είναι η φόρμα επικοινωνίας στο τέλος της σελίδας. Πάει στο email του Χριστού. Μπορείς επίσης να πατήσεις τα links από κάτω. Το Discord είναι ιδανικό για live δουλειά μαζί.";
 
 const CLUSTER_SHELF: Record<string, { name: string; prompts: string[] }> = {
   companions: {
@@ -128,7 +128,7 @@ function wantsContact(question: string): boolean {
 }
 
 const DEFAULT_PROMPTS = [
-  "What are the clusters?",
+  "What are the groups?",
   "How much do projects cost?",
   "Show me Live & Games",
   "How do I contact Christos?",
@@ -158,7 +158,7 @@ const STORE_PLACES: Array<{
     label: "Companions",
     match: /\bcompanions?\b/i,
     answer:
-      "Opening Companions — full AI companions, multi-persona, character agents, and desktop presence.",
+      "Opening Companions: full AI companions, multi-persona, character agents, and desktop presence.",
   },
   {
     kind: "cluster",
@@ -166,7 +166,7 @@ const STORE_PLACES: Array<{
     label: "Voice & Stage",
     match: /\bvoice\b|\bstage\b|\bgaida\b|\bsinging\b|\bdj agent\b/i,
     answer:
-      "Opening Voice & Stage — live voice, singing avatars, and music agents.",
+      "Opening Voice & Stage: live voice, singing avatars, and music agents.",
   },
   {
     kind: "cluster",
@@ -174,7 +174,7 @@ const STORE_PLACES: Array<{
     label: "Live & Games",
     match: /\blive\b.*\bgames?\b|\bgames?\b.*\blive\b|\blive & games\b|\bminecraft\b|\bstreamer\b|\bvision\b/i,
     answer:
-      "Opening Live & Games — Streamer, Minecraft agents, and Vision co-hosts.",
+      "Opening Live & Games: Streamer, Minecraft agents, and Vision co-hosts.",
   },
   {
     kind: "cluster",
@@ -182,14 +182,14 @@ const STORE_PLACES: Array<{
     label: "Author & Web",
     match: /\bauthor\b|\bauthorhub\b|\bwebsite\b|\bweb\b/i,
     answer:
-      "Opening Author & Web — manuscript tools and custom websites.",
+      "Opening Author & Web: manuscript tools and custom websites.",
   },
   {
     kind: "project",
     id: "luna-agent",
     label: "Luna Agent 5.0",
     match: /\bluna agent\b/i,
-    answer: "Here’s Luna Agent 5.0 in the Companions cluster.",
+    answer: "Here’s Luna Agent 5.0 in the Companions group.",
     projectId: "luna-agent",
     projectName: "Luna Agent 5.0",
   },
@@ -295,9 +295,9 @@ const STORE_PLACES: Array<{
   {
     kind: "section",
     id: "clusters",
-    label: "Clusters",
-    match: /\bclusters?\b/i,
-    answer: "Taking you to the capability clusters.",
+    label: "Groups",
+    match: /\b(clusters?|groups?)\b/i,
+    answer: "Taking you to the capability groups.",
   },
   {
     kind: "section",
@@ -315,8 +315,8 @@ function wantsBrowse(question: string): boolean {
 }
 
 function matchStorePlace(question: string): StorePlace | null {
-  if (!wantsBrowse(question) && !/\b(cluster|companions|voice|live|author|games)\b/i.test(question)) {
-    // Still allow "show me X" style — wantsBrowse covers show
+  if (!wantsBrowse(question) && !/\b(cluster|group|companions|voice|live|author|games)\b/i.test(question)) {
+    // Still allow "show me X" style. wantsBrowse covers show
     if (!/\b(show|open|see|browse)\b/i.test(question)) return null;
   }
   // Prefer project matches when browsing a named product
@@ -328,7 +328,7 @@ function matchStorePlace(question: string): StorePlace | null {
   for (const place of STORE_PLACES) {
     if (place.kind === "cluster" && place.match.test(question)) {
       // "what are the clusters" should not open a random cluster
-      if (/\bwhat (are|is)\b/i.test(question) && /\bclusters?\b/i.test(question)) {
+      if (/\bwhat (are|is)\b/i.test(question) && /\b(clusters?|groups?)\b/i.test(question)) {
         continue;
       }
       if (wantsBrowse(question) || place.match.test(question)) {
@@ -366,25 +366,25 @@ function clusterWidgets(): GuideWidget[] {
     {
       id: "cluster-companions",
       label: "Companions",
-      handle: "Open cluster",
+      handle: "Open group",
       href: "action:open-cluster:companions",
     },
     {
       id: "cluster-voice",
       label: "Voice & Stage",
-      handle: "Open cluster",
+      handle: "Open group",
       href: "action:open-cluster:voice-stage",
     },
     {
       id: "cluster-live",
       label: "Live & Games",
-      handle: "Open cluster",
+      handle: "Open group",
       href: "action:open-cluster:live-games",
     },
     {
       id: "cluster-author",
       label: "Author & Web",
-      handle: "Open cluster",
+      handle: "Open group",
       href: "action:open-cluster:author-web",
     },
   ];
@@ -407,7 +407,7 @@ function withContactWidgets(
     answer: lang === "el" ? CONTACT_SPEAK_EL : CONTACT_SPEAK,
     widgets: CONTACT_WIDGETS,
     language: lang,
-    suggestedPrompts: ["What are the clusters?", "How much do projects cost?"],
+    suggestedPrompts: ["What are the groups?", "How much do projects cost?"],
   };
 }
 
@@ -538,7 +538,7 @@ function scoreFaq(question: string, faq: QaEntry): number {
     else if (hay.includes(w)) score += 1;
   }
 
-  // Short questions like "how do i pay" — require the key content word in the FAQ
+  // Short questions like "how do i pay". require the key content word in the FAQ
   if (qWords.length <= 3) {
     const content = qWords.filter((w) => !["do", "is", "it"].includes(w));
     if (content.length && content.every((w) => hay.includes(w))) score += 5;
@@ -561,7 +561,7 @@ function scrub(answer: string): string {
     .trim();
 }
 
-/** Solonaras Store Q&A — portfolio content only, never YGIA shop handoffs. */
+/** Solonaras Store Q&A. portfolio content only, never YGIA shop handoffs. */
 export async function answerPortfolioQuestion(opts: {
   question: string;
   currentUrl?: string;
@@ -581,7 +581,7 @@ export async function answerPortfolioQuestion(opts: {
   // “Others in this shelf?” while a cluster is open
   if (
     opts.clusterId &&
-    /\b(others?|more|what else|same (cluster|shelf)|σε αυτό|άλλα)\b/i.test(
+    /\b(others?|more|what else|same (cluster|group|shelf)|σε αυτό|άλλα)\b/i.test(
       question,
     )
   ) {
@@ -590,8 +590,8 @@ export async function answerPortfolioQuestion(opts: {
       return {
         answer:
           lang === "el"
-            ? `Είσαι στο cluster ${shelf.name}. Δες τα υπόλοιπα builds από τα κουμπιά κάτω ή άνοιξέ τα από το ράφι.`
-            : `You’re in the ${shelf.name} cluster. Here are other builds on this shelf — tap one below or open it from the tiles.`,
+            ? `Είσαι στο group ${shelf.name}. Δες τα υπόλοιπα builds από τα κουμπιά κάτω ή άνοιξέ τα από το ράφι.`
+            : `You’re in the ${shelf.name} group. Here are other builds on this shelf. Tap one below or open it from the tiles.`,
         navigation: { url: `#cluster-${opts.clusterId}`, label: shelf.name },
         widgets: clusterWidgets().filter((w) =>
           w.href.includes(opts.clusterId!),
@@ -704,13 +704,13 @@ export async function answerPortfolioQuestion(opts: {
   const system = `You are the Solonaras guide on Christos Solonos’s portfolio website.
 Answer ONLY using the FAQs and Portfolio knowledge below. Prefer the closest FAQ answer; paraphrase briefly for speech.
 This is NOT a health shop. Never mention YGIA, herbal products, or phone +357 22 610 418.
-This portfolio does NOT list prices or rates — if asked, say rates are not published and suggest contacting Christos for recruiting or collaboration.
-Contact / recruiting / collaboration questions are in the FAQs — answer them. Do not refuse portfolio questions that have an FAQ.
-For contact / socials / hire questions: give 1–2 short sentences only — do NOT list every social or email as text (the UI shows clickable widgets).
+This portfolio does NOT list prices or rates. if asked, say rates are not published and suggest contacting Christos for recruiting or collaboration.
+Contact / recruiting / collaboration questions are in the FAQs. answer them. Do not refuse portfolio questions that have an FAQ.
+For contact / socials / hire questions: give 1–2 short sentences only. do NOT list every social or email as text (the UI shows clickable widgets).
 Keep answers to 2–4 short spoken sentences. No markdown.
 Navigation: only if they ask to go somewhere; use a hash like #luna-agent, #cluster-live-games, or #outro.
-Visitor language: ${lang === "el" ? "Greek — reply in natural Greek" : "English"}.
-Current open cluster: ${opts.clusterId || "none"} — if they ask for others on this shelf, suggest builds from that cluster.
+Visitor language: ${lang === "el" ? "Greek. reply in natural Greek" : "English"}.
+Current open cluster: ${opts.clusterId || "none"}. if they ask for others on this shelf, suggest builds from that cluster.
 JSON only: {"answer":"...","navigation":{"url":"#section-id","label":"..."}|null,"language":"${lang}"}
 
 Recent conversation:

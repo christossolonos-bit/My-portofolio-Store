@@ -32,7 +32,7 @@ export function ProjectSection({
     try {
       if (navigator.share) {
         await navigator.share({
-          title: `${project.name} · Solonaras`,
+          title: `${project.name} · Solonaras Portfolio`,
           text: project.tagline,
           url,
         })

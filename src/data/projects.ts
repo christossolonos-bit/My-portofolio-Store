@@ -7,7 +7,7 @@ export type Project = {
   description: string
   narration: string
   capability: string
-  /** Kept for optional future use — not shown on the portfolio */
+  /** Kept for optional future use, not shown on the portfolio */
   startingPrice: number
   /** Short scope / stack line under the description */
   priceNote: string
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     name: 'Luna Agent 5.0',
     tagline: 'Full conversational AI companion',
     description:
-      'I can build a complete AI companion with synced profiles, text-to-speech, social tools, and a live streaming avatar — ready to talk, react, and stay present.',
+      'I can build a complete AI companion with synced profiles, text-to-speech, social tools, and a live streaming avatar, ready to talk, react, and stay present.',
     narration:
       'First: Luna Agent 5.0. Play the tour for the companion stack, then see related channel snapshots inside the video.',
     capability: 'AI companions',
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     posterSrc: '/videos/luna-agent-poster.png',
     videoTitle: 'Luna Agent 5.0 product tour',
     startingPrice: 4500,
-    priceNote: 'Full companion stack · scoped build',
+    priceNote: 'Full companion stack, scoped build',
     accent: '#2ee6a6',
     category: 'AI Companion',
     maturity: 'early',
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     name: 'Luna Gaida',
     tagline: 'Voice presence that speaks',
     description:
-      'I can put an AI into live voice — Discord calls, UI talk-back, real-time speech — not just text bots sitting in a sidebar.',
+      'I can put an AI into live voice: Discord calls, UI talk-back, real-time speech, not just text bots sitting in a sidebar.',
     narration:
       'Luna Gaida is voice presence. The tour covers live speech systems and related voice clips from the channel.',
     capability: 'Voice systems',
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     name: 'Luna Minecraft',
     tagline: 'Game agents that learn',
     description:
-      'I can create game agents that chat, gather, build, and fight — improving as they play alongside you.',
+      'I can create game agents that chat, gather, build, and fight, improving as they play alongside you.',
     narration:
       'Luna Minecraft is a learning game agent. The tour includes Minecraft snapshots from the Solonaras channel.',
     capability: 'Game agents',
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     name: 'Luna Streamer',
     tagline: 'Broadcast-ready AI talent',
     description:
-      'I can ship companion builds tuned for live streaming — on-camera energy that can run for hours without you babysitting every second.',
+      'I can ship companion builds tuned for live streaming, on-camera energy that can run for hours without you babysitting every second.',
     narration:
       'Luna Streamer is built for broadcast. The tour covers long sessions and streaming moments from the channel.',
     capability: 'Streaming AI',
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     name: 'Luna Vision Co-host',
     tagline: 'Screen-aware co-hosts',
     description:
-      'I can build vision agents that see your screen and join in — gaming co-hosts with voice and live reactions.',
+      'I can build vision agents that see your screen and join in, gaming co-hosts with voice and live reactions.',
     narration:
       'Vision Co-host can see your screen. The tour includes gaming co-host snapshots from the channel.',
     capability: 'Computer vision',
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     posterSrc: '/videos/luna-vision-poster.png',
     videoTitle: 'Luna Vision Co-host product tour',
     startingPrice: 3200,
-    priceNote: 'Screen-aware co-host · vision + voice',
+    priceNote: 'Screen-aware co-host, vision + voice',
     accent: '#c4f542',
     category: 'Vision',
     maturity: 'early',
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     name: 'DJ Agent',
     tagline: 'AI that reads the room',
     description:
-      'I can create music agents and performance systems that follow energy and keep a set moving — vibe control, not just playlists.',
+      'I can create music agents and performance systems that follow energy and keep a set moving, vibe control, not just playlists.',
     narration:
       'DJ Agent is music intelligence. The tour covers set energy and concert snapshots from the channel.',
     capability: 'Music AI',
@@ -163,7 +163,7 @@ export const projects: Project[] = [
     name: 'Desktop Companion',
     tagline: 'Always-on desktop presence',
     description:
-      'I can place a soft AI companion on the desktop — UI, presence, and quick help without opening another browser tab.',
+      'I can place a soft AI companion on the desktop, UI, presence, and quick help without opening another browser tab.',
     narration:
       'Desktop companions live on the machine. The tour covers companion UI builds and related channel snapshots.',
     capability: 'Desktop apps',
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     name: 'Singing Avatar SDK',
     tagline: 'Avatars that perform',
     description:
-      'I can give avatars a singing voice — performance tools for streams, covers, and expressive moments.',
+      'I can give avatars a singing voice, performance tools for streams, covers, and expressive moments.',
     narration:
       'The Singing SDK is about performance. The tour includes VRM cover and concert snapshots from the channel.',
     capability: 'Performance tools',
@@ -203,7 +203,7 @@ export const projects: Project[] = [
     name: 'Multi-persona Companions',
     tagline: 'Several personalities, one system',
     description:
-      'I can fuse multiple companion personalities into one stack — different moods and skills, same foundation.',
+      'I can fuse multiple companion personalities into one stack, different moods and skills, same foundation.',
     narration:
       'Multi-persona systems shine when characters collide. The tour includes Luna and Viktor moments from the channel.',
     capability: 'Multi-agent systems',
@@ -223,7 +223,7 @@ export const projects: Project[] = [
     name: 'Character Agents',
     tagline: 'Personality-first AI',
     description:
-      'I can design agents with a sharp character — rough, funny, tough — not generic assistants.',
+      'I can design agents with a sharp character (rough, funny, tough), not generic assistants.',
     narration:
       'Character agents put personality first. The tour includes savage and bold moments from the channel.',
     capability: 'Character design',
@@ -243,7 +243,7 @@ export const projects: Project[] = [
     name: 'AuthorHub',
     tagline: 'Reshape a manuscript without losing your voice',
     description:
-      'I can build author workspaces like AuthorHub — chapter maps, original vs edited compare, reshape tools, and print-ready export for real books.',
+      'I can build author workspaces like AuthorHub: chapter maps, original vs edited compare, reshape tools, and print-ready export for real books.',
     narration:
       'AuthorHub is the book editor. Play the tour for chapter maps, compare, export, and related writing clips.',
     capability: 'Creative tools',
@@ -263,7 +263,7 @@ export const projects: Project[] = [
     name: 'Custom Websites',
     tagline: 'Sites, worlds & assistants',
     description:
-      'I can ship client websites, custom worlds, and embedded assistants — polished experiences made for real people.',
+      'I can ship client websites, custom worlds, and embedded assistants, polished experiences made for real people.',
     narration:
       'Custom websites and worlds for real clients. The tour includes VR and UI snapshots from the channel.',
     capability: 'Client web',
@@ -281,4 +281,4 @@ export const projects: Project[] = [
 ]
 
 export const heroNarration =
-  'Welcome to Solonaras Store. This is a showcase of what Christos can create — AI companions, voice systems, game agents, and custom builds. Scroll, watch each product tour, and I\'ll introduce the aisle.'
+  'Welcome to Solonaras Portfolio. This is a showcase of what Christos can create: AI companions, voice systems, game agents, and custom builds. Scroll, watch each product tour, and I\'ll introduce the aisle.'
