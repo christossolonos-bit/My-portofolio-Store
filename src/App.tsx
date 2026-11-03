@@ -57,6 +57,7 @@ function App() {
   const shelfProjects = selectedCluster
     ? projectsInCluster(selectedCluster)
     : []
+  const discord = socials.find((s) => s.id === 'discord')
 
   useEffect(() => {
     const onScroll = () => {
@@ -267,13 +268,20 @@ function App() {
         />
 
         <footer className="outro" id="outro">
-          <p className="eyebrow">Contact</p>
-          <h2>Interested in working together?</h2>
-          <p>
-            This is a portfolio of what I can build — companions, voice systems,
-            vision co-hosts, desktop agents, and custom sites. Reach out if you’re
-            hiring or want to collaborate.
-          </p>
+          <p className="eyebrow">Hire</p>
+          <h2>Discuss a project</h2>
+          <p>Hiring or collaborating? I usually reply within a day.</p>
+
+          {discord ? (
+            <a
+              className="cta outro-discord"
+              href={discord.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Message on Discord
+            </a>
+          ) : null}
 
           <ul className="social-list">
             {socials.map((social) => (

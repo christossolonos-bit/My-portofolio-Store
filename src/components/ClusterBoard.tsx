@@ -66,25 +66,25 @@ export function ClusterBoard({
   return (
     <section className="clusters" id="clusters">
       <div className="clusters-intro">
-        <p className="eyebrow">Capabilities · by type</p>
+        <p className="eyebrow">Work</p>
         <h2 className="clusters-title">Pick a cluster</h2>
-        <p className="clusters-lead">
-          Four shelves of capabilities — open a type, skim what’s inside, then
-          watch the tour. Swipe the shelf on mobile; use arrows when a shelf is
-          open.
-        </p>
+        <p className="clusters-lead">Tap one. Watch the video.</p>
       </div>
 
       <div className="cluster-grid" role="list">
         {clusters.map((cluster) => {
           const items = projectsInCluster(cluster)
           const selected = cluster.id === selectedClusterId
+          const posters = items
+            .map((p) => p.posterSrc)
+            .filter((src): src is string => Boolean(src))
+            .slice(0, 4)
           return (
             <button
               key={cluster.id}
               type="button"
               role="listitem"
-              className={`cluster-card ${selected ? 'is-selected' : ''}`}
+              className={`cluster-card cluster-card-visual ${selected ? 'is-selected' : ''}`}
               style={{ ['--cluster-accent' as string]: cluster.accent }}
               aria-pressed={selected}
               onClick={() => {
@@ -92,22 +92,30 @@ export function ClusterBoard({
                 onSelectCluster(cluster.id)
               }}
             >
-              <div className="cluster-card-top">
+              <div
+                className={`cluster-card-media count-${Math.max(1, posters.length)}`}
+                aria-hidden="true"
+              >
+                {posters.length > 0 ? (
+                  posters.map((src) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt=""
+                      loading="lazy"
+                      className="cluster-card-poster"
+                    />
+                  ))
+                ) : (
+                  <div className="cluster-card-poster cluster-card-poster-empty" />
+                )}
+              </div>
+              <div className="cluster-card-body">
+                <h3 className="cluster-card-name">{cluster.name}</h3>
                 <span className="cluster-card-count">
                   {items.length} build{items.length === 1 ? '' : 's'}
                 </span>
               </div>
-              <h3 className="cluster-card-name">{cluster.name}</h3>
-              <p className="cluster-card-summary">{cluster.summary}</p>
-              <p className="cluster-card-case">{cluster.caseLine}</p>
-              <ul className="cluster-card-items">
-                {items.map((p) => (
-                  <li key={p.id}>
-                    {p.name}
-                    <span className={`maturity-dot maturity-${p.maturity}`} />
-                  </li>
-                ))}
-              </ul>
             </button>
           )
         })}
@@ -122,12 +130,8 @@ export function ClusterBoard({
           onTouchEnd={onTouchEnd}
         >
           <div className="cluster-shelf-head">
-            <div>
-              <p className="eyebrow">{selectedCluster.name}</p>
-              <h3 className="cluster-shelf-title">What’s in this cluster</h3>
-              <p className="cluster-shelf-summary">{selectedCluster.summary}</p>
-              <p className="cluster-shelf-case">{selectedCluster.caseLine}</p>
-            </div>
+            <p className="eyebrow">{selectedCluster.name}</p>
+            <h3 className="cluster-shelf-title">Watch a build</h3>
           </div>
 
           <div className="cluster-shelf-tiles" role="tablist">
@@ -143,12 +147,20 @@ export function ClusterBoard({
             ))}
           </div>
 
-          <CompareBuilds
-            projects={shelfProjects}
-            selectedIds={compareIds}
-            onToggle={onToggleCompare}
-            onClear={onClearCompare}
-          />
+          <details className="compare-fold">
+            <summary>Compare builds</summary>
+            <CompareBuilds
+              projects={shelfProjects}
+              selectedIds={compareIds}
+              onToggle={onToggleCompare}
+              onClear={onClearCompare}
+            />
+            {compareIds.length === 0 ? (
+              <p className="compare-fold-hint">
+                Use Compare on two tiles above, then see them side by side here.
+              </p>
+            ) : null}
+          </details>
 
           <ProjectSection
             project={activeProject}
@@ -186,11 +198,18 @@ function ProjectTile({
         className="cluster-tile"
         onClick={onSelect}
       >
+        {project.posterSrc ? (
+          <img
+            src={project.posterSrc}
+            alt=""
+            loading="lazy"
+            className="cluster-tile-poster"
+          />
+        ) : null}
         <span className={`maturity-badge maturity-${project.maturity}`}>
           {maturityLabel[project.maturity]}
         </span>
         <span className="cluster-tile-name">{project.name}</span>
-        <span className="cluster-tile-tag">{project.tagline}</span>
       </button>
       <button
         type="button"

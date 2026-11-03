@@ -18,7 +18,6 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
       const maxWidth = wrap.clientWidth
       if (maxWidth <= 0) return
 
-      // Binary search a font size that fits “SOLONARAS” in the hero column
       let lo = 28
       let hi = Math.min(120, Math.floor(maxWidth * 0.22))
       let best = lo
@@ -41,7 +40,6 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
     const ro = new ResizeObserver(fit)
     ro.observe(wrap)
     window.addEventListener('resize', fit)
-    // Fonts may load after first paint
     document.fonts?.ready.then(fit).catch(() => undefined)
 
     return () => {
@@ -53,14 +51,11 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
   return (
     <section className="hero" id="hero">
       <div className="hero-inner" ref={wrapRef}>
-        <p className="eyebrow">Cyprus · What I can create</p>
+        <p className="eyebrow">Available for hire · Cyprus</p>
         <h1 className="brand" ref={brandRef}>
           SOLONARAS
         </h1>
-        <p className="hero-line">
-          AI companions, voice & stage, live & games, author & web — open a
-          cluster and watch the tour.
-        </p>
+        <p className="hero-line">AI builds you can watch.</p>
         <div className="hero-actions">
           <button
             type="button"
@@ -70,13 +65,10 @@ export function Hero({ onStart, onVoiceTour }: HeroProps) {
               else onStart()
             }}
           >
-            Start tour
+            Watch tour
           </button>
-          <button type="button" className="cta cta-secondary" onClick={onStart}>
-            Ask the guide
-          </button>
-          <a className="cta cta-ghost" href="#clusters">
-            Browse clusters
+          <a className="cta cta-secondary" href="#clusters">
+            See work
           </a>
         </div>
       </div>

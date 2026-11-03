@@ -91,13 +91,10 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
   if (status === 'sent') {
     return (
       <div className="contact-success" role="status">
-        <p className="contact-success-title">Idea received</p>
-        <p>
-          Thanks — I’ll reply to the email you left. Prefer a faster ping? Use the
-          socials above.
-        </p>
+        <p className="contact-success-title">Got it</p>
+        <p>I’ll reply by email. Discord above is fastest for a quick ping.</p>
         <button type="button" className="ghost-link" onClick={() => setStatus('idle')}>
-          Send another idea
+          Send another
         </button>
       </div>
     )
@@ -106,11 +103,8 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
   return (
     <form className="contact-form" onSubmit={onSubmit} noValidate={false}>
       <div className="contact-form-head">
-        <h3>Send me your idea</h3>
-        <p>Name, email, phone, and what you want built — lands in my inbox.</p>
-        {ideaPrefill ? (
-          <p className="contact-prefill-note">Idea field prefilled from your current selection.</p>
-        ) : null}
+        <h3>Get in touch</h3>
+        <p>Name, email, and what you need.</p>
       </div>
 
       <div className="contact-grid">
@@ -163,7 +157,7 @@ export function ContactForm({ ideaPrefill = '' }: ContactFormProps) {
 
       <div className="contact-actions">
         <button className="cta" type="submit" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending…' : 'Send idea'}
+          {status === 'sending' ? 'Sending…' : 'Send'}
         </button>
         {status === 'error' && <p className="contact-error">{error}</p>}
       </div>

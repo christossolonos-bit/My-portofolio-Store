@@ -46,10 +46,19 @@ export function ProjectSection({
 
   return (
     <section
-      className={`project ${active ? 'is-active' : ''}`}
+      className={`project project-video-first ${active ? 'is-active' : ''}`}
       id={project.id}
       style={{ ['--accent' as string]: project.accent }}
     >
+      <ProjectVideo
+        youtubeId={project.youtubeId}
+        videoSrc={project.videoSrc}
+        posterSrc={project.posterSrc}
+        title={project.videoTitle}
+        accent={project.accent}
+        active={active}
+      />
+
       <div className="project-inner">
         <div className="project-meta">
           <span className="project-index">{number}</span>
@@ -60,41 +69,38 @@ export function ProjectSection({
         </div>
         <h2 className="project-name">{project.name}</h2>
         <p className="project-tagline">{project.tagline}</p>
-        <p className="project-desc">{project.description}</p>
-
-        <p className="project-scope">{project.priceNote}</p>
-
-        <ul className="project-includes">
-          {project.includes.map((line) => (
-            <li key={line}>{line}</li>
-          ))}
-        </ul>
 
         <div className="project-footer">
-          <div className="project-chips">
-            <span>{project.capability}</span>
-          </div>
-          <button type="button" className="project-link" onClick={onRequest}>
-            Get in touch
+          <button type="button" className="cta" onClick={onRequest}>
+            Discuss this build
           </button>
           <ShopifyProductLink
             projectId={project.id}
             projectName={project.name}
           />
-          <button type="button" className="project-link" onClick={() => void onShare()}>
-            Share link
+          <button
+            type="button"
+            className="project-link"
+            onClick={() => void onShare()}
+          >
+            Share
           </button>
         </div>
-      </div>
 
-      <ProjectVideo
-        youtubeId={project.youtubeId}
-        videoSrc={project.videoSrc}
-        posterSrc={project.posterSrc}
-        title={project.videoTitle}
-        accent={project.accent}
-        active={active}
-      />
+        <details className="project-details">
+          <summary>Details</summary>
+          <p className="project-desc">{project.description}</p>
+          <p className="project-scope">{project.priceNote}</p>
+          <ul className="project-includes">
+            {project.includes.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+          <div className="project-chips">
+            <span>{project.capability}</span>
+          </div>
+        </details>
+      </div>
     </section>
   )
 }
